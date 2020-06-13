@@ -1,0 +1,13 @@
+.content-container {
+  margin: 0 auto;
+  padding: 0 $m-size;
+  max-width: 80rem;
+}
+
+.container--flex {
+  display: flex;
+}
+
+.container--padding-y {
+  padding: $m-size 0;
+}

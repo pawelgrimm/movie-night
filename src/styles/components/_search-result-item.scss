@@ -1,0 +1,46 @@
+.search-results {
+  background: $card-background;
+}
+
+.search-result-item {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  transition: background 300ms ease;
+  padding: $s-size 0;
+  border-radius: 3px;
+  margin: 0 $s-size;
+  &:hover {
+    background: lighten($card-background, 20%);
+  }
+}
+
+.search-result-item__poster {
+  align-self: center;
+  flex: 0 0 68px;
+  margin: 0 $xs-size;
+  border-radius: 1px;
+}
+
+.search-result-item__info {
+  flex-grow: 1;
+  justify-items: left;
+  margin-right: $s-size;
+  * {
+    line-height: 1;
+    margin: 0;
+    font-weight: 300;
+  }
+  span {
+    line-height: 1;
+    font-size: $font-size-small;
+    color: $grey;
+  }
+}
+
+.search-result-item__button {
+  align-self: center;
+  width: 50px;
+  flex: 0 0;
+  margin: 0 $xs-size;
+}

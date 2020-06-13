@@ -1,0 +1,23 @@
+.text-input {
+  height: 50px;
+  font-size: $font-size-large;
+  font-weight: 300;
+  padding: $s-size;
+  border: none;
+  border-radius: 3px;
+  background-color: $card-background;
+  color: $on-card;
+}
+
+.text-input--grow {
+  flex-grow: 1;
+}
+
+.select {
+  @extend .text-input;
+}
+
+.text-area {
+  @extend .text-input;
+  height: 10rem;
+}
