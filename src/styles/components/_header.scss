@@ -10,10 +10,16 @@
 }
 
 .header__title {
+  letter-spacing: -1px;
   color: $on-primary;
   text-decoration: none;
   h1 {
-    font-weight: 300;
+    font-weight: 900;
+    font-style: italic;
     margin: 0;
   }
+}
+
+.header__button {
+  color: $on-primary;
 }

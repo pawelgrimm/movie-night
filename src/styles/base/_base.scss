@@ -8,9 +8,18 @@ html {
 body {
   background-color: #121212;
   color: white;
-  font-family: proxima-nova, sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: $m-size;
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Work Sans", sans-serif;
 }
 
 button {

@@ -36,6 +36,9 @@
     font-size: $font-size-small;
     color: $grey;
   }
+  p {
+    font-weight: 200;
+  }
 }
 
 .search-result-item__button {
