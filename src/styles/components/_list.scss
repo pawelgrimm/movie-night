@@ -8,29 +8,25 @@
 }
 
 .list-body {
+  background: $card-background;
   margin-bottom: $m-size;
-  @media (min-width: $desktop-breakpoint) {
-    margin-bottom: $l-size;
-  }
+  border-radius: 3px;
+  padding: $s-size;
 }
 
 .list-item {
-  border: 1px solid darken($off-white, 7%);
-  border-top: none;
-  color: $dark-grey;
+  border: none;
+  color: $on-card;
   display: flex;
-  flex-direction: column;
-  padding: $s-size;
+  flex-direction: row;
   text-decoration: none;
   transition: background 300ms ease;
+  justify-content: space-between;
+  align-items: center;
+  padding: $s-size 0;
+  border-radius: 3px;
   &:hover {
-    background: $off-white;
-  }
-  @media (min-width: $desktop-breakpoint) {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: $m-size;
-    align-items: center;
+    background: lighten($card-background, 20%);
   }
 }
 
