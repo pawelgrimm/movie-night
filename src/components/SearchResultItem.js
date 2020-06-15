@@ -1,23 +1,31 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import ReactImageFallback from "react-image-fallback";
-import { addMovie } from "../actions/movie";
+import { addMovie, removeMovie } from "../actions/movie";
 import MovieContext from "../context/movie-context";
 
 const SearchResultItem = ({ movie, resetSearch }) => {
-  const { dispatch } = useContext(MovieContext);
+  const { movies: savedMovies, dispatch } = useContext(MovieContext);
   const [button, setButton] = useState("+");
   const [buttonClass, setButtonClass] = useState("");
 
-  const onClick = (e) => {
+  useEffect(() => {
+    if (savedMovies.find((savedMovie) => savedMovie.id === movie.id)) {
+      toggleButtonState();
+    }
+  }, []);
+
+  const toggleButtonState = () => {
+    setButton(button === "+" ? "-" : "+");
+    setButtonClass(buttonClass ? "" : "button--secondary");
+  };
+
+  const onClick = () => {
+    toggleButtonState();
     if (button === "+") {
-      console.log("added movie:", movie);
       dispatch(addMovie(movie));
-      setButton("-");
-      setButtonClass("button--secondary");
       resetSearch();
     } else {
-      setButton("+");
-      setButtonClass("");
+      dispatch(removeMovie(movie.id));
     }
   };
   return (
