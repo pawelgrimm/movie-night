@@ -4,3 +4,10 @@ export const addMovie = (movie) => {
     movie,
   };
 };
+
+export const removeMovie = (id) => {
+  return {
+    type: "REMOVE_MOVIE",
+    id,
+  };
+};
