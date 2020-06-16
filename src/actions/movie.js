@@ -11,3 +11,11 @@ export const removeMovie = (id) => {
     id,
   };
 };
+
+export const updateMovie = (id, updates) => {
+  return {
+    type: "UPDATE_MOVIE",
+    id,
+    updates,
+  };
+};
