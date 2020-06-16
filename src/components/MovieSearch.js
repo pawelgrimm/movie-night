@@ -1,5 +1,5 @@
 import React, { useState, useContext, useReducer } from "react";
-import movieDb from "../theMovieDb/theMovieDb";
+import movieDb, { search } from "../theMovieDb/theMovieDb";
 import SearchContext from "../context/search-context";
 import { setSearchResults } from "../actions/search";
 import SearchResults from "./SearchResults";
@@ -13,10 +13,9 @@ const MovieSearch = ({ numResults }) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
     if (newQuery.length > 1) {
-      movieDb
-        .searchMovie(newQuery)
-        .then((res) => {
-          dispatch(setSearchResults(res.results, numResults));
+      search(newQuery)
+        .then((movies) => {
+          dispatch(setSearchResults(movies, numResults));
         })
         .catch((error) => console.log(error));
     } else {

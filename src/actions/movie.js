@@ -1,3 +1,5 @@
+import movieDb, { getMovieDetails } from "../theMovieDb/theMovieDb";
+
 // ADD MOVIE
 export const addMovie = (movie) => {
   return {

@@ -3,6 +3,14 @@ const apiKey = process.env.THEMOVIEDB_API_KEY;
 
 const movieDb = new MovieDb(apiKey);
 
+export const search = (query) => {
+  return movieDb.searchMovie(query).then((res) => res.results);
+};
+
+export const getMovieDetails = (id) => {
+  return movieDb.movieInfo(id);
+};
+
 const availableSizes = {
   backdrop_sizes: [300, 780, 1280],
   poster_sizes: [92, 154, 185, 342, 500, 780],
