@@ -38,13 +38,6 @@ const SearchResultItem = ({ movie, resetSearch }) => {
         type="poster"
         className="search-result-item__poster"
       />
-      {/*<ReactImageFallback*/}
-      {/*  src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}*/}
-      {/*  fallbackImage="/images/default_poster.png"*/}
-      {/*  initialImage="/images/loader.gif"*/}
-      {/*  alt={`poster image for ${movie.title}`}*/}
-      {/*  className="search-result-item__poster"*/}
-      {/*/>*/}
       <div className="search-result-item__info">
         <h3>{movie.title}</h3>
         <span>{movie.release_date}</span>
