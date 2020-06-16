@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MovieListItem correctly with movie 1`] = `
+<div
+  className="list-item"
+  onClick={[Function]}
+  style={
+    Object {
+      "background": false,
+    }
+  }
+>
+  <ReactImageFallback
+    alt="poster image for Before Sunset"
+    className="search-result-item__poster"
+    fallbackImage="/images/default_poster.png"
+    initialImage="/images/loader.gif"
+    src="https://image.tmdb.org/t/p/w92/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
+  />
+  <div
+    className="search-result-item__info"
+  >
+    <h3>
+      Before Sunset
+    </h3>
+    <span>
+      2004-02-10
+    </span>
+    <p>
+      Nine years ago two strangers met by chance and spent a night in Vienna that ended before sunrise. They are about to meet for the first time since. Now they have one afternoon to find out if they belong together.
+    </p>
+  </div>
+  <div
+    className="search-result-item__button"
+  >
+    <button
+      className="button button--secondary"
+      onClick={[Function]}
+    >
+      -
+    </button>
+  </div>
+</div>
+`;

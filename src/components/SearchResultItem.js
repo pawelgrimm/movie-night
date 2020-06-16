@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { addMovie, removeMovie } from "../actions/movie";
 import MovieImage from "./MovieImage";
+import { useContext } from "../tests/react";
+import SearchContext from "../context/search-context";
 
 const mapStateToProps = ({ movies }) => ({ movies });
 
@@ -10,15 +12,10 @@ const mapDispatchToProps = (dispatch) => ({
   removeMovie: (id) => dispatch(removeMovie(id)),
 });
 
-export const SearchResultItem = ({
-  movie,
-  movies,
-  addMovie,
-  removeMovie,
-  resetSearch,
-}) => {
+export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
   const [button, setButton] = useState("+");
   const [buttonClass, setButtonClass] = useState("");
+  const { resetSearch } = useContext(SearchContext);
 
   useEffect(() => {
     if (movies.find((storedMovie) => storedMovie.id === movie.id)) {

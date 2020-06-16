@@ -1,21 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseDashboardPage 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "dispatch": [Function],
-      "movies": Array [],
-    }
-  }
+exports[`should render DashboardPage 1`] = `
+<div
+  className="content-container"
 >
-  <div
-    className="content-container"
-  >
-    <MovieSearch
-      numResults={5}
-    />
-    <MovieList />
-  </div>
-</ContextProvider>
+  <MovieSearch
+    numResults={5}
+  />
+  <Connect(MovieList) />
+</div>
 `;

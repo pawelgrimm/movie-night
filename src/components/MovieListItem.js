@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
-import ReactImageFallback from "react-image-fallback";
-import MovieContext from "../context/movie-context";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import { removeMovie } from "../actions/movie";
-import { useDispatch } from "react-redux";
+import ReactImageFallback from "react-image-fallback";
 
-const MovieListItem = ({ movie }) => {
-  const dispatch = useDispatch();
+const mapDispatchToProps = (dispatch) => ({
+  removeMovie: (id) => dispatch(removeMovie(id)),
+});
+
+export const MovieListItem = ({ movie, removeMovie }) => {
   const [selected, setSelected] = useState(false);
 
   const onButtonClick = () => {
-    dispatch(removeMovie(movie.id));
+    removeMovie(movie.id);
   };
   const onItemClick = () => {
     setSelected(!selected);
@@ -77,4 +79,4 @@ const MovieListItem = ({ movie }) => {
   );
 };
 
-export default MovieListItem;
+export default connect(undefined, mapDispatchToProps)(MovieListItem);

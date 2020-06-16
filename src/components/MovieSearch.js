@@ -29,7 +29,7 @@ const MovieSearch = ({ numResults }) => {
   };
 
   return (
-    <SearchContext.Provider value={{ searchResults, dispatch }}>
+    <SearchContext.Provider value={{ searchResults, dispatch, resetSearch }}>
       <div className="container--padding-y">
         <div className="container--flex">
           <input
