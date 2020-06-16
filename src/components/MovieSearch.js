@@ -1,5 +1,5 @@
 import React, { useState, useContext, useReducer } from "react";
-import movieDb from "../themoviedb/themoviedb";
+import movieDb from "../theMovieDb/theMovieDb";
 import SearchContext from "../context/search-context";
 import { setSearchResults } from "../actions/search";
 import SearchResults from "./SearchResults";

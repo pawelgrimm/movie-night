@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import ReactImageFallback from "react-image-fallback";
 import { addMovie, removeMovie } from "../actions/movie";
 import MovieContext from "../context/movie-context";
+import MovieImage from "./MovieImage";
 
 const SearchResultItem = ({ movie, resetSearch }) => {
   const { movies: savedMovies, dispatch } = useContext(MovieContext);
@@ -30,13 +31,20 @@ const SearchResultItem = ({ movie, resetSearch }) => {
   };
   return (
     <div className="search-result-item">
-      <ReactImageFallback
-        src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
-        fallbackImage="/images/default_poster.png"
-        initialImage="/images/loader.gif"
-        alt={`poster image for ${movie.title}`}
+      <MovieImage
+        title={movie.title}
+        imageWidth={68}
+        filePath={movie.poster_path}
+        type="poster"
         className="search-result-item__poster"
       />
+      {/*<ReactImageFallback*/}
+      {/*  src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}*/}
+      {/*  fallbackImage="/images/default_poster.png"*/}
+      {/*  initialImage="/images/loader.gif"*/}
+      {/*  alt={`poster image for ${movie.title}`}*/}
+      {/*  className="search-result-item__poster"*/}
+      {/*/>*/}
       <div className="search-result-item__info">
         <h3>{movie.title}</h3>
         <span>{movie.release_date}</span>

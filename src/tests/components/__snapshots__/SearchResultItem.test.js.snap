@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render search result item correctly 1`] = `
+<div
+  className="search-result-item"
+>
+  <MovieImage
+    className="search-result-item__poster"
+    filePath="/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
+    imageWidth={68}
+    title="Before Sunset"
+    type="poster"
+  />
+  <div
+    className="search-result-item__info"
+  >
+    <h3>
+      Before Sunset
+    </h3>
+    <span>
+      2004-02-10
+    </span>
+    <p>
+      Nine years ago two strangers met by chance and spent a night in Vienna that ended before sunrise. They are about to meet for the first time since. Now they have one afternoon to find out if they belong together.
+    </p>
+  </div>
+  <div
+    className="search-result-item__button"
+  >
+    <button
+      className="button "
+      onClick={[Function]}
+    >
+      +
+    </button>
+  </div>
+</div>
+`;

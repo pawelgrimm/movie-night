@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should pass down className correctly 1`] = `
+<ReactImageFallback
+  alt="backdrop image for Before Sunrise"
+  className="made-up-class__image"
+  fallbackImage="/images/default_poster.png"
+  initialImage="/images/loader.gif"
+  src="https://image.tmdb.org/t/p/w780/qA2TyqPldTtoTVY3LKrNIG5g6bH.jpg"
+/>
+`;
+
+exports[`should render poster image correctly 1`] = `
+<ReactImageFallback
+  alt="poster image for Before Sunset"
+  className="poster-image"
+  fallbackImage="/images/default_poster.png"
+  initialImage="/images/loader.gif"
+  src="https://image.tmdb.org/t/p/w342/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
+/>
+`;
