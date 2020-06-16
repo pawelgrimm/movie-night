@@ -41,3 +41,29 @@ test("should update movie", () => {
   const state = movieReducer(movies, action);
   expect(state).toEqual([movies[0], { ...movies[1], ...updates }]);
 });
+
+test("should not update nonexistent movie", () => {
+  const movies = testMovies;
+  const updates = {
+    title: "new title",
+    tagline: "the movie's tagline",
+    runtime: 67,
+  };
+  const action = {
+    type: "UPDATE_MOVIE",
+    id: "madeUpId",
+    updates,
+  };
+  const state = movieReducer(movies, action);
+  expect(state).toEqual(movies);
+});
+
+test("should set movies", () => {
+  const movies = testMovies;
+  const action = {
+    type: "SET_MOVIES",
+    movies,
+  };
+  const state = movieReducer(movies[2], action);
+  expect(state).toEqual(movies);
+});

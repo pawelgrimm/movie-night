@@ -12,6 +12,8 @@ const movieReducer = (state, action) => {
           return movie;
         }
       });
+    case "SET_MOVIES":
+      return action.movies;
     default:
       return state;
   }

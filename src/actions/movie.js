@@ -1,3 +1,4 @@
+// ADD MOVIE
 export const addMovie = (movie) => {
   return {
     type: "ADD_MOVIE",
@@ -5,6 +6,7 @@ export const addMovie = (movie) => {
   };
 };
 
+// REMOVE MOVIE
 export const removeMovie = (id) => {
   return {
     type: "REMOVE_MOVIE",
@@ -12,10 +14,19 @@ export const removeMovie = (id) => {
   };
 };
 
+// UPDATE MOVIE
 export const updateMovie = (id, updates) => {
   return {
     type: "UPDATE_MOVIE",
     id,
     updates,
+  };
+};
+
+// SET MOVIES
+export const setMovies = (movies) => {
+  return {
+    type: "SET_MOVIES",
+    movies,
   };
 };

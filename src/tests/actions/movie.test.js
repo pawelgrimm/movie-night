@@ -1,5 +1,10 @@
 import { expect } from "@jest/globals";
-import { addMovie, removeMovie, updateMovie } from "../../actions/movie";
+import {
+  addMovie,
+  removeMovie,
+  setMovies,
+  updateMovie,
+} from "../../actions/movie";
 import { movies } from "../fixtures/fixtures";
 
 test("should create add movie action object", () => {
@@ -32,5 +37,12 @@ test("should create update movie action object", () => {
     type: "UPDATE_MOVIE",
     id,
     updates,
+  });
+});
+
+test("should create set movies action object", () => {
+  expect(setMovies(movies)).toEqual({
+    type: "SET_MOVIES",
+    movies,
   });
 });
