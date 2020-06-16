@@ -1,16 +1,27 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
-import ReactImageFallback from "react-image-fallback";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { addMovie, removeMovie } from "../actions/movie";
-import MovieContext from "../context/movie-context";
 import MovieImage from "./MovieImage";
 
-const SearchResultItem = ({ movie, resetSearch }) => {
-  const { movies: savedMovies, dispatch } = useContext(MovieContext);
+const mapStateToProps = ({ movies }) => ({ movies });
+
+const mapDispatchToProps = (dispatch) => ({
+  addMovie: (movie) => dispatch(addMovie(movie)),
+  removeMovie: (id) => dispatch(removeMovie(id)),
+});
+
+export const SearchResultItem = ({
+  movie,
+  movies,
+  addMovie,
+  removeMovie,
+  resetSearch,
+}) => {
   const [button, setButton] = useState("+");
   const [buttonClass, setButtonClass] = useState("");
 
   useEffect(() => {
-    if (savedMovies.find((savedMovie) => savedMovie.id === movie.id)) {
+    if (movies.find((storedMovie) => storedMovie.id === movie.id)) {
       toggleButtonState();
     }
   }, []);
@@ -23,10 +34,10 @@ const SearchResultItem = ({ movie, resetSearch }) => {
   const onClick = () => {
     toggleButtonState();
     if (button === "+") {
-      dispatch(addMovie(movie));
+      addMovie(movie);
       resetSearch();
     } else {
-      dispatch(removeMovie(movie.id));
+      removeMovie(movie.id);
     }
   };
   return (
@@ -52,4 +63,4 @@ const SearchResultItem = ({ movie, resetSearch }) => {
   );
 };
 
-export default SearchResultItem;
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResultItem);

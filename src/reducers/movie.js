@@ -1,31 +1,24 @@
-const movieReducer = (state, action) => {
-  // Temporary wrapper to support saving to localStorage for development
-  let endState;
+const defaultState = [];
+
+const movieReducer = (state = defaultState, action) => {
   switch (action.type) {
     case "ADD_MOVIE":
-      endState = [...state, action.movie];
-      break;
+      return [...state, action.movie];
     case "REMOVE_MOVIE":
-      endState = state.filter((movie) => movie.id !== action.id);
-      break;
+      return state.filter((movie) => movie.id !== action.id);
     case "UPDATE_MOVIE":
-      endState = state.map((movie) => {
+      return state.map((movie) => {
         if (movie.id === action.id) {
           return { ...movie, ...action.updates };
         } else {
           return movie;
         }
       });
-      break;
     case "SET_MOVIES":
-      endState = action.movies;
-      break;
+      return action.movies;
     default:
-      endState = state;
-      break;
+      return state;
   }
-  localStorage.setItem("movies", JSON.stringify(endState));
-  return endState;
 };
 
 export default movieReducer;

@@ -10,9 +10,18 @@ import configureStore from "./store/configureStore";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./actions/auth";
 import LoadingPage from "./components/LoadingPage";
+import { setMovies } from "./actions/movie";
 
 const appElement = document.getElementById("app");
 const store = configureStore();
+
+const savedMovies = JSON.parse(localStorage.getItem("movies")) || [];
+store.dispatch(setMovies(savedMovies));
+
+store.subscribe(() => {
+  const movies = store.getState()["movies"];
+  localStorage.setItem("movies", JSON.stringify(movies));
+});
 
 const jsx = (
   <Provider store={store}>

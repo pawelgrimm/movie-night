@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import ReactImageFallback from "react-image-fallback";
 import MovieContext from "../context/movie-context";
 import { removeMovie } from "../actions/movie";
+import { useDispatch } from "react-redux";
 
 const MovieListItem = ({ movie }) => {
-  const { dispatch } = useContext(MovieContext);
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState(false);
 
   const onButtonClick = () => {
