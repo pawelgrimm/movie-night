@@ -1,11 +1,18 @@
 import { expect } from "@jest/globals";
+import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
+
 import {
   addMovie,
   removeMovie,
   setMovies,
+  startUpdateMovieWithDetails,
   updateMovie,
 } from "../../actions/movie";
 import { movies } from "../fixtures/fixtures";
+import { getMovieDetails } from "../../theMovieDb/theMovieDb";
+
+const creatMockStore = configureMockStore([thunk]);
 
 test("should create add movie action object", () => {
   const movie = movies[1];
@@ -37,6 +44,21 @@ test("should create update movie action object", () => {
     type: "UPDATE_MOVIE",
     id,
     updates,
+  });
+});
+
+test("should update movie with details from database", async (done) => {
+  const store = creatMockStore();
+  const id = movies[1].id;
+  const details = await getMovieDetails(id);
+  store.dispatch(startUpdateMovieWithDetails(id)).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: "UPDATE_MOVIE",
+      id,
+      updates: details,
+    });
+    done();
   });
 });
 

@@ -17,6 +17,14 @@ export const removeMovie = (id) => {
 };
 
 // UPDATE MOVIE
+
+export const startUpdateMovieWithDetails = (id) => {
+  return (dispatch) =>
+    getMovieDetails(id).then((details) => {
+      dispatch(updateMovie(id, details));
+    });
+};
+
 export const updateMovie = (id, updates) => {
   return {
     type: "UPDATE_MOVIE",

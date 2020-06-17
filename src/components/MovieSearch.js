@@ -39,7 +39,7 @@ const MovieSearch = ({ numResults }) => {
             onChange={onChange}
           />
         </div>
-        <SearchResults resetSearch={resetSearch} />
+        <SearchResults />
       </div>
     </SearchContext.Provider>
   );
