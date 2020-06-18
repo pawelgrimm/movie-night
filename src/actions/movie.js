@@ -1,4 +1,7 @@
-import movieDb, { getMovieDetails } from "../theMovieDb/theMovieDb";
+import movieDb, {
+  getMovieInfo,
+  getMovieTrailers,
+} from "../theMovieDb/theMovieDb";
 
 // ADD MOVIE
 export const addMovie = (movie) => {
@@ -17,12 +20,14 @@ export const removeMovie = (id) => {
 };
 
 // UPDATE MOVIE
-
 export const startUpdateMovieWithDetails = (id) => {
-  return (dispatch) =>
-    getMovieDetails(id).then((details) => {
-      dispatch(updateMovie(id, details));
+  return (dispatch) => {
+    const info = getMovieInfo(id);
+    const trailers = getMovieTrailers(id);
+    return Promise.all([info, trailers]).then(([info, trailers]) => {
+      dispatch(updateMovie(id, { ...info, trailers }));
     });
+  };
 };
 
 export const updateMovie = (id, updates) => {

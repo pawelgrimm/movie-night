@@ -93,6 +93,46 @@ export const getMovieDetails = (id) => {
   });
 };
 
+export const getTrailers = (id) => {
+  return new Promise((resolve) => {
+    resolve([
+      {
+        id: "552cd6819251417d35000530",
+        iso_639_1: "en",
+        iso_3166_1: "US",
+        key: "V75dMMIW2B4",
+        name:
+          "The Lord of the Rings: The Fellowship of the Ring Official Trailer #1 - (2001) HD",
+        site: "YouTube",
+        size: 720,
+        type: "Trailer",
+      },
+      {
+        id: "552cd6b0c3a368619000398c",
+        iso_639_1: "en",
+        iso_3166_1: "US",
+        key: "aStYWD25fAQ",
+        name:
+          "The Lord of the Rings: The Fellowship of the Ring Official Trailer #2 - (2001) HD",
+        site: "YouTube",
+        size: 720,
+        type: "Trailer",
+      },
+      {
+        id: "5b95d6870e0a26197302b656",
+        iso_639_1: "en",
+        iso_3166_1: "US",
+        key: "UEXXdpEsmBk",
+        name:
+          "The Lord of the Rings: The Fellowship of the Ring (2001) Final Trailer",
+        site: "YouTube",
+        size: 1080,
+        type: "Trailer",
+      },
+    ]);
+  });
+};
+
 export const getImageUrl = (type, image_width, file_path) => {
   return theMovieDb.getImageUrl(type, image_width, file_path);
 };

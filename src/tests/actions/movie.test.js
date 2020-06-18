@@ -10,7 +10,7 @@ import {
   updateMovie,
 } from "../../actions/movie";
 import { movies } from "../fixtures/fixtures";
-import { getMovieDetails } from "../../theMovieDb/theMovieDb";
+import { getMovieInfo, getMovieTrailers } from "../../theMovieDb/theMovieDb";
 
 const creatMockStore = configureMockStore([thunk]);
 
@@ -47,16 +47,20 @@ test("should create update movie action object", () => {
   });
 });
 
-test("should update movie with details from database", async (done) => {
+test("should update movie with details and trailers from database", async (done) => {
   const store = creatMockStore();
   const id = movies[1].id;
-  const details = await getMovieDetails(id);
+  const info = await getMovieInfo(id);
+  const trailers = await getMovieTrailers(id);
   store.dispatch(startUpdateMovieWithDetails(id)).then(() => {
     const actions = store.getActions();
     expect(actions[0]).toEqual({
       type: "UPDATE_MOVIE",
       id,
-      updates: details,
+      updates: {
+        ...info,
+        trailers,
+      },
     });
     done();
   });

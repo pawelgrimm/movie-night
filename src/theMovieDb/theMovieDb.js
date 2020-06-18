@@ -7,7 +7,7 @@ export const search = (query) => {
   return movieDb.searchMovie(query).then((res) => res.results);
 };
 
-export const getMovieDetails = (id) => {
+export const getMovieInfo = (id) => {
   return movieDb.movieInfo(id);
 };
 
@@ -25,6 +25,12 @@ export const getImageUrl = (type, image_width, file_path) => {
   file_size = file_size ? "w" + file_size : "original";
 
   return `https://image.tmdb.org/t/p/${file_size}${file_path}`;
+};
+
+export const getMovieTrailers = (id) => {
+  return movieDb
+    .movieVideos(id)
+    .then((res) => res.results.filter((video) => video.type === "Trailer"));
 };
 
 export default movieDb;
