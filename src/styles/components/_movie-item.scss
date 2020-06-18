@@ -1,0 +1,72 @@
+.movie-item {
+  display: flex;
+  flex-direction: row;
+  padding: $m-size;
+}
+
+.movie-item__poster {
+  flex: 0 0 250px;
+  margin-right: $m-size;
+  align-self: start;
+  border-radius: 3px;
+}
+
+.movie-item__poster--small {
+  flex: 0 0 68px;
+}
+
+.movie-item__info {
+  flex: 0 1 auto;
+}
+
+.movie-item__info--small {
+  flex-grow: 1;
+  justify-items: left;
+  margin-right: $s-size;
+  * {
+    line-height: 1;
+    margin: 0;
+    font-weight: 300;
+  }
+  span {
+    line-height: 1;
+    font-size: $font-size-small;
+    color: $grey;
+  }
+}
+
+.movie-item__title {
+  margin: 0;
+}
+
+.movie-item__meta {
+  line-height: 1;
+  font-size: $font-size-small;
+  color: $paragraph-color;
+  padding: 0 0 $s-size 0;
+  span {
+    margin-right: $xs-size;
+  }
+}
+
+.movie-item__score {
+  margin: 0;
+  padding: 0 0 $s-size 0;
+}
+
+.movie-item__tagline {
+  font-style: italic;
+  padding: 0 0 $s-size 0;
+  margin: 0;
+}
+
+.movie-item__overview-heading {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.movie-item__button-group {
+  * {
+    margin-right: $s-size;
+  }
+}

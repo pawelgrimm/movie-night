@@ -23,10 +23,20 @@
   transition: background 300ms ease;
   justify-content: space-between;
   align-items: center;
-  padding: $s-size 0;
   border-radius: 3px;
+}
+
+.list-item--hover-effect {
   &:hover {
-    background: lighten($card-background, 20%);
+    background-color: lighten($card-background, 20%);
+  }
+}
+
+.list-item--background-image {
+  background-size: cover;
+  background-blend-mode: color;
+  background-color: rgba(0, 0, 0, 0.6);
+  &:hover {
   }
 }
 

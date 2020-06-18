@@ -20,6 +20,13 @@ h4,
 h5,
 h6 {
   font-family: "Work Sans", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+p {
+  font-weight: 300;
+  color: $paragraph-color;
 }
 
 button {

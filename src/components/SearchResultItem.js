@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { addMovie, removeMovie } from "../actions/movie";
+import {
+  addMovie,
+  removeMovie,
+  startUpdateMovieWithDetails,
+} from "../actions/movie";
 import MovieImage from "./MovieImage";
 import { useSearchContext } from "../context/search-context";
 
@@ -9,9 +13,17 @@ const mapStateToProps = ({ movies }) => ({ movies });
 const mapDispatchToProps = (dispatch) => ({
   addMovie: (movie) => dispatch(addMovie(movie)),
   removeMovie: (id) => dispatch(removeMovie(id)),
+  startUpdateMovieWithDetails: (id) =>
+    dispatch(startUpdateMovieWithDetails(id)),
 });
 
-export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
+export const SearchResultItem = ({
+  movie,
+  movies,
+  addMovie,
+  removeMovie,
+  startUpdateMovieWithDetails,
+}) => {
   const [button, setButton] = useState("+");
   const [buttonClass, setButtonClass] = useState("");
   const { resetSearch } = useSearchContext();
@@ -31,6 +43,7 @@ export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
     toggleButtonState();
     if (button === "+") {
       addMovie(movie);
+      startUpdateMovieWithDetails(movie.id);
     } else {
       removeMovie(movie.id);
     }
@@ -47,7 +60,7 @@ export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
       />
       <div className="search-result-item__info">
         <h3>{movie.title}</h3>
-        <span>{movie.release_date}</span>
+        <span>{movie.release_date.split("-")[0]}</span>
         <p>{movie.overview}</p>
       </div>
       <div className="search-result-item__button">
