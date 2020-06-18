@@ -10,8 +10,12 @@
     "dev-server": "webpack-dev-server",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/server.js",
-    "heroku-postbuild": "yarn run build:prod"
+    "heroku-postbuild": "yarn run build:prod",
+    "test:pre-commit": "yarn run test -o -b"
   },
+  "pre-commit": [
+    "test:pre-commit"
+  ],
   "dependencies": {
     "axios": "0.19.2",
     "core-js": "3.6.5",
@@ -24,6 +28,7 @@
     "moviedb-promise": "3.0.3",
     "normalize.css": "8.0.1",
     "numeral": "2.0.6",
+    "pre-commit": "1.2.2",
     "react": "16.13.1",
     "react-dates": "21.8.0",
     "react-dom": "16.13.1",
