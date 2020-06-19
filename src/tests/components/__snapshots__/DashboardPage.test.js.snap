@@ -7,6 +7,12 @@ exports[`should render DashboardPage 1`] = `
   <MovieSearch
     numResults={5}
   />
-  <Connect(MovieList) />
+  <Connect(MovieList)
+    toggleModal={[Function]}
+  />
+  <VideoModal
+    modalIsOpen={false}
+    toggleModal={[Function]}
+  />
 </div>
 `;

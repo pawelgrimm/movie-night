@@ -9,10 +9,14 @@ const mapDispatchToProps = (dispatch) => ({
   removeMovie: (id) => dispatch(removeMovie(id)),
 });
 
-export const MovieListItem = ({ movie, removeMovie }) => {
+export const MovieListItem = ({ movie, removeMovie, toggleModal }) => {
   const [selected, setSelected] = useState(false);
 
-  const onButtonClick = () => {
+  const onTrailerButtonClick = () => {
+    toggleModal();
+  };
+
+  const onRemoveButtonClick = () => {
     removeMovie(movie.id);
   };
   const onItemClick = () => {
@@ -54,10 +58,12 @@ export const MovieListItem = ({ movie, removeMovie }) => {
             <h3 className="movie-item__overview-heading">Overview</h3>
             <p className="movie-item__overview">{movie.overview}</p>
             <div className="movie-item__button-group">
-              <button className="button">Watch Trailer</button>
+              <button className="button" onClick={onTrailerButtonClick}>
+                Watch Trailer
+              </button>
               <button
                 className="button button--secondary"
-                onClick={onButtonClick}
+                onClick={onRemoveButtonClick}
               >
                 Remove Movie
               </button>
@@ -81,7 +87,7 @@ export const MovieListItem = ({ movie, removeMovie }) => {
           <div className="search-result-item__button">
             <button
               className="button button--secondary"
-              onClick={onButtonClick}
+              onClick={onRemoveButtonClick}
             >
               -
             </button>
