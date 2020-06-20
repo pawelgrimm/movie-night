@@ -17,6 +17,8 @@
 
 .movie-item__info {
   flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .movie-item__info--small {
@@ -31,7 +33,7 @@
   span {
     line-height: 1;
     font-size: $font-size-small;
-    color: $grey;
+    color: $paragraph-color;
   }
 }
 
@@ -63,6 +65,10 @@
 .movie-item__overview-heading {
   margin: 0;
   padding-bottom: 0;
+}
+
+.movie-item__overview {
+  flex-grow: 1;
 }
 
 .movie-item__button-group {
