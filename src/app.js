@@ -25,7 +25,7 @@ store.subscribe(() => {
 
 const jsx = (
   <Provider store={store}>
-    <AppRouter />
+    <AppRouter appElement={appElement} />
   </Provider>
 );
 

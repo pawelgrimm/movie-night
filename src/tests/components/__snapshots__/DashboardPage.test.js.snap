@@ -10,7 +10,7 @@ exports[`should render DashboardPage 1`] = `
   <Connect(MovieList)
     toggleModal={[Function]}
   />
-  <VideoModal
+  <Connect(VideoModal)
     modalIsOpen={false}
     toggleModal={[Function]}
   />

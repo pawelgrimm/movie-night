@@ -7,14 +7,19 @@ import Header from "../components/Header";
 
 export const history = createHistory();
 
-const AppRouter = () => (
+const AppRouter = ({ appElement }) => (
   <Router history={history}>
-      <Header/>
-      <Switch>
-          <Route exact path="/" component={() => <Redirect to="/dashboard"/>} />
-          <Route path="/dashboard" component={DashboardPage} />
-          <Route component={NotFoundPage} />
-      </Switch>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+      <Route
+        path="/dashboard"
+        render={(...props) => (
+          <DashboardPage {...props} appElement={appElement} />
+        )}
+      />
+      <Route component={NotFoundPage} />
+    </Switch>
   </Router>
 );
 

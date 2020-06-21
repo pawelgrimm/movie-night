@@ -4,16 +4,18 @@ import { removeMovie } from "../actions/movie";
 import ReactImageFallback from "react-image-fallback";
 import MovieImage from "./MovieImage";
 import { getImageUrl } from "../theMovieDb/theMovieDb";
+import { openModal } from "../actions/videoModal";
 
 const mapDispatchToProps = (dispatch) => ({
   removeMovie: (id) => dispatch(removeMovie(id)),
+  openModal: (videos) => dispatch(openModal(videos)),
 });
 
-export const MovieListItem = ({ movie, removeMovie, toggleModal }) => {
+export const MovieListItem = ({ movie, removeMovie, openModal }) => {
   const [selected, setSelected] = useState(false);
 
   const onTrailerButtonClick = () => {
-    toggleModal();
+    openModal(movie.trailers);
   };
 
   const onRemoveButtonClick = () => {
