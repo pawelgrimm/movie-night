@@ -58,9 +58,11 @@ export const MovieListItem = ({ movie, removeMovie, toggleModal }) => {
             <h3 className="movie-item__overview-heading">Overview</h3>
             <p className="movie-item__overview">{movie.overview}</p>
             <div className="movie-item__button-group">
-              <button className="button" onClick={onTrailerButtonClick}>
-                Watch Trailer
-              </button>
+              {movie.trailers && movie.trailers.length > 0 && (
+                <button className="button" onClick={onTrailerButtonClick}>
+                  Watch Trailer
+                </button>
+              )}
               <button
                 className="button button--secondary"
                 onClick={onRemoveButtonClick}
