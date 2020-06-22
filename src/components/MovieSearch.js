@@ -1,10 +1,9 @@
-import React, { useState, useContext, useReducer } from "react";
-import movieDb, { search } from "../theMovieDb/theMovieDb";
+import React, { useState, useReducer } from "react";
+import OutsideClickHandler from "react-outside-click-handler";
 import SearchContext from "../context/search-context";
 import { setSearchResults } from "../actions/search";
-import SearchResults from "./SearchResults";
 import searchReducer from "../reducers/search";
-
+import SearchResults from "./SearchResults";
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
   const [searchResults, dispatch] = useReducer(searchReducer, []);
@@ -30,19 +29,23 @@ const MovieSearch = ({ numResults }) => {
 
   return (
     <SearchContext.Provider value={{ searchResults, dispatch, resetSearch }}>
-      <div className="container--padding-y">
-        <div className="container--flex">
-          <input
-            className="text-input text-input--grow"
-            placeholder="Search for a movie"
-            value={query}
-            onChange={onChange}
-          />
+      <OutsideClickHandler onOutsideClick={resetSearch}>
+        <div className="container--padding-y">
+          <div className="container--flex">
+            <input
+              className="text-input text-input--grow"
+              placeholder="Search for a movie"
+              value={query}
+              onChange={onChange}
+            />
+          </div>
+          <SearchResults />
         </div>
-        <SearchResults />
-      </div>
+      </OutsideClickHandler>
     </SearchContext.Provider>
   );
 };
+
+import { search } from "../theMovieDb/theMovieDb";
 
 export default MovieSearch;
