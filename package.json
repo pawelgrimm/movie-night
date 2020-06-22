@@ -17,6 +17,7 @@
     "test:pre-commit"
   ],
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "7.10.3",
     "axios": "0.19.2",
     "core-js": "3.6.5",
     "cross-env": "7.0.2",
