@@ -13,8 +13,10 @@
   &:disabled {
     opacity: 0.5;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     background: darken($primary, 5%);
+    outline: none;
   }
 }
 
@@ -24,7 +26,9 @@
 
 .button--secondary {
   background: $secondary;
-  &:hover {
+  &:hover,
+  &:focus {
     background: darken($secondary, 5%);
+    outline: none;
   }
 }

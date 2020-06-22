@@ -51,7 +51,7 @@ export const SearchResultItem = ({
     resetSearch();
   };
   return (
-    <div className="search-result-item">
+    <div className="search-result-item" tabIndex={0}>
       <MovieImage
         title={movie.title}
         imageWidth={68}

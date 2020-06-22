@@ -11,8 +11,10 @@
   padding: $s-size 0;
   border-radius: 3px;
   margin: 0 $s-size;
-  &:hover {
+  &:hover,
+  &:focus-within {
     background: lighten($card-background, 20%);
+    outline: none;
   }
 }
 

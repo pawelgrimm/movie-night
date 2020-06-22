@@ -1,12 +1,18 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useRef } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import SearchContext from "../context/search-context";
 import { setSearchResults } from "../actions/search";
 import searchReducer from "../reducers/search";
 import SearchResults from "./SearchResults";
+
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
   const [searchResults, dispatch] = useReducer(searchReducer, []);
+
+  const searchInput = useRef(null);
+  const handleFocus = () => {
+    searchInput.current.focus();
+  };
 
   const onChange = (e) => {
     const newQuery = e.target.value;
@@ -25,6 +31,7 @@ const MovieSearch = ({ numResults }) => {
   const resetSearch = () => {
     setQuery("");
     dispatch(setSearchResults());
+    handleFocus();
   };
 
   return (
@@ -34,9 +41,11 @@ const MovieSearch = ({ numResults }) => {
           <div className="container--flex">
             <input
               className="text-input text-input--grow"
+              autoFocus
               placeholder="Search for a movie"
               value={query}
               onChange={onChange}
+              ref={searchInput}
             />
           </div>
           <SearchResults />
