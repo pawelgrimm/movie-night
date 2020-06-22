@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { removeMovie } from "../actions/movie";
 import ReactImageFallback from "react-image-fallback";
 import MovieImage from "./MovieImage";
-import { getImageUrl } from "../theMovieDb/theMovieDb";
+import { formatReleaseYear, getImageUrl } from "../theMovieDb/theMovieDb";
 import { openModal } from "../actions/videoModal";
 
 const mapDispatchToProps = (dispatch) => ({
@@ -62,7 +62,7 @@ export class MovieListItem extends React.Component {
               <h2 className="movie-item__title">{this.props.movie.title}</h2>
               <div className="movie-item__meta">
                 {/*<span>{this.props.movie.rating}</span>*/}
-                <span>{this.props.movie.release_date.split("-")[0]}</span>
+                <span>{formatReleaseYear(this.props.movie.release_date)}</span>
                 <span>
                   {this.props.movie.genres
                     .map((genre) => genre.name)
@@ -107,7 +107,7 @@ export class MovieListItem extends React.Component {
             />
             <div className="movie-item__info--small">
               <h3>{this.props.movie.title}</h3>
-              <span>{this.props.movie.release_date.split("-")[0]}</span>
+              <span>{formatReleaseYear(this.props.movie.release_date)}</span>
               <p>{this.props.movie.overview}</p>
             </div>
             <div className="search-result-item__button">

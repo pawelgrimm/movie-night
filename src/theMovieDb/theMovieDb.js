@@ -33,4 +33,8 @@ export const getMovieTrailers = (id) => {
     .then((res) => res.results.filter((video) => video.type === "Trailer"));
 };
 
+export const formatReleaseYear = (releaseDate) => {
+  return releaseDate?.split("-")[0] || "";
+};
+
 export default movieDb;

@@ -7,6 +7,7 @@ import {
 } from "../actions/movie";
 import MovieImage from "./MovieImage";
 import { useSearchContext } from "../context/search-context";
+import { formatReleaseYear } from "../theMovieDb/theMovieDb";
 
 const mapStateToProps = ({ movies }) => ({ movies });
 
@@ -60,7 +61,7 @@ export const SearchResultItem = ({
       />
       <div className="search-result-item__info">
         <h3>{movie.title}</h3>
-        <span>{movie.release_date.split("-")[0]}</span>
+        <span>{formatReleaseYear(movie.release_date)}</span>
         <p>{movie.overview}</p>
       </div>
       <div className="search-result-item__button">
