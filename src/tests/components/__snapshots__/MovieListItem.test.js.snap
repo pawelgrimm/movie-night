@@ -1,48 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render MovieListItem correctly with movie 1`] = `
-<div
-  className="list-item list-item--hover-effect"
-  onClick={[Function]}
-  style={
-    Object {
-      "backgroundImage": false,
-    }
-  }
+<OutsideClickHandler
+  disabled={false}
+  display="block"
+  onOutsideClick={[Function]}
+  useCapture={true}
 >
-  <div
-    className="movie-item"
-  >
-    <ReactImageFallback
-      alt="poster image for Before Sunset"
-      className="movie-item__poster movie-item__poster--small"
-      fallbackImage="/images/default_poster.png"
-      initialImage="/images/loader.gif"
-      src="https://image.tmdb.org/t/p/w92/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
-    />
-    <div
-      className="movie-item__info--small"
-    >
-      <h3>
-        Before Sunset
-      </h3>
-      <span>
-        2004
-      </span>
-      <p>
-        Nine years ago two strangers met by chance and spent a night in Vienna that ended before sunrise. They are about to meet for the first time since. Now they have one afternoon to find out if they belong together.
-      </p>
-    </div>
-    <div
-      className="search-result-item__button"
-    >
-      <button
-        className="button button--secondary"
-        onClick={[Function]}
-      >
-        -
-      </button>
-    </div>
-  </div>
-</div>
+  <MovieListItemCollapsed
+    buttons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    onClick={[Function]}
+    posterPath="/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
+    releaseDate="2004-02-10"
+    title="Before Sunset"
+    voteAverage={7.8}
+  />
+</OutsideClickHandler>
 `;

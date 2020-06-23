@@ -29,12 +29,13 @@
     line-height: 1;
     margin: 0;
     font-weight: 300;
+    padding: 0 0 $s-size 0;
   }
-  span {
-    line-height: 1;
-    font-size: $font-size-small;
-    color: $paragraph-color;
-  }
+  //span {
+  //line-height: 1;
+  //font-size: $font-size-small;
+  //color: $paragraph-color;
+  //}
 }
 
 .movie-item__title {
@@ -69,6 +70,13 @@
 
 .movie-item__overview {
   flex-grow: 1;
+}
+
+.movie-item__button--small {
+  align-self: center;
+  width: 50px;
+  flex: 0 0;
+  margin: 0 $xs-size;
 }
 
 .movie-item__button-group {

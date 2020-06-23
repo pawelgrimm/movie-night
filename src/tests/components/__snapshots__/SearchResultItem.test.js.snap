@@ -3,6 +3,7 @@
 exports[`should render search result item correctly 1`] = `
 <div
   className="search-result-item"
+  tabIndex={0}
 >
   <MovieImage
     className="search-result-item__poster"
