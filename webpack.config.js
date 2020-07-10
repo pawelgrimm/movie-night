@@ -73,7 +73,7 @@ module.exports = (env) => {
           process.env.FIREBASE_APP_ID
         ),
         "process.env.THEMOVIEDB_API_KEY": JSON.stringify(
-            process.env.THEMOVIEDB_API_KEY
+          process.env.THEMOVIEDB_API_KEY
         ),
       }),
     ],
@@ -81,8 +81,12 @@ module.exports = (env) => {
     mode: isProduction ? "production" : "development",
     devServer: {
       contentBase: path.join(__dirname, "public"),
+      open: true,
       historyApiFallback: true,
       publicPath: "/dist/",
+      proxy: {
+        "/api": "http://localhost:3000",
+      },
     },
   };
 };

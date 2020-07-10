@@ -7,7 +7,9 @@
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server",
+    "dev-client": "webpack-dev-server",
+    "dev-server": "nodemon server/server.js",
+    "dev": "concurrently \"yarn run dev-client\" \"yarn run dev-server\"",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod",
@@ -19,6 +21,7 @@
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "7.10.3",
     "axios": "0.19.2",
+    "concurrently": "5.2.0",
     "core-js": "3.6.5",
     "cross-env": "7.0.2",
     "dotenv": "8.2.0",
@@ -27,6 +30,7 @@
     "history": "4.10.1",
     "moment": "2.26.0",
     "moviedb-promise": "3.0.3",
+    "nodemon": "2.0.4",
     "normalize.css": "8.0.1",
     "numeral": "2.0.6",
     "pre-commit": "1.2.2",
