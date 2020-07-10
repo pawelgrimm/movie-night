@@ -1,9 +1,9 @@
 import { expect } from "@jest/globals";
 import React from "react";
 import { shallow } from "enzyme";
-import DashboardPage from "../../components/DashboardPage";
+import NominationPage from "../../components/NominationPage";
 
 test("should render DashboardPage", () => {
-  const wrapper = shallow(<DashboardPage />);
+  const wrapper = shallow(<NominationPage />);
   expect(wrapper).toMatchSnapshot();
 });

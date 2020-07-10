@@ -39,7 +39,7 @@ export const updateMovie = (id, updates) => {
 };
 
 // SET MOVIES
-export const setMovies = (movies) => {
+export const setMovies = (movies = []) => {
   return {
     type: "SET_MOVIES",
     movies,

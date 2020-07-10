@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
-import DashboardPage from "../components/DashboardPage";
+import NominationPage from "../components/NominationPage";
 import NotFoundPage from "../components/NotFoundPage";
 import Header from "../components/Header";
 
@@ -11,11 +11,11 @@ const AppRouter = ({ appElement }) => (
   <Router history={history}>
     <Header />
     <Switch>
-      <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+      <Route exact path="/" component={() => <Redirect to="/nomination" />} />
       <Route
-        path="/dashboard"
+        path="/nomination"
         render={(...props) => (
-          <DashboardPage {...props} appElement={appElement} />
+          <NominationPage {...props} appElement={appElement} />
         )}
       />
       <Route component={NotFoundPage} />

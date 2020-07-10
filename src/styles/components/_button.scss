@@ -12,11 +12,14 @@
   line-height: 1;
   &:disabled {
     opacity: 0.5;
+    cursor: not-allowed;
   }
-  &:hover,
-  &:focus {
-    background: darken($primary, 5%);
-    outline: none;
+  &:not(&:disabled) {
+    &:hover,
+    &:focus {
+      background: darken($primary, 5%);
+      outline: none;
+    }
   }
 }
 
@@ -26,9 +29,15 @@
 
 .button--secondary {
   background: $secondary;
-  &:hover,
-  &:focus {
-    background: darken($secondary, 5%);
-    outline: none;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &:not(&:disabled) {
+    &:hover,
+    &:focus {
+      background: darken($secondary, 5%);
+      outline: none;
+    }
   }
 }

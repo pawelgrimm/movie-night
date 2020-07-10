@@ -8,6 +8,19 @@
   display: flex;
 }
 
+.container--flex-row {
+  display: flex;
+  flex-direction: row;
+  .button {
+    flex-grow: 2;
+    margin-right: $s-size;
+  }
+  .button--secondary {
+    flex-grow: 1;
+    margin-right: 0;
+  }
+}
+
 .container--padding-y {
   padding: $m-size 0;
 }

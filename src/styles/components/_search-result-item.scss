@@ -1,6 +1,7 @@
 .search-results {
   background: $card-background;
   position: relative;
+  z-index: 1;
 }
 
 .search-result-item {
