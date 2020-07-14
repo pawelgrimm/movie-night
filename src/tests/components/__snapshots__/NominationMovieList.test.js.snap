@@ -1,10 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render MovieList correctly with movies 1`] = `
+exports[`should render NominationMovieList correctly with movies 1`] = `
 <div
   className="list-body"
 >
   <Connect(MovieListItem)
+    collapsedButtons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    expandedButtons={
+      Array [
+        undefined,
+        <button
+          className="button button--secondary"
+          onClick={[Function]}
+        >
+          Remove Movie
+        </button>,
+      ]
+    }
     key="132344"
     movie={
       Object {
@@ -29,6 +50,27 @@ exports[`should render MovieList correctly with movies 1`] = `
     }
   />
   <Connect(MovieListItem)
+    collapsedButtons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    expandedButtons={
+      Array [
+        undefined,
+        <button
+          className="button button--secondary"
+          onClick={[Function]}
+        >
+          Remove Movie
+        </button>,
+      ]
+    }
     key="76"
     movie={
       Object {
@@ -53,6 +95,27 @@ exports[`should render MovieList correctly with movies 1`] = `
     }
   />
   <Connect(MovieListItem)
+    collapsedButtons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    expandedButtons={
+      Array [
+        undefined,
+        <button
+          className="button button--secondary"
+          onClick={[Function]}
+        >
+          Remove Movie
+        </button>,
+      ]
+    }
     key="80"
     movie={
       Object {
@@ -77,6 +140,27 @@ exports[`should render MovieList correctly with movies 1`] = `
     }
   />
   <Connect(MovieListItem)
+    collapsedButtons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    expandedButtons={
+      Array [
+        undefined,
+        <button
+          className="button button--secondary"
+          onClick={[Function]}
+        >
+          Remove Movie
+        </button>,
+      ]
+    }
     key="43566"
     movie={
       Object {
@@ -102,6 +186,27 @@ exports[`should render MovieList correctly with movies 1`] = `
     }
   />
   <Connect(MovieListItem)
+    collapsedButtons={
+      Array [
+        <button
+          className="button button--secondary movie-item__button--small"
+          onClick={[Function]}
+        >
+          <Trash2 />
+        </button>,
+      ]
+    }
+    expandedButtons={
+      Array [
+        undefined,
+        <button
+          className="button button--secondary"
+          onClick={[Function]}
+        >
+          Remove Movie
+        </button>,
+      ]
+    }
     key="296096"
     movie={
       Object {
@@ -128,7 +233,7 @@ exports[`should render MovieList correctly with movies 1`] = `
 </div>
 `;
 
-exports[`should render MovieList correctly without movies 1`] = `
+exports[`should render NominationMovieList correctly without movies 1`] = `
 <div
   className="list-body"
 >

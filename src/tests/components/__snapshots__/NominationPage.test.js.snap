@@ -7,7 +7,7 @@ exports[`should render NominationPage with movies 1`] = `
   <MovieSearch
     numResults={5}
   />
-  <Connect(MovieList) />
+  <Connect(NominationMovieList) />
   <div
     className="container--flex-row"
   >
@@ -40,7 +40,7 @@ exports[`should render NominationPage with no movies 1`] = `
   <MovieSearch
     numResults={5}
   />
-  <Connect(MovieList) />
+  <Connect(NominationMovieList) />
   <div
     className="container--flex-row"
   >

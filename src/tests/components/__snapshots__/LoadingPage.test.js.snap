@@ -4,9 +4,12 @@ exports[`should render LoadingPage 1`] = `
 <div
   className="loader"
 >
-  <img
-    className="loader__image"
-    src="/images/loader.gif"
+  <Loading
+    color="#7f5af0"
+    delay={0}
+    height={64}
+    type="spin"
+    width={64}
   />
 </div>
 `;

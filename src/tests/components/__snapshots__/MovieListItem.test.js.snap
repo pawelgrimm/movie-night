@@ -8,16 +8,6 @@ exports[`should render MovieListItem correctly with movie 1`] = `
   useCapture={true}
 >
   <MovieListItemCollapsed
-    buttons={
-      Array [
-        <button
-          className="button button--secondary movie-item__button--small"
-          onClick={[Function]}
-        >
-          <Trash2 />
-        </button>,
-      ]
-    }
     onClick={[Function]}
     posterPath="/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
     releaseDate="2004-02-10"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import MovieSearch from "./MovieSearch";
-import MovieList from "./MovieList";
+import MovieList from "./NominationMovieList";
 import VideoModal from "./VideoModal";
 import ConfirmationModal from "./ConfirmationModal";
 import { setMovies } from "../actions/movie";
