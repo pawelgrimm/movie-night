@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
   clearMovieList: () => dispatch(setMovies([])),
 });
 
-export const NominationPage = ({ appElement, clearMovieList, movies }) => {
+export const NominationPage = ({ appElement, clearMovieList, movies = [] }) => {
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
   return (

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NominationPage with movies 1`] = `
+<div
+  className="content-container"
+>
+  <MovieSearch
+    numResults={5}
+  />
+  <Connect(MovieList) />
+  <div
+    className="container--flex-row"
+  >
+    <button
+      className="button"
+    >
+      Next (Voting)
+    </button>
+    <button
+      className="button button--secondary"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Start Over
+    </button>
+  </div>
+  <Connect(VideoModal) />
+  <ConfirmationModal
+    isOpen={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+  />
+</div>
+`;
+
+exports[`should render NominationPage with no movies 1`] = `
+<div
+  className="content-container"
+>
+  <MovieSearch
+    numResults={5}
+  />
+  <Connect(MovieList) />
+  <div
+    className="container--flex-row"
+  >
+    <button
+      className="button"
+    >
+      Next (Voting)
+    </button>
+    <button
+      className="button button--secondary"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Start Over
+    </button>
+  </div>
+  <Connect(VideoModal) />
+  <ConfirmationModal
+    isOpen={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+  />
+</div>
+`;

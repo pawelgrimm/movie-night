@@ -4,6 +4,7 @@ import { createBrowserHistory as createHistory } from "history";
 import NominationPage from "../components/NominationPage";
 import NotFoundPage from "../components/NotFoundPage";
 import Header from "../components/Header";
+import BallotPage from "../components/BallotPage";
 
 export const history = createHistory();
 
@@ -18,6 +19,7 @@ const AppRouter = ({ appElement }) => (
           <NominationPage {...props} appElement={appElement} />
         )}
       />
+      <Route path="/ballot/:id" component={BallotPage} />
       <Route component={NotFoundPage} />
     </Switch>
   </Router>
