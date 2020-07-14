@@ -19,7 +19,10 @@ const AppRouter = ({ appElement }) => (
           <NominationPage {...props} appElement={appElement} />
         )}
       />
-      <Route path="/ballot/:id" component={BallotPage} />
+      <Route
+        path="/ballot/:id"
+        render={(...props) => <BallotPage {...props} appElement={appElement} />}
+      />
       <Route component={NotFoundPage} />
     </Switch>
   </Router>
