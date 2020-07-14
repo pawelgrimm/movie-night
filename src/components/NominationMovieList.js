@@ -56,7 +56,10 @@ export default connect(
 const collapsedButtons = (movieId, removeMovie) => [
   <button
     className="button button--secondary movie-item__button--small"
-    onClick={() => removeMovie(movieId)}
+    onClick={(event) => {
+      event.stopPropagation();
+      removeMovie(movieId);
+    }}
   >
     <TrashIcon />
   </button>,
@@ -66,7 +69,8 @@ const expandedButtons = (movieId, videos, openModal, removeMovie) => [
   videos && videos.length > 0 && (
     <button
       className="button"
-      onClick={() => {
+      onClick={(event) => {
+        event.stopPropagation();
         openModal(videos);
       }}
     >
@@ -75,7 +79,10 @@ const expandedButtons = (movieId, videos, openModal, removeMovie) => [
   ),
   <button
     className="button button--secondary"
-    onClick={() => removeMovie(movieId)}
+    onClick={(event) => {
+      event.stopPropagation();
+      removeMovie(movieId);
+    }}
   >
     Remove Movie
   </button>,
