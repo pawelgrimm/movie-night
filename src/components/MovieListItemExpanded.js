@@ -1,6 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import MovieImage from "./MovieImage";
 import { formatReleaseYear } from "../theMovieDb/theMovieDb";
+import { openModal } from "../actions/videoModal";
+
+const mapDispatchToProps = (dispatch) => ({
+  openModal: (videos) => dispatch(openModal(videos)),
+});
 
 const MovieListItemExpanded = ({ movie, onClick, buttons = [] }) => {
   return (
@@ -33,4 +39,4 @@ const MovieListItemExpanded = ({ movie, onClick, buttons = [] }) => {
   );
 };
 
-export default MovieListItemExpanded;
+export default connect(undefined, mapDispatchToProps)(MovieListItemExpanded);

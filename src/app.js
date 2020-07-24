@@ -10,18 +10,34 @@ import configureStore from "./store/configureStore";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./actions/auth";
 import LoadingPage from "./components/LoadingPage";
-import { setMovies } from "./actions/movie";
+import { setBallot } from "./actions/ballot";
 import database from "firebase";
+import { fetchMovie, setMovies } from "./actions/movie";
 
 const appElement = document.getElementById("app");
 const store = configureStore();
 
-const savedMovies = JSON.parse(localStorage.getItem("movies")) || [];
-store.dispatch(setMovies(savedMovies));
+// Load local movie db from local storage
+const movies = JSON.parse(localStorage.getItem("movies")) || {};
+store.dispatch(setMovies(movies));
+
+// Load ballot from local storage
+const ballotMovies = JSON.parse(localStorage.getItem("ballot/movies")) || [];
+store.dispatch(setBallot(ballotMovies));
+
+// Make sure all movies in ballot are loaded
+const fetchPromises = [];
+for (const id in movies) {
+  if (movies.hasOwnProperty(id)) {
+    fetchPromises.push(store.dispatch(fetchMovie(id)));
+  }
+}
 
 store.subscribe(() => {
-  const movies = store.getState()["movies"];
-  localStorage.setItem("movies", JSON.stringify(movies));
+  const movies = store.getState().ballot.movies;
+  localStorage.setItem("ballot/movies", JSON.stringify(movies));
+  const cache = store.getState().movies;
+  localStorage.setItem("movies", JSON.stringify(cache));
 });
 
 const jsx = (

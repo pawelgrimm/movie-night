@@ -16,7 +16,11 @@ const AppRouter = ({ appElement }) => (
       <Route
         path="/nomination"
         render={(...props) => (
-          <NominationPage {...props} appElement={appElement} />
+          <NominationPage
+            {...props}
+            history={history}
+            appElement={appElement}
+          />
         )}
       />
       <Route

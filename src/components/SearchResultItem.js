@@ -1,36 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {
-  addMovie,
-  removeMovie,
-  startUpdateMovieWithDetails,
-} from "../actions/movie";
 import MovieImage from "./MovieImage";
 import { useSearchContext } from "../context/search-context";
+import { addAndSaveMovie, removeMovie } from "../actions/ballot";
 import { formatReleaseYear } from "../theMovieDb/theMovieDb";
 
-const mapStateToProps = ({ movies }) => ({ movies });
-
-const mapDispatchToProps = (dispatch) => ({
-  addMovie: (movie) => dispatch(addMovie(movie)),
-  removeMovie: (id) => dispatch(removeMovie(id)),
-  startUpdateMovieWithDetails: (id) =>
-    dispatch(startUpdateMovieWithDetails(id)),
+const mapStateToProps = ({ ballot }) => ({
+  movies: ballot.movies,
 });
 
-export const SearchResultItem = ({
-  movie,
-  movies,
-  addMovie,
-  removeMovie,
-  startUpdateMovieWithDetails,
-}) => {
+const mapDispatchToProps = (dispatch) => ({
+  addMovie: (movie) => {
+    dispatch(addAndSaveMovie(movie.id, movie));
+  },
+  removeMovie: (id) => dispatch(removeMovie(id)),
+});
+
+export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
   const [button, setButton] = useState("+");
   const [buttonClass, setButtonClass] = useState("");
   const { resetSearch } = useSearchContext();
 
   useEffect(() => {
-    if (movies.find((storedMovie) => storedMovie.id === movie.id)) {
+    if (movies.find((id) => id === movie.id)) {
       toggleButtonState();
     }
   }, []);
@@ -44,7 +36,6 @@ export const SearchResultItem = ({
     toggleButtonState();
     if (button === "+") {
       addMovie(movie);
-      startUpdateMovieWithDetails(movie.id);
     } else {
       removeMovie(movie.id);
     }

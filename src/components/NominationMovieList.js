@@ -1,49 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import MovieListItem from "./MovieListItem";
 import { Trash2 as TrashIcon } from "react-feather";
-import { removeMovie } from "../actions/movie";
+import { fetchMovie } from "../actions/movie";
 import { openModal } from "../actions/videoModal";
+import { hydrateMovies } from "../selectors/movie";
+import { removeMovie } from "../actions/ballot";
+import Loader from "./Loader";
 
-const mapStateToProps = ({ movies }) => ({ movies });
+const mapStateToProps = ({ movies, ballot }) => ({
+  movies: hydrateMovies(movies, ballot.movies),
+});
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchMovie: (id) => dispatch(fetchMovie(id)),
   removeMovie: (id) => dispatch(removeMovie(id)),
   openModal: (videos) => dispatch(openModal(videos)),
 });
 
-export const NominationMovieList = ({ movies, openModal, removeMovie }) => {
+export const NominationMovieList = ({
+  movies,
+  openModal,
+  removeMovie,
+  fetchMovie,
+}) => {
   return (
     <div className="list-body">
-      {movies.length > 0 ? (
-        movies.map((movie) => (
+      {movies.map((movie) => {
+        const id = movie.info.id;
+        fetchMovie(id);
+        return (
           <MovieListItem
-            key={movie.id}
-            movie={movie}
-            collapsedButtons={collapsedButtons(movie.id, removeMovie)}
+            key={id}
+            isLoading={!movie.isSaved}
+            movie={movie.info}
+            collapsedButtons={collapsedButtons(id, removeMovie)}
             expandedButtons={expandedButtons(
-              movie.id,
-              movie.trailers,
+              id,
+              movie.info.trailers,
               openModal,
               removeMovie
             )}
           />
-        ))
-      ) : (
-        <div>
-          <h3>Welcome to Movie Night!</h3>
-          <p>Use the search to add some movies to your list.</p>
-          <p>
-            Once you're done, send the list to your friends. They will be able
-            to vote on the movies you selected!
-          </p>
-          <p>
-            When all the votes are in, the most favorable movie will be selected
-            for your movie night!
-          </p>
-          <p>Enjoy!</p>
-        </div>
-      )}
+        );
+      })}
     </div>
   );
 };

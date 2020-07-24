@@ -3,17 +3,23 @@ import { connect } from "react-redux";
 import OutsideClickHandler from "react-outside-click-handler";
 import ItemCollapsed from "./MovieListItemCollapsed";
 import ItemExpanded from "./MovieListItemExpanded";
+import Loader from "./Loader";
 
 const mapStateToProps = ({ videoModal }) => ({
   isModalOpen: videoModal.isOpen,
 });
 
 export const MovieListItem = ({
+  isLoading,
   movie,
   isModalOpen,
   collapsedButtons,
   expandedButtons,
 }) => {
+  if (isLoading) {
+    return <Loader />;
+  }
+
   const [isExpanded, setExpanded] = useState(false);
 
   // Collapsed
