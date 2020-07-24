@@ -1,10 +1,10 @@
 // Store creation
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import authReducer from "../reducers/auth";
-import movieReducer from "../reducers/movie";
-import videoModalReducer from "../reducers/videoModal";
-import ballotReducer from "../reducers/ballot";
+import authReducer from "../services/auth/reducer";
+import movieReducer from "../services/movie/reducer";
+import videoModalReducer from "../containers/VideoModal/service/reducer";
+import ballotReducer from "../services/ballot/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default () => {
