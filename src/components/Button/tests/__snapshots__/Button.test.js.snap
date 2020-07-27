@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render buttons 1`] = `
+<button
+  className="button"
+>
+  Button Text
+</button>
+`;
+
+exports[`should render buttons 2`] = `
+<button
+  className="button button--secondary"
+>
+  Button Text
+</button>
+`;
