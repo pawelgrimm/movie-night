@@ -13,10 +13,7 @@ const MovieListItemCollapsed = ({
   buttons = [],
 }) => {
   return (
-    <div
-      className="list-item list-item--hover-effect movie-item"
-      onClick={onClick}
-    >
+    <div className="movie-item list-item--hoverable" onClick={onClick}>
       <ReactImageFallback
         src={`https://image.tmdb.org/t/p/w92${posterPath}`}
         fallbackImage="/images/default_poster.png"

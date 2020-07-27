@@ -1,9 +1,9 @@
 import React from "react";
+import InfoCard from "../InfoCard/InfoCard";
 
 const WelcomeMessage = () => {
   return (
-    <div className="list-body">
-      <h3>Welcome to Movie Night!</h3>
+    <InfoCard title="Welcome to Movie Night!">
       <p>Use the search to add some movies to your list.</p>
       <p>
         Once you're done, send the list to your friends. They will be able to
@@ -14,7 +14,7 @@ const WelcomeMessage = () => {
         your movie night!
       </p>
       <p>Enjoy!</p>
-    </div>
+    </InfoCard>
   );
 };
 

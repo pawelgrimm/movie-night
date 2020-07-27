@@ -10,9 +10,9 @@ const MovieSearch = ({ numResults }) => {
   const [searchResults, dispatch] = useReducer(searchReducer, []);
 
   const searchInput = useRef(null);
-  const handleFocus = () => {
-    searchInput.current.focus();
-  };
+  // const handleFocus = () => {
+  //   searchInput.current.focus();
+  // };
 
   const onChange = (e) => {
     const newQuery = e.target.value;
@@ -31,25 +31,23 @@ const MovieSearch = ({ numResults }) => {
   const resetSearch = () => {
     setQuery("");
     dispatch(setSearchResults());
-    handleFocus();
+    //handleFocus();
   };
 
   return (
     <SearchContext.Provider value={{ searchResults, dispatch, resetSearch }}>
       <OutsideClickHandler onOutsideClick={resetSearch}>
-        <div className="container--padding-y">
-          <div className="container--flex">
-            <input
-              className="text-input text-input--grow"
-              autoFocus
-              placeholder="Search for a movie"
-              value={query}
-              onChange={onChange}
-              ref={searchInput}
-            />
-          </div>
-          <SearchResults />
+        <div className="container--flex-col">
+          <input
+            className="card text-input text-input--grow"
+            //autoFocus
+            placeholder="Search for a movie"
+            value={query}
+            onChange={onChange}
+            ref={searchInput}
+          />
         </div>
+        <SearchResults />
       </OutsideClickHandler>
     </SearchContext.Provider>
   );

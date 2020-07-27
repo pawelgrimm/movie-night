@@ -1,11 +1,12 @@
 .content-container {
   margin: 0 auto;
-  padding: 0 $m-size;
-  max-width: 80rem;
+  padding: $xs-size 54px;
+  width: 1140px;
 }
 
-.container--flex {
+.container--flex-col {
   display: flex;
+  flex-direction: column;
 }
 
 .container--flex-row {

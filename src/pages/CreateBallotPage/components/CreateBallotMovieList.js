@@ -18,14 +18,14 @@ const mapDispatchToProps = (dispatch) => ({
   openModal: (videos) => dispatch(openModal(videos)),
 });
 
-export const NominationMovieList = ({
+export const CreateBallotMovieList = ({
   movies,
   openModal,
   removeMovie,
   fetchMovie,
 }) => {
   return (
-    <div className="list-body">
+    <div className="card movie-list">
       {movies.map((movie) => {
         const id = movie.info.id;
         fetchMovie(id);
@@ -51,7 +51,7 @@ export const NominationMovieList = ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NominationMovieList);
+)(CreateBallotMovieList);
 
 const collapsedButtons = (movieId, removeMovie) => [
   <button

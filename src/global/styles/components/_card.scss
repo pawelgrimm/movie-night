@@ -1,0 +1,10 @@
+.card {
+  background: $card-background;
+  border-radius: 3px;
+  margin: $xs-size 0;
+  padding: $m-size $ml-size;
+}
+
+.anti-card {
+  margin: -1.6rem 0;
+}

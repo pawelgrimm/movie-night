@@ -1,19 +1,19 @@
 import { expect } from "@jest/globals";
 import React from "react";
 import { shallow } from "enzyme";
-import { NominationPage } from "../NominationPage";
+import { CreateBallotPage } from "../CreateBallotPage";
 import { movies } from "../../../global/tests/fixtures/fixtures";
 
 test("should render NominationPage with no movies", () => {
   const wrapper = shallow(
-    <NominationPage appElement={undefined} clearMovieList={() => {}} />
+    <CreateBallotPage appElement={undefined} clearMovieList={() => {}} />
   );
   expect(wrapper).toMatchSnapshot();
 });
 
 test("should render NominationPage with movies", () => {
   const wrapper = shallow(
-    <NominationPage
+    <CreateBallotPage
       appElement={undefined}
       clearMovieList={() => {}}
       movies={movies}

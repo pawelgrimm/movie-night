@@ -1,7 +1,7 @@
 import { expect } from "@jest/globals";
 import { shallow } from "enzyme";
 import React from "react";
-import { NominationMovieList } from "../components/NominationMovieList";
+import { CreateBallotMovieList } from "../components/CreateBallotMovieList";
 import { movies as testMovies } from "../../../global/tests/fixtures/fixtures";
 
 test("noop test", () => {});

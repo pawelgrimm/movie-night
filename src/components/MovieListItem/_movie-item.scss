@@ -1,14 +1,33 @@
 .movie-item {
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  color: $on-card;
   display: flex;
   flex-direction: row;
-  padding: $m-size;
+  justify-content: space-between;
+  padding: calc(#{$m-size} / 2) calc(#{$ml-size} / 2);
+  text-decoration: none;
+  transition: background 300ms ease;
+}
+
+.movie-item--selected {
+  box-shadow: 0 0 0 2px $primary;
+}
+
+.list-item--hoverable {
+  &:hover,
+  &:focus-within {
+    background-color: lighten($card-background, 20%);
+    outline: none;
+  }
 }
 
 .movie-item__poster {
-  flex: 0 0 250px;
-  margin-right: $m-size;
   align-self: start;
   border-radius: 3px;
+  flex: 0 0 250px;
+  margin-right: $m-size;
 }
 
 .movie-item__poster--small {

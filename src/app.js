@@ -13,6 +13,7 @@ import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import { setBallot } from "./services/ballot/actions";
 import database from "firebase";
 import { fetchMovie, setMovies } from "./services/movie/actions";
+import VideoModal from "./containers/VideoModal/VideoModal";
 
 const appElement = document.getElementById("app");
 const store = configureStore();
@@ -43,6 +44,7 @@ store.subscribe(() => {
 const jsx = (
   <Provider store={store}>
     <AppRouter appElement={appElement} />
+    <VideoModal appElement={appElement} />
   </Provider>
 );
 

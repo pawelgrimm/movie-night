@@ -1,18 +1,19 @@
 .button {
   background: $primary;
-  color: $on-primary;
   border: none;
-  display: inline-block;
-  padding: $s-size;
-  font-size: $font-size-large;
-  font-weight: 300;
-  font-variant: all-small-caps;
   border-radius: 3px;
-  text-decoration: none;
+  color: $on-primary;
+  display: inline-block;
+  font-size: $font-size-large;
+  font-variant: all-small-caps;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    opacity: 0.5;
   }
   &:not(&:disabled) {
     &:hover,
@@ -39,5 +40,23 @@
       background: darken($secondary, 5%);
       outline: none;
     }
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  margin: $xs-size 0;
+  * {
+    margin-right: $s-size;
+  }
+  .button:last-child {
+    margin-right: 0;
+  }
+  .button {
+    flex-grow: 2;
+  }
+  .button--secondary {
+    flex-grow: 1;
   }
 }

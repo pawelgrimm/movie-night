@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
 const MovieListItemExpanded = ({ movie, onClick, buttons = [] }) => {
   return (
     <div onClick={onClick}>
-      <div className="movie-item">
+      <div className="movie-item movie-item--selected">
         <MovieImage
           title={movie.title}
           type="poster"

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import MovieSearch from "../../containers/MovieSearch/MovieSearch";
-import MovieList from "./components/NominationMovieList";
-import VideoModal from "../../containers/VideoModal/VideoModal";
+import MovieList from "./components/CreateBallotMovieList";
 import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
-import { setMovies } from "../../services/movie/actions";
 import { clearBallot, saveBallot } from "../../services/ballot/actions";
 import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
+import Loader from "../../components/Loader/Loader";
+import AppPage from "../../components/AppPage/AppPage";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,
@@ -19,16 +20,16 @@ const mapDispatchToProps = (dispatch) => ({
   saveBallot: () => dispatch(saveBallot()),
 });
 
-export const NominationPage = ({
+export const CreateBallotPage = ({
   appElement,
   clearBallot,
   movies = [],
   isSavingBallot,
   newBallot,
   saveBallot,
-  history,
 }) => {
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (newBallot) {
@@ -38,22 +39,18 @@ export const NominationPage = ({
   }, [newBallot]);
 
   return (
-    <div className="content-container">
+    <AppPage>
+      {movies.length === 0 && <WelcomeMessage />}
       <MovieSearch numResults={5} />
-      {newBallot && (
-        <div>
-          Go to {window.location.href + `/ballot/${newBallot} to vote!`}
-        </div>
-      )}
-      {movies.length > 0 ? <MovieList /> : <WelcomeMessage />}
-      <div className="container--flex-row">
+      {movies.length > 0 && <MovieList />}
+      <div className="button-group">
         <button
           className="button"
           onClick={() => {
             saveBallot();
           }}
         >
-          {isSavingBallot ? "Saving..." : "Next (Voting)"}
+          {isSavingBallot ? <Loader /> : "Save Ballot"}
         </button>
         <button
           className="button button--secondary"
@@ -63,7 +60,6 @@ export const NominationPage = ({
           Start Over
         </button>
       </div>
-      <VideoModal appElement={appElement} />
       <ConfirmationModal
         appElement={appElement}
         isOpen={isConfirmationModalOpen}
@@ -73,8 +69,8 @@ export const NominationPage = ({
           setConfirmationModalOpen(false);
         }}
       />
-    </div>
+    </AppPage>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NominationPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBallotPage);

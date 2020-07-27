@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
-import NominationPage from "../../pages/NominationPage/NominationPage";
+import CreateBallotPage from "../../pages/CreateBallotPage/CreateBallotPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import Header from "../../components/Header/Header";
 import BallotPage from "../../pages/BallotPage/BallotPage";
@@ -12,15 +12,15 @@ const AppRouter = ({ appElement }) => (
   <Router history={history}>
     <Header />
     <Switch>
-      <Route exact path="/" component={() => <Redirect to="/nomination" />} />
       <Route
-        path="/nomination"
+        exact
+        path="/"
+        component={() => <Redirect to="/create-ballot" />}
+      />
+      <Route
+        path="/create-ballot"
         render={(...props) => (
-          <NominationPage
-            {...props}
-            history={history}
-            appElement={appElement}
-          />
+          <CreateBallotPage {...props} appElement={appElement} />
         )}
       />
       <Route

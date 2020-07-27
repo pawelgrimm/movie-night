@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render NominationPage with movies 1`] = `
-<div
-  className="content-container"
->
+<AppPage>
   <MovieSearch
     numResults={5}
   />
-  <Connect(NominationMovieList) />
+  <Connect(CreateBallotMovieList) />
   <div
-    className="container--flex-row"
+    className="button-group"
   >
     <button
       className="button"
       onClick={[Function]}
     >
-      Next (Voting)
+      Save Ballot
     </button>
     <button
       className="button button--secondary"
@@ -25,31 +23,28 @@ exports[`should render NominationPage with movies 1`] = `
       Start Over
     </button>
   </div>
-  <Connect(VideoModal) />
   <ConfirmationModal
     isOpen={false}
     onClose={[Function]}
     onConfirm={[Function]}
   />
-</div>
+</AppPage>
 `;
 
 exports[`should render NominationPage with no movies 1`] = `
-<div
-  className="content-container"
->
+<AppPage>
+  <WelcomeMessage />
   <MovieSearch
     numResults={5}
   />
-  <WelcomeMessage />
   <div
-    className="container--flex-row"
+    className="button-group"
   >
     <button
       className="button"
       onClick={[Function]}
     >
-      Next (Voting)
+      Save Ballot
     </button>
     <button
       className="button button--secondary"
@@ -59,11 +54,10 @@ exports[`should render NominationPage with no movies 1`] = `
       Start Over
     </button>
   </div>
-  <Connect(VideoModal) />
   <ConfirmationModal
     isOpen={false}
     onClose={[Function]}
     onConfirm={[Function]}
   />
-</div>
+</AppPage>
 `;

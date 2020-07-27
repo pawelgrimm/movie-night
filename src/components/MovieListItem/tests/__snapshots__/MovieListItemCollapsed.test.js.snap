@@ -2,7 +2,7 @@
 
 exports[`should render MovieListItemCollapsed correctly with buttons 1`] = `
 <div
-  className="list-item list-item--hover-effect movie-item"
+  className="movie-item list-item--hoverable"
   onClick={[Function]}
 >
   <ReactImageFallback
@@ -47,7 +47,7 @@ exports[`should render MovieListItemCollapsed correctly with buttons 1`] = `
 
 exports[`should render MovieListItemCollapsed correctly with no buttons 1`] = `
 <div
-  className="list-item list-item--hover-effect movie-item"
+  className="movie-item list-item--hoverable"
   onClick={[Function]}
 >
   <ReactImageFallback

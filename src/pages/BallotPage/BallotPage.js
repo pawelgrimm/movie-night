@@ -7,28 +7,7 @@ import MovieList from "./components/BallotMovieList";
 import VideoModal from "../../containers/VideoModal/VideoModal";
 import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 
-const BallotPage = ({ appElement, history }) => {
-  // const { id: ballotId } = useParams();
-  // const [movies, setMovies] = useState([]);
-  // const [loaded, setLoaded] = useState(false);
-  //
-  // // Load ballot from DB
-  // useEffect(() => {
-  //   database;
-  //   database
-  //     .ref(`ballot/${ballotId}`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       setMovies(snapshot.val());
-  //       setLoaded(true);
-  //     });
-  // }, []);
-  //
-  // if (!movies) {
-  //   return <NotFoundPage />;
-  // }
-  // return loaded ? <BallotMovieList /> : <LoadingPage />;
-
+const BallotPage = ({ appElement }) => {
   const [isConfirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
   return (
@@ -44,7 +23,6 @@ const BallotPage = ({ appElement, history }) => {
           Start Over
         </button>
       </div>
-      <VideoModal appElement={appElement} />
       <ConfirmationModal
         appElement={appElement}
         isOpen={isConfirmationModalOpen}
