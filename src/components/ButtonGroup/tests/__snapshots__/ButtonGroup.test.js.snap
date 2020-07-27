@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render button group 1`] = `
+<div
+  className="button-group"
+>
+  <button>
+    Button Text
+  </button>
+  <button>
+    Button Text
+  </button>
+</div>
+`;
