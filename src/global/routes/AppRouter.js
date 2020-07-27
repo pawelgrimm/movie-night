@@ -5,6 +5,7 @@ import CreateBallotPage from "../../pages/CreateBallotPage/CreateBallotPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import Header from "../../components/Header/Header";
 import BallotPage from "../../pages/BallotPage/BallotPage";
+import DashboardPage from "../../pages/DashboardPage/DashboardPage";
 
 export const history = createHistory();
 
@@ -21,6 +22,12 @@ const AppRouter = ({ appElement }) => (
         path="/create-ballot"
         render={(...props) => (
           <CreateBallotPage {...props} appElement={appElement} />
+        )}
+      />
+      <Route
+        path="/dashboard/:id"
+        render={(...props) => (
+          <DashboardPage {...props} appElement={appElement} />
         )}
       />
       <Route
