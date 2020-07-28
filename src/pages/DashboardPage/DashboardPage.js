@@ -4,7 +4,7 @@ import DashboardInfoCard from "./components/DashboardInfo";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 import EndVotingButton from "./components/EndVotingButton";
 import EditBallotButton from "./components/EditBallotButton";
-import DashboardMovieListContainer from "../../containers/DashboardMovieListContainer/DashboardMovieListContainer";
+import DashboardMovieListContainer from "../../containers/ResultsMovieListContainer/ResultsMovieListContainer";
 
 const DashboardPage = () => {
   return (

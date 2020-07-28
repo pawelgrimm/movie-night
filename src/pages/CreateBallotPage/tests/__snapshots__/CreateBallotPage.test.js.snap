@@ -2,13 +2,14 @@
 
 exports[`should render NominationPage with movies 1`] = `
 <AppPage>
+  <WelcomeMessage
+    isHidden={true}
+  />
   <MovieSearch
     numResults={5}
   />
   <Connect(CreateBallotMovieList) />
-  <div
-    className="button-group"
-  >
+  <ButtonGroup>
     <button
       className="button"
       onClick={[Function]}
@@ -22,7 +23,7 @@ exports[`should render NominationPage with movies 1`] = `
     >
       Start Over
     </button>
-  </div>
+  </ButtonGroup>
   <ConfirmationModal
     isOpen={false}
     onClose={[Function]}
@@ -33,13 +34,13 @@ exports[`should render NominationPage with movies 1`] = `
 
 exports[`should render NominationPage with no movies 1`] = `
 <AppPage>
-  <WelcomeMessage />
+  <WelcomeMessage
+    isHidden={false}
+  />
   <MovieSearch
     numResults={5}
   />
-  <div
-    className="button-group"
-  >
+  <ButtonGroup>
     <button
       className="button"
       onClick={[Function]}
@@ -53,7 +54,7 @@ exports[`should render NominationPage with no movies 1`] = `
     >
       Start Over
     </button>
-  </div>
+  </ButtonGroup>
   <ConfirmationModal
     isOpen={false}
     onClose={[Function]}

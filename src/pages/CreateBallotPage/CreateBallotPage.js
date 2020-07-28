@@ -8,6 +8,7 @@ import { clearBallot, saveBallot } from "../../services/ballot/actions";
 import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
 import Loader from "../../components/Loader/Loader";
 import AppPage from "../../components/AppPage/AppPage";
+import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,
@@ -40,10 +41,10 @@ export const CreateBallotPage = ({
 
   return (
     <AppPage>
-      {movies.length === 0 && <WelcomeMessage />}
+      <WelcomeMessage isHidden={movies.length > 0} />
       <MovieSearch numResults={5} />
       {movies.length > 0 && <MovieList />}
-      <div className="button-group">
+      <ButtonGroup>
         <button
           className="button"
           onClick={() => {
@@ -59,7 +60,7 @@ export const CreateBallotPage = ({
         >
           Start Over
         </button>
-      </div>
+      </ButtonGroup>
       <ConfirmationModal
         appElement={appElement}
         isOpen={isConfirmationModalOpen}

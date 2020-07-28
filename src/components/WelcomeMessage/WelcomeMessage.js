@@ -1,7 +1,10 @@
 import React from "react";
 import InfoCard from "../InfoCard/InfoCard";
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ isHidden }) => {
+  if (isHidden) {
+    return;
+  }
   return (
     <InfoCard title="Welcome to Movie Night!">
       <p>Use the search to add some movies to your list.</p>

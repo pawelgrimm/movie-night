@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory, useParams } from "react-router";
+import Button from "../../../components/Button/Button";
 
 const EditBallotButton = () => {
   const history = useHistory();
@@ -10,12 +11,9 @@ const EditBallotButton = () => {
   };
 
   return (
-    <button
-      className="button button--secondary"
-      onClick={navigateToEditBallotPage}
-    >
+    <Button type="secondary" onClick={navigateToEditBallotPage}>
       Edit
-    </button>
+    </Button>
   );
 };
 
