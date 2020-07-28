@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import MovieImage from "../MovieImage/MovieImage";
 import { formatReleaseYear } from "../../services/theMovieDb/theMovieDb";
-import { openModal } from "../../containers/VideoModal/service/actions";
+import { openVideoModal } from "../../containers/Modal/service/actions";
 
 const mapDispatchToProps = (dispatch) => ({
-  openModal: (videos) => dispatch(openModal(videos)),
+  openModal: (videos) => dispatch(openVideoModal(videos)),
 });
 
 const MovieListItemExpanded = ({ movie, onClick, buttons = [] }) => {
