@@ -3,15 +3,18 @@ import { useDispatch } from "react-redux";
 import { closeModal as closeModalAction } from "../service/actions";
 import Button from "../../../components/Button/Button";
 
-const CloseModalButton = ({ text = "Close" }) => {
+const ConfirmModalButton = ({ text = "Confirm", onConfirm }) => {
   const dispatch = useDispatch();
-  const closeModal = useCallback(() => dispatch(closeModalAction()), []);
+  const confirmAndClose = useCallback(() => {
+    onConfirm();
+    dispatch(closeModalAction());
+  }, []);
 
   return (
-    <Button type="secondary" className="modal__button" onClick={closeModal}>
+    <Button className="modal__button" onClick={confirmAndClose}>
       {text}
     </Button>
   );
 };
 
-export default CloseModalButton;
+export default ConfirmModalButton;
