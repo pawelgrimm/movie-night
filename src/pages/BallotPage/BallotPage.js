@@ -4,7 +4,6 @@ import database from "../../services/firebase/firebase";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import MovieList from "./components/BallotMovieList";
-import VideoModal from "../../containers/VideoModal/VideoModal";
 import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 
 const BallotPage = ({ appElement }) => {

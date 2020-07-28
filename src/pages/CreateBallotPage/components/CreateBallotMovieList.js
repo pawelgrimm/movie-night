@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import MovieListItem from "../../../components/MovieListItem/MovieListItem";
 import { Trash2 as TrashIcon } from "react-feather";
 import { fetchMovie } from "../../../services/movie/actions";
-import { openModal } from "../../../containers/VideoModal/service/actions";
+// import { openModal } from "../../../containers/VideoModal/service/actions";
 import { hydrateMovies } from "../../../services/movie/api";
 import { removeMovie } from "../../../services/ballot/actions";
+import { openVideoModal } from "../../../containers/Modal/service/actions";
 import Loader from "../../../components/Loader/Loader";
 
 const mapStateToProps = ({ movies, ballot }) => ({
@@ -15,7 +16,7 @@ const mapStateToProps = ({ movies, ballot }) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchMovie: (id) => dispatch(fetchMovie(id)),
   removeMovie: (id) => dispatch(removeMovie(id)),
-  openModal: (videos) => dispatch(openModal(videos)),
+  openModal: (videos) => dispatch(openVideoModal(videos)),
 });
 
 export const CreateBallotMovieList = ({
