@@ -5,8 +5,8 @@ import ItemCollapsed from "./MovieListItemCollapsed";
 import ItemExpanded from "./MovieListItemExpanded";
 import Loader from "../Loader/Loader";
 
-const mapStateToProps = ({ videoModal }) => ({
-  isModalOpen: videoModal.isOpen,
+const mapStateToProps = ({ modal }) => ({
+  isModalOpen: modal.isOpen,
 });
 
 export const MovieListItem = ({

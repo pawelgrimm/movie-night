@@ -3,18 +3,18 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import MovieListItem from "../../../components/MovieListItem/MovieListItem";
 import { ThumbsUp, ThumbsDown } from "react-feather";
-import { openModal } from "../../../containers/VideoModal/service/actions";
 import { getMoviesOnBallot } from "../../../services/firebase/api";
 import Loader from "../../../components/Loader/Loader";
 import { hydrateMovies } from "../../../services/movie/api";
 import { fetchMovie } from "../../../services/movie/actions";
+import { openVideoModal } from "../../../containers/Modal/service/actions";
 
 const mapStateToProps = ({ movies }) => ({
   savedMovies: movies,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  openModal: (videos) => dispatch(openModal(videos)),
+  openModal: (videos) => dispatch(openVideoModal(videos)),
   fetchMovie: (id) => dispatch(fetchMovie(id)),
 });
 
