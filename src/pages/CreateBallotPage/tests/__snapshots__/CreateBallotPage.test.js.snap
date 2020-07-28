@@ -10,12 +10,7 @@ exports[`should render NominationPage with movies 1`] = `
   />
   <Connect(CreateBallotMovieList) />
   <ButtonGroup>
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Save Ballot
-    </button>
+    <SaveBallotButton />
     <button
       className="button button--secondary"
       disabled={false}
@@ -41,12 +36,7 @@ exports[`should render NominationPage with no movies 1`] = `
     numResults={5}
   />
   <ButtonGroup>
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Save Ballot
-    </button>
+    <SaveBallotButton />
     <button
       className="button button--secondary"
       disabled={true}

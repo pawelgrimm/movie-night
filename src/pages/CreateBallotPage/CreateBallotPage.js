@@ -9,6 +9,7 @@ import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
 import Loader from "../../components/Loader/Loader";
 import AppPage from "../../components/AppPage/AppPage";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
+import { SaveBallotButton } from "./components/SaveBallotButton";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,
@@ -45,14 +46,7 @@ export const CreateBallotPage = ({
       <MovieSearch numResults={5} />
       {movies.length > 0 && <MovieList />}
       <ButtonGroup>
-        <button
-          className="button"
-          onClick={() => {
-            saveBallot();
-          }}
-        >
-          {isSavingBallot ? <Loader /> : "Save Ballot"}
-        </button>
+        <SaveBallotButton />
         <button
           className="button button--secondary"
           onClick={() => setConfirmationModalOpen(true)}
