@@ -55,3 +55,34 @@ test("should update app element", () => {
     appElement: divElement,
   });
 });
+
+test("close modal action should not clear out app element", () => {
+  const state = {
+    isOpen: true,
+    children: <Loader />,
+    appElement: document.createElement("DIV"),
+  };
+  const action = { type: CLOSE_MODAL };
+  expect(modalReducer(state, action)).toEqual({
+    isOpen: false,
+    children: undefined,
+    appElement: state.appElement,
+  });
+});
+
+test("open modal action should not clear out app element", () => {
+  const state = {
+    isOpen: false,
+    children: undefined,
+    appElement: document.createElement("DIV"),
+  };
+  const action = {
+    type: OPEN_MODAL,
+    children: React.createElement(Loader),
+  };
+  expect(modalReducer(state, action)).toEqual({
+    isOpen: true,
+    children: action.children,
+    appElement: state.appElement,
+  });
+});

@@ -10,14 +10,11 @@ const modalReducer = (state = defaultState, action) => {
   switch (action.type) {
     case OPEN_MODAL:
       if (action.children) {
-        return {
-          isOpen: true,
-          children: action.children,
-        };
+        return { ...state, isOpen: true, children: action.children };
       }
       return state;
     case CLOSE_MODAL:
-      return defaultState;
+      return { ...state, isOpen: false, children: undefined };
     case SET_APP_ELEMENT:
       return { ...state, appElement: action.appElement };
     default:
