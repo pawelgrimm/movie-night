@@ -31,3 +31,22 @@ test("should render children", () => {
   );
   expect(button.find("#inner").type()).toEqual("div");
 });
+
+test("should pass through provided classes", () => {
+  const testingClasses = ["testing", "additional"];
+  const wrapper = shallow(<Button className={testingClasses.join(" ")} />);
+  const classes = wrapper.prop("className").split(" ");
+  testingClasses.push("button");
+  expect(classes).toHaveLength(testingClasses.length);
+  expect(classes).toEqual(expect.arrayContaining(testingClasses));
+});
+
+test("should pass through other props", () => {
+  const wrapper = shallow(<Button someProp={true} />);
+  expect(
+    wrapper.prop("someProp"),
+    `Expected to have "someProp" prop, but only had: ${Object.keys(
+      wrapper.props()
+    )}`
+  ).toBe(true);
+});

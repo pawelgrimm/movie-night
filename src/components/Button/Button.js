@@ -1,13 +1,16 @@
 import React from "react";
-import classNames from "classnames";
+import assembleClasses from "classnames";
 
-const Button = ({ type, children }) => {
+const Button = ({ type, children, className: propClassName, ...restProps }) => {
+  const classes = assembleClasses(
+    "button",
+    {
+      "button--secondary": type === "secondary",
+    },
+    propClassName
+  );
   return (
-    <button
-      className={classNames("button", {
-        "button--secondary": type === "secondary",
-      })}
-    >
+    <button className={classes} {...restProps}>
       {children}
     </button>
   );
