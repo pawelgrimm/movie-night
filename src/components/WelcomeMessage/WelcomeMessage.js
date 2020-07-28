@@ -3,7 +3,7 @@ import InfoCard from "../InfoCard/InfoCard";
 
 const WelcomeMessage = ({ isHidden }) => {
   if (isHidden) {
-    return;
+    return null;
   }
   return (
     <InfoCard title="Welcome to Movie Night!">
