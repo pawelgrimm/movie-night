@@ -14,9 +14,14 @@ import { setBallot } from "./services/ballot/actions";
 import database from "firebase";
 import { fetchMovie, setMovies } from "./services/movie/actions";
 import VideoModal from "./containers/VideoModal/VideoModal";
+import { setAppElement } from "./containers/Modal/service/actions";
+import Modal from "./containers/Modal/Modal";
 
-const appElement = document.getElementById("app");
 const store = configureStore();
+
+// Set app element for modal
+const appElement = document.getElementById("app");
+store.dispatch(setAppElement(appElement));
 
 // Load local movie db from local storage
 const movies = JSON.parse(localStorage.getItem("movies")) || {};
@@ -26,13 +31,14 @@ store.dispatch(setMovies(movies));
 const ballotMovies = JSON.parse(localStorage.getItem("ballot/movies")) || [];
 store.dispatch(setBallot(ballotMovies));
 
-// Make sure all movies in ballot are loaded
-const fetchPromises = [];
-for (const id in movies) {
-  if (movies.hasOwnProperty(id)) {
-    fetchPromises.push(store.dispatch(fetchMovie(id)));
-  }
-}
+// This should no longer be necessary
+// // Make sure all movies in ballot are loaded
+// const fetchPromises = [];
+// for (const id in movies) {
+//   if (movies.hasOwnProperty(id)) {
+//     fetchPromises.push(store.dispatch(fetchMovie(id)));
+//   }
+// }
 
 store.subscribe(() => {
   const movies = store.getState().ballot.movies;
@@ -45,6 +51,7 @@ const jsx = (
   <Provider store={store}>
     <AppRouter appElement={appElement} />
     <VideoModal appElement={appElement} />
+    <Modal />
   </Provider>
 );
 
