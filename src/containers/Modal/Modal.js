@@ -7,14 +7,13 @@ import { closeModal } from "./service/actions";
 const mapStateToProps = ({ modal }) => ({
   isOpen: modal.isOpen,
   children: modal.children,
+  appElement: modal.appElement,
 });
 const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal()),
 });
 
-export const Modal = ({ isOpen, videos = [], appElement, closeModal }) => {
-  const key = videos.length > 0 && videos[0].key;
-  const videoUrl = `https://www.youtube.com/watch?v=${key}`;
+export const Modal = ({ isOpen, children, appElement, closeModal }) => {
   return (
     <ReactModal
       className="modal"
@@ -22,13 +21,7 @@ export const Modal = ({ isOpen, videos = [], appElement, closeModal }) => {
       onRequestClose={closeModal}
       appElement={appElement}
     >
-      <ReactPlayer className="video-modal__video" url={videoUrl} />
-      <button
-        className="button button--secondary video-modal__button"
-        onClick={closeModal}
-      >
-        Close
-      </button>
+      {children}
     </ReactModal>
   );
 };
