@@ -3,6 +3,9 @@
     "raf/polyfill",
     "<rootDir>/src/global/tests/setupTests.js"
   ],
+  "setupFilesAfterEnv": [
+    "jest-expect-message"
+  ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
   ]
