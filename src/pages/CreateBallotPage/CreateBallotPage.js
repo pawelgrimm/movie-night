@@ -10,6 +10,7 @@ import AppPage from "../../components/AppPage/AppPage";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 import { SaveBallotButton } from "./components/SaveBallotButton";
 import StartOverButton from "./components/StartOverButton";
+import CreateBallotMovieListContainer from "../../containers/CreateBallotMovieListContainer/CreateBallotMovieListContainer";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,
@@ -34,7 +35,7 @@ export const CreateBallotPage = ({ movies = [], newBallot, clearBallot }) => {
     <AppPage>
       <WelcomeMessage isHidden={movies.length > 0} />
       <MovieSearch numResults={5} />
-      {movies.length > 0 && <MovieList />}
+      <CreateBallotMovieListContainer />
       <ButtonGroup>
         <SaveBallotButton />
         <StartOverButton />

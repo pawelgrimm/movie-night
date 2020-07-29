@@ -8,7 +8,7 @@ exports[`should render NominationPage with movies 1`] = `
   <MovieSearch
     numResults={5}
   />
-  <Connect(CreateBallotMovieList) />
+  <CreateBallotMovieListContainer />
   <ButtonGroup>
     <SaveBallotButton />
     <StartOverButton />
@@ -24,6 +24,7 @@ exports[`should render NominationPage with no movies 1`] = `
   <MovieSearch
     numResults={5}
   />
+  <CreateBallotMovieListContainer />
   <ButtonGroup>
     <SaveBallotButton />
     <StartOverButton />
