@@ -3,12 +3,13 @@ import CloseModalButton from "./CloseModalButton";
 import ButtonGroup from "../../../components/ButtonGroup/ButtonGroup";
 import ConfirmModalButton from "./ConfirmModalButton";
 
-export const ConfirmModal = ({ message, onConfirm }) => {
+export const ConfirmModal = ({ title, message, onConfirm }) => {
   return (
     <>
+      <h2>{title}</h2>
       <p>{message}</p>
       <ButtonGroup>
-        <ConfirmModalButton onConfirm={onConfirm} />
+        <ConfirmModalButton text="Continue" onConfirm={onConfirm} />
         <CloseModalButton text="Cancel" />
       </ButtonGroup>
     </>

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import MovieListItem from "../../../components/MovieListItem/MovieListItem";
 import { Trash2 as TrashIcon } from "react-feather";
 import { fetchMovie } from "../../../services/movie/actions";
-// import { openModal } from "../../../containers/VideoModal/service/actions";
 import { hydrateMovies } from "../../../services/movie/api";
 import { removeMovie } from "../../../services/ballot/actions";
-import { openVideoModal } from "../../../containers/Modal/service/actions";
-import Loader from "../../../components/Loader/Loader";
+import { useModal } from "../../../containers/Modal/ModalContext";
+import VideoModal from "../../../containers/Modal/components/VideoModal";
 
 const mapStateToProps = ({ movies, ballot }) => ({
   movies: hydrateMovies(movies, ballot.movies),
@@ -16,15 +15,12 @@ const mapStateToProps = ({ movies, ballot }) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchMovie: (id) => dispatch(fetchMovie(id)),
   removeMovie: (id) => dispatch(removeMovie(id)),
-  openModal: (videos) => dispatch(openVideoModal(videos)),
 });
 
-export const CreateBallotMovieList = ({
-  movies,
-  openModal,
-  removeMovie,
-  fetchMovie,
-}) => {
+export const CreateBallotMovieList = ({ movies, removeMovie, fetchMovie }) => {
+  const { openModal } = useModal();
+  const openVideoModal = (videos) => openModal(<VideoModal videos={videos} />);
+
   return (
     <div className="card movie-list">
       {movies.map((movie) => {
@@ -39,7 +35,7 @@ export const CreateBallotMovieList = ({
             expandedButtons={expandedButtons(
               id,
               movie.info.trailers,
-              openModal,
+              openVideoModal,
               removeMovie
             )}
           />

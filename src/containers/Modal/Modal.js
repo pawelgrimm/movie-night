@@ -1,19 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useMemo } from "react";
 import ReactModal from "react-modal";
-import ReactPlayer from "react-player";
-import { closeModal } from "./service/actions";
 
-const mapStateToProps = ({ modal }) => ({
-  isOpen: modal.isOpen,
-  children: modal.children,
-  appElement: modal.appElement,
-});
-const mapDispatchToProps = (dispatch) => ({
-  closeModal: () => dispatch(closeModal()),
-});
-
-export const Modal = ({ isOpen, children, appElement, closeModal }) => {
+export const Modal = ({ isOpen, contents, appElement, closeModal }) => {
   return (
     <ReactModal
       className="modal"
@@ -21,9 +9,9 @@ export const Modal = ({ isOpen, children, appElement, closeModal }) => {
       onRequestClose={closeModal}
       appElement={appElement}
     >
-      {children}
+      {contents}
     </ReactModal>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default Modal;

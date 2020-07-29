@@ -11,19 +11,8 @@ exports[`should render NominationPage with movies 1`] = `
   <Connect(CreateBallotMovieList) />
   <ButtonGroup>
     <SaveBallotButton />
-    <button
-      className="button button--secondary"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Start Over
-    </button>
+    <StartOverButton />
   </ButtonGroup>
-  <ConfirmationModal
-    isOpen={false}
-    onClose={[Function]}
-    onConfirm={[Function]}
-  />
 </AppPage>
 `;
 
@@ -37,18 +26,7 @@ exports[`should render NominationPage with no movies 1`] = `
   />
   <ButtonGroup>
     <SaveBallotButton />
-    <button
-      className="button button--secondary"
-      disabled={true}
-      onClick={[Function]}
-    >
-      Start Over
-    </button>
+    <StartOverButton />
   </ButtonGroup>
-  <ConfirmationModal
-    isOpen={false}
-    onClose={[Function]}
-    onConfirm={[Function]}
-  />
 </AppPage>
 `;

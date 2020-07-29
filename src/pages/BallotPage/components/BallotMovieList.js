@@ -7,14 +7,13 @@ import { getMoviesOnBallot } from "../../../services/firebase/api";
 import Loader from "../../../components/Loader/Loader";
 import { hydrateMovies } from "../../../services/movie/api";
 import { fetchMovie } from "../../../services/movie/actions";
-import { openVideoModal } from "../../../containers/Modal/service/actions";
+import VideoModal from "../../../containers/Modal/components/VideoModal";
 
 const mapStateToProps = ({ movies }) => ({
   savedMovies: movies,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  openModal: (videos) => dispatch(openVideoModal(videos)),
   fetchMovie: (id) => dispatch(fetchMovie(id)),
 });
 
@@ -23,6 +22,7 @@ export const BallotMovieList = ({ savedMovies, openModal, fetchMovie }) => {
   const [movies, setMovies] = useState([]);
   const [movieIds, setMovieIds] = useState([]);
   const { id } = useParams();
+  const openVideoModal = (videos) => openModal(<VideoModal videos={videos} />);
 
   useEffect(() => {
     getMoviesOnBallot(id).then((ref) => {
@@ -57,7 +57,7 @@ export const BallotMovieList = ({ savedMovies, openModal, fetchMovie }) => {
             expandedButtons={expandedButtons(
               id,
               movie.info.trailers,
-              openModal
+              openVideoModal
             )}
           />
         );
