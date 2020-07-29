@@ -7,7 +7,9 @@
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server",
+    "dev-server": "concurrently \"yarn run dev-front\" \"yarn run dev-back\"",
+    "dev-front": "webpack-dev-server",
+    "dev-back": "nodemon server/server.js",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod",
@@ -20,6 +22,7 @@
     "@babel/plugin-proposal-optional-chaining": "7.10.3",
     "axios": "0.19.2",
     "classnames": "2.2.6",
+    "concurrently": "5.2.0",
     "core-js": "3.6.5",
     "cross-env": "7.0.2",
     "dotenv": "8.2.0",
