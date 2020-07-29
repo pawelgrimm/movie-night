@@ -1,7 +1,7 @@
 import React from "react";
-import MovieList from "../../components/MovieList/MovieList";
+import MovieList from "../../../components/MovieList/MovieList";
 import { useSelector } from "react-redux";
-import RemoveMovieFromBallotButton from "./components/RemoveMovieFromBallotButton";
+import RemoveMovieFromBallotButton from "./RemoveMovieFromBallotButton";
 
 const CreateBallotMovieListContainer = () => {
   const movies = useSelector(({ ballot }) => ballot.movies);

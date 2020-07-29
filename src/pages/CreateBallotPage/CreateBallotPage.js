@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import MovieSearch from "../../containers/MovieSearch/MovieSearch";
-import MovieList from "./components/CreateBallotMovieList";
 import { clearBallot } from "../../services/ballot/actions";
 import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
 
@@ -10,7 +9,7 @@ import AppPage from "../../components/AppPage/AppPage";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 import { SaveBallotButton } from "./components/SaveBallotButton";
 import StartOverButton from "./components/StartOverButton";
-import CreateBallotMovieListContainer from "../../containers/CreateBallotMovieListContainer/CreateBallotMovieListContainer";
+import CreateBallotMovieListContainer from "./components/CreateBallotMovieListContainer";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,
