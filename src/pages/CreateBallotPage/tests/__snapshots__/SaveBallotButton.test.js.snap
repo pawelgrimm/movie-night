@@ -1,13 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render button with loader 1`] = `
-<Button>
-  <Loader />
-</Button>
-`;
-
 exports[`should render button with text 1`] = `
-<Button>
+<Button
+  onClick={[Function]}
+>
   Save Ballot
 </Button>
 `;

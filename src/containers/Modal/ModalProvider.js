@@ -17,6 +17,7 @@ const ModalProvider = ({ appElement, children }) => {
   }, []);
 
   const modalValues = {
+    isOpen,
     openModal,
     closeModal,
   };

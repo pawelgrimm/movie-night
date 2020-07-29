@@ -1,18 +1,18 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { saveBallot } from "../../../services/ballot/actions";
 import Button from "../../../components/Button/Button";
 import Loader from "../../../components/Loader/Loader";
 
-const mapStateToProps = ({ ballot }) => ({
-  isSaving: ballot.isSaving,
-});
+const useSaveBallot = () => {
+  const dispatch = useDispatch();
+  const isSaving = useSelector(({ ballot }) => ballot.isSaving);
+  const saveBallotCallback = useCallback(() => dispatch(saveBallot()), []);
+  return { isSaving, saveBallot: saveBallotCallback };
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  saveBallot: () => dispatch(saveBallot()),
-});
-
-export const SaveBallotButton = ({ isSaving, saveBallot }) => {
+const SaveBallotButton = () => {
+  const { isSaving, saveBallot } = useSaveBallot();
   return (
     <Button onClick={saveBallot}>
       {isSaving ? <Loader /> : "Save Ballot"}
@@ -20,4 +20,4 @@ export const SaveBallotButton = ({ isSaving, saveBallot }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SaveBallotButton);
+export default SaveBallotButton;

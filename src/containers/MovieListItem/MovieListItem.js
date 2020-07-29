@@ -77,7 +77,7 @@ const MovieListItem = ({ id, renderExpandedItems, renderCollapsedItems }) => {
         )}
       </li>
     ),
-    [movie, isExpanded]
+    [movie, isExpanded, isModalOpen]
   );
 };
 

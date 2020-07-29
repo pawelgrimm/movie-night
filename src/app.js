@@ -48,7 +48,7 @@ store.subscribe(() => {
 
 const jsx = (
   <Provider store={store}>
-    <ModalProvider>
+    <ModalProvider appElement={appElement}>
       <AppRouter appElement={appElement} />
     </ModalProvider>
   </Provider>

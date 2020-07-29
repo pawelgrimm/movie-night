@@ -7,7 +7,7 @@ import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
 
 import AppPage from "../../components/AppPage/AppPage";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
-import { SaveBallotButton } from "./components/SaveBallotButton";
+import SaveBallotButton from "./components/SaveBallotButton";
 import StartOverButton from "./components/StartOverButton";
 import CreateBallotMovieListContainer from "./components/CreateBallotMovieListContainer";
 
@@ -26,7 +26,7 @@ export const CreateBallotPage = ({ movies = [], newBallot, clearBallot }) => {
   useEffect(() => {
     if (newBallot) {
       clearBallot();
-      history.push(`ballot/${newBallot}`);
+      history.push(`dashboard/${newBallot}`);
     }
   }, [newBallot]);
 
