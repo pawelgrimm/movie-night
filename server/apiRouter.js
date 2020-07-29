@@ -1,18 +1,7 @@
 const express = require("express");
-const { getBallot, saveVote, getResults } = require("./firebase/api");
+const { getBallot, saveVote } = require("./firebase/api");
 
 const apiRouter = express.Router();
-
-apiRouter.get("/api/results/:id", async (req, res) => {
-  const id = req.params.id;
-  try {
-    const results = await getResults(id);
-    res.status(200).send({ results });
-  } catch (e) {
-    console.log(e);
-    res.status(500).send();
-  }
-});
 
 apiRouter.get("/api/ballot/:id", async (req, res) => {
   const id = req.params.id;

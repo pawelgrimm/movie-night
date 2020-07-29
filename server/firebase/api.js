@@ -26,16 +26,6 @@ const convertVotesToResults = (votes) => {
   return results;
 };
 
-const getResults = (id) => {
-  return database
-    .ref(`ballots/${id}`)
-    .once("value")
-    .then((snapshot) => {
-      const ballot = snapshot.val();
-      return convertVotesToResults(ballot.votes);
-    });
-};
-
 const getBallot = (id) => {
   return database
     .ref(`ballots/${id}`)
@@ -43,6 +33,8 @@ const getBallot = (id) => {
     .then((snapshot) => {
       const ballot = snapshot.val();
       ballot.votes = convertListToArray(ballot.votes);
+      ballot.results = convertVotesToResults(ballot.votes);
+      delete ballot.votes;
       return ballot;
     });
 };
@@ -54,5 +46,4 @@ const saveVote = (ballotId, vote) => {
 module.exports = {
   getBallot,
   saveVote,
-  getResults,
 };
