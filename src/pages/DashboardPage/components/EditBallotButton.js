@@ -1,17 +1,16 @@
-import React from "react";
-import { useHistory, useParams } from "react-router";
+import React, { useCallback } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import Button from "../../../components/Button/Button";
 
 const EditBallotButton = () => {
   const history = useHistory();
-
-  const navigateToEditBallotPage = () => {
-    const { id } = useParams();
+  const { id } = useParams();
+  const navigateToEditBallotPage = useCallback(() => {
     history.push(`/edit-ballot/${id}`);
-  };
+  }, [id]);
 
   return (
-    <Button type="secondary" onClick={navigateToEditBallotPage}>
+    <Button type="secondary" disabled onClick={navigateToEditBallotPage}>
       Edit
     </Button>
   );

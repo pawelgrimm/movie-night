@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const EndVotingButton = (props) => {
-  const { id } = useParams();
+const EndVotingButton = () => {
+  // const { id } = useParams();
   return (
-    <button className="button" onClick={props.onClick}>
+    <button className="button" disabled>
       End Voting
     </button>
   );
