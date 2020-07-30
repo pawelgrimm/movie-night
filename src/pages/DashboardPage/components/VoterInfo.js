@@ -15,7 +15,7 @@ const VoterInfo = ({ text = "These people have voted:" }) => {
   return (
     <>
       <p>{text}</p>
-      <ul>
+      <ul className="dashed-list">
         {voters.map((voter, index) => (
           <li key={index}>{voter}</li>
         ))}

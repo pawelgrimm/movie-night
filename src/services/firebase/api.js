@@ -1,7 +1,10 @@
 import database from "./firebase";
 
 export const pushBallot = (ballot) => {
-  return database.ref("ballots").push(ballot);
+  return database
+    .ref("ballots")
+    .push(ballot)
+    .then((ref) => ref.key);
 };
 
 export const getMoviesOnBallot = (id) => {

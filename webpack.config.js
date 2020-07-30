@@ -81,7 +81,6 @@ module.exports = (env) => {
     mode: isProduction ? "production" : "development",
     devServer: {
       contentBase: path.join(__dirname, "public"),
-      open: true,
       historyApiFallback: true,
       publicPath: "/dist/",
       proxy: {

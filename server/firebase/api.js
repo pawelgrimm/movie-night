@@ -1,5 +1,12 @@
 const database = require("./firebase");
 
+const pushBallot = (ballot) => {
+  return database
+    .ref("ballots")
+    .push(ballot)
+    .then((ref) => ref.key);
+};
+
 const convertListToArray = (list) => {
   const array = [];
   for (const key in list) {
@@ -43,7 +50,16 @@ const saveVote = (ballotId, vote) => {
   return database.ref(`ballots/${ballotId}/votes`).push(vote);
 };
 
+const ballotIdExists = (ballotId) => {
+  return database
+    .ref(`ballots/${ballotId}`)
+    .once("value")
+    .then((snapshot) => !!snapshot.val());
+};
+
 module.exports = {
+  pushBallot,
   getBallot,
   saveVote,
+  ballotIdExists,
 };

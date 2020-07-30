@@ -12,7 +12,7 @@ exports[`Should render Header correctly 1`] = `
     >
       <Link
         className="header__title"
-        to="/dashboard"
+        to="/"
       >
         <h1>
           Movie Night
