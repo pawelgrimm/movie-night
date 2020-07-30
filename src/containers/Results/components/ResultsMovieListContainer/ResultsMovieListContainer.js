@@ -1,7 +1,7 @@
 import React from "react";
 import MovieList from "../../../../components/MovieList/MovieList";
 import { useResults } from "../../../../pages/DashboardPage/components/ResultsContext";
-import MovieResultsSummary from "./MovieResultsSummary";
+import MovieResultsSummary from "../MovieResultsSummary/MovieResultsSummary";
 
 export const ResultsMovieListContainer = () => {
   const { movies } = useResults();
