@@ -4,18 +4,21 @@ import DashboardInfoCard from "./components/DashboardInfo";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 import EndVotingButton from "./components/EndVotingButton";
 import EditBallotButton from "./components/EditBallotButton";
-import ResultsMovieListContainer from "../../containers/ResultsMovieListContainer/ResultsMovieListContainer";
+import ResultsMovieListContainer from "../../containers/Results/components/ResultsMovieListContainer/ResultsMovieListContainer";
+import ResultsProvider from "./components/ResultsProvider";
 
 const DashboardPage = () => {
   return (
-    <AppPage>
-      <DashboardInfoCard />
-      <ButtonGroup>
-        <EndVotingButton />
-        <EditBallotButton />
-      </ButtonGroup>
-      <ResultsMovieListContainer />
-    </AppPage>
+    <ResultsProvider>
+      <AppPage>
+        <DashboardInfoCard />
+        <ButtonGroup>
+          <EndVotingButton />
+          <EditBallotButton />
+        </ButtonGroup>
+        <ResultsMovieListContainer />
+      </AppPage>
+    </ResultsProvider>
   );
 };
 

@@ -1,33 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { getMoviesOnBallot } from "../../services/firebase/api";
-import { hydrateMovies } from "../../services/movie/api";
-import { fetchMovie } from "../../services/movie/actions";
-import { useParams } from "react-router";
-import MovieList from "../../components/MovieList/MovieList";
-
-const useBallotMovies = (id) => {
-  const [movies, setMovies] = useState(undefined);
-
-  useEffect(() => {
-    getMoviesOnBallot(id).then((ref) => {
-      const movies = ref.val();
-      movies.forEach((id) => fetchMovie(id));
-      setMovies(movies);
-    });
-  }, []);
-
-  return movies;
-};
+import React from "react";
+import MovieList from "../../../../components/MovieList/MovieList";
+import { useResults } from "../../../../pages/DashboardPage/components/ResultsContext";
+import MovieResultsSummary from "./MovieResultsSummary";
 
 export const ResultsMovieListContainer = () => {
-  const { id } = useParams();
-  const movies = useBallotMovies(id);
+  const { movies } = useResults();
 
   return (
     <MovieList
       movieIds={movies}
       renderExpandedItems={() => {}}
-      renderCollapsedItems={() => {}}
+      renderCollapsedItems={(id) => <MovieResultsSummary id={id} />}
     />
   );
 };

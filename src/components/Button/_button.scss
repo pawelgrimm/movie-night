@@ -15,9 +15,13 @@
     cursor: not-allowed;
     opacity: 0.5;
   }
-  &:not(&:disabled) {
+  &:enabled {
     &:hover,
     &:focus {
+      background: darken($primary, 3%);
+      outline: none;
+    }
+    &:active {
       background: darken($primary, 5%);
       outline: none;
     }
@@ -34,9 +38,14 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
-  &:not(&:disabled) {
+  &:enabled {
     &:hover,
     &:focus {
+      background: darken($secondary, 3%);
+      outline: none;
+    }
+
+    &:active {
       background: darken($secondary, 5%);
       outline: none;
     }
