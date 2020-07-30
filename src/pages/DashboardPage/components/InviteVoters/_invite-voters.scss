@@ -1,0 +1,23 @@
+.invite-voters {
+  display: flex;
+  flex-direction: row;
+  & > * {
+    display: inline-block;
+  }
+}
+
+.invite-voters__button {
+  margin-left: $m-size;
+  margin-right: $m-size;
+  padding: 0;
+  height: max-content;
+  align-self: center;
+  textarea {
+    @extend .button;
+    cursor: pointer;
+    margin: 0;
+    overflow: hidden;
+    resize: none;
+    text-align: center;
+  }
+}

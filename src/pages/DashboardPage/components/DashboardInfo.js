@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import InfoCard from "../../../components/InfoCard/InfoCard";
 import ResultContext from "./ResultsContext";
 import VoterInfo from "./VoterInfo";
-import InviteVoters from "./InviteVoters";
+import InviteVoters from "./InviteVoters/InviteVoters";
 
 const DashboardInfoCard = () => {
   return (

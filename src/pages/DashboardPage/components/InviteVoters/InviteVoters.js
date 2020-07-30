@@ -1,12 +1,11 @@
 import React from "react";
-import Button from "../../../components/Button/Button";
+import CopyToClipboardButton from "./CopyToClipboardButton";
 
 function InviteVoters() {
   return (
-    <div>
+    <div className="invite-voters">
       <p>To invite voters, send them this link:</p>
-      <Button>bit.ly/12345</Button>
-      <p>(click to copy to clipboard)</p>
+      <CopyToClipboardButton value={"bit.ly/12345"} />
     </div>
   );
 }
