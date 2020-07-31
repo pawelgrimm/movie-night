@@ -41,7 +41,11 @@ const useExpandable = () => {
   };
 };
 
-const MovieListItem = ({ id, renderExpandedItems, renderCollapsedItems }) => {
+const MovieListItem = ({
+  id,
+  renderExpandedItems = () => {},
+  renderCollapsedItems = () => {},
+}) => {
   const { isExpanded, setExpanded, setCollapsed } = useExpandable();
   const [movie, setMovie] = useState(undefined);
   const { isOpen: isModalOpen } = useModal();
@@ -50,7 +54,7 @@ const MovieListItem = ({ id, renderExpandedItems, renderCollapsedItems }) => {
 
   return useMemo(
     () => (
-      <li>
+      <li className="movie-list__item">
         {!movie ? (
           <Loader />
         ) : (
