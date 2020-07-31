@@ -6,6 +6,7 @@ import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import Header from "../../components/Header/Header";
 import BallotPage from "../../pages/BallotPage/BallotPage";
 import DashboardPage from "../../pages/DashboardPage/DashboardPage";
+import ResultsPage from "../../pages/ResultsPage/ResultsPage";
 
 export const history = createHistory();
 
@@ -13,27 +14,21 @@ const AppRouter = ({ appElement }) => (
   <Router history={history}>
     <Header />
     <Switch>
-      <Route
-        exact
-        path="/"
-        component={() => <Redirect to="/create-ballot" />}
-      />
-      <Route
-        path="/create-ballot"
-        render={(...props) => (
-          <CreateBallotPage {...props} appElement={appElement} />
-        )}
-      />
-      <Route
-        path="/dashboard/:id"
-        render={(...props) => (
-          <DashboardPage {...props} appElement={appElement} />
-        )}
-      />
-      <Route
-        path="/ballot/:id"
-        render={(...props) => <BallotPage {...props} appElement={appElement} />}
-      />
+      <Route exact path="/">
+        <Redirect to="/create-ballot" />
+      </Route>
+      <Route path="/create-ballot">
+        <CreateBallotPage />
+      </Route>
+      <Route path="/dashboard/:id">
+        <DashboardPage />
+      </Route>
+      <Route path="/results/:id">
+        <ResultsPage />
+      </Route>
+      <Route path="/ballot/:id">
+        <BallotPage />
+      </Route>
       <Route component={NotFoundPage} />
     </Switch>
   </Router>

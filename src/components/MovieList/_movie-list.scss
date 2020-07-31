@@ -2,3 +2,7 @@
   padding: calc(#{$m-size} / 2) calc(#{$ml-size} / 2);
   list-style: none;
 }
+
+li.movie-list__item {
+  list-style: none;
+}
