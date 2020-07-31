@@ -19,12 +19,51 @@ export const convertListToArray = (list) => {
   return array;
 };
 
+/*
+ * Take in votes in the format:
+ * {
+ *  "-MD_WTu29l1EosO2mB02" : {
+ *    "user" : "Pawel",
+ *    "votes" : {
+ *      "yay" : [ 10315, 132344 ],
+ *      "nay" : [ 793 ]
+ *    }
+ *  },
+ *  "-MD_WaiS5vfA9eo9nj2s" : {
+ *    "user" : "Jackie",
+ *    "votes" : {
+ *      "yay" : [ 132344 ]
+ *    }
+ *  }
+ * }
+ * ...and transforms them to the format:
+ * "results": {
+            "users": [
+                "Pawel",
+                "Jackie",
+            ],
+            "movies": {
+                "793": {
+                    "yay": 0,
+                    "nay": 1
+                },
+                "10315": {
+                    "yay": 1,
+                    "nay": 0
+                },
+                "132344": {
+                    "yay": 2
+                    "nay": 0
+                }
+            }
+        }
+ */
 export const convertVotesToResults = (votes) => {
   const results = { users: [], movies: {} };
-  Object.entries(votes).forEach(([key, vote]) => {
-    results.users.push(vote.user);
-    Object.entries(vote.votes).forEach(([yayOrNay, votes]) => {
-      votes.forEach((movie) => {
+  Object.entries(votes).forEach(([key, uniqueVote]) => {
+    results.users.push(uniqueVote.user);
+    Object.entries(uniqueVote.votes).forEach(([yayOrNay, movies]) => {
+      movies.forEach((movie) => {
         if (!results.movies[movie]) {
           results.movies[movie] = { yay: 0, nay: 0 };
         }

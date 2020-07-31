@@ -1,8 +1,14 @@
 import React from "react";
 import InfoCard from "../InfoCard/InfoCard";
+import { useSelector } from "react-redux";
+
+const useMovies = () => {
+  return useSelector(({ ballot }) => ballot.movies) || [];
+};
 
 const WelcomeMessage = ({ isHidden }) => {
-  if (isHidden) {
+  const movies = useMovies();
+  if (movies?.length > 0) {
     return null;
   }
   return (

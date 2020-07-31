@@ -1,5 +1,6 @@
 import database from "./firebase";
 import { convertListToArray, convertVotesToResults } from "../utils/utils";
+import determineWinner from "../controllers/determineWinner";
 
 export const pushBallot = (ballot) => {
   return database
@@ -33,9 +34,12 @@ export const ballotIdExists = (ballotId) => {
 };
 
 export const endVoting = (ballotId) => {
-  return database
-    .ref(`ballots/${ballotId}/isVotingOver`)
-    .set("true")
-    .then(() => true)
-    .catch((err) => err);
+  return getBallot(ballotId).then(({ results }) => {
+    const winner = determineWinner(results.movies);
+    return database
+      .ref(`ballots/${ballotId}/winner`)
+      .set(winner)
+      .then(() => true)
+      .catch((err) => err);
+  });
 };

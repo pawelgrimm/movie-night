@@ -2,11 +2,16 @@ import { expect, jest } from "@jest/globals";
 import { shallow } from "enzyme";
 import React from "react";
 import SaveBallotButton from "../components/SaveBallotButton";
-import Loader from "../../../components/Loader/Loader";
 
 jest.mock("react-redux", () => ({
   useSelector: () => false,
   useDispatch: () => {},
+}));
+
+jest.mock("../components/NewBallotContext", () => ({
+  useNewBallot: () => ({
+    setNewBallotId: () => {},
+  }),
 }));
 
 test("should render button with text", () => {

@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import InfoCard from "../../../components/InfoCard/InfoCard";
-import ResultContext from "./ResultsContext";
-import VoterInfo from "./VoterInfo";
+import VoterInfo from "../../../containers/Results/components/VoterInfo";
 import InviteVoters from "./InviteVoters/InviteVoters";
 
 const DashboardInfoCard = () => {

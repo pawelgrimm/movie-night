@@ -1,7 +1,12 @@
 import express from "express";
 import { checkSchema, validationResult } from "express-validator";
 import ballotSchema from "../schema/ballot";
-import { pushBallot, getBallot } from "../firebase/api";
+import {
+  pushBallot,
+  getBallot,
+  endVoting,
+  ballotIdExists,
+} from "../firebase/api";
 
 const ballotRouter = express.Router();
 
@@ -19,6 +24,22 @@ ballotRouter.get("/api/ballot/:id", async (req, res) => {
   }
 });
 
+ballotRouter.post("/api/ballot/:id/end", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const ballotExists = ballotIdExists(id);
+    if (!ballotExists) {
+      res.status(404).send();
+      return;
+    }
+    await endVoting(id);
+    res.status(200).send();
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
+});
+
 ballotRouter.post(
   "/api/ballot",
   checkSchema(ballotSchema),
@@ -30,7 +51,6 @@ ballotRouter.post(
     const ballot = {
       owner: req.body.owner,
       movies: req.body.movies,
-      isVotingOver: false,
       results: {
         users: [],
         movies: {},

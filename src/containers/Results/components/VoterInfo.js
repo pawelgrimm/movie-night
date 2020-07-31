@@ -1,11 +1,6 @@
 import React from "react";
-import { useResults } from "./ResultsContext";
 import Loader from "../../../components/Loader/Loader";
-
-const useBallotVoters = () => {
-  const { results = {} } = useResults();
-  return results.users;
-};
+import { useBallotVoters } from "./ResultsContext";
 
 const VoterInfo = ({
   text = "These people have voted:",

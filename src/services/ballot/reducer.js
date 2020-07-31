@@ -19,7 +19,7 @@ const ballotReducer = (state = defaultState, action) => {
     case SAVE_BALLOT_REQUEST:
       return { ...state, isSaving: true, id: undefined };
     case SAVE_BALLOT_SUCCESS:
-      return { ...state, isSaving: false, id: action.id };
+      return defaultState;
     case SAVE_BALLOT_FAILURE:
       return { ...state, isSaving: false, id: undefined };
     case ADD_MOVIE:

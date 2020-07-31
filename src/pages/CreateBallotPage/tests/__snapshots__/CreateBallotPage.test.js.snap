@@ -1,33 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render NominationPage with movies 1`] = `
-<AppPage>
-  <WelcomeMessage
-    isHidden={true}
-  />
-  <MovieSearch
-    numResults={5}
-  />
-  <CreateBallotMovieListContainer />
-  <ButtonGroup>
-    <SaveBallotButton />
-    <StartOverButton />
-  </ButtonGroup>
-</AppPage>
+<NewBallotProvider>
+  <AppPage>
+    <CreateBallotPageContainer>
+      <WelcomeMessage />
+      <MovieSearch
+        numResults={5}
+      />
+      <CreateBallotMovieListContainer />
+      <ButtonGroup>
+        <SaveBallotButton />
+        <StartOverButton />
+      </ButtonGroup>
+    </CreateBallotPageContainer>
+  </AppPage>
+</NewBallotProvider>
 `;
 
 exports[`should render NominationPage with no movies 1`] = `
-<AppPage>
-  <WelcomeMessage
-    isHidden={false}
-  />
-  <MovieSearch
-    numResults={5}
-  />
-  <CreateBallotMovieListContainer />
-  <ButtonGroup>
-    <SaveBallotButton />
-    <StartOverButton />
-  </ButtonGroup>
-</AppPage>
+<NewBallotProvider>
+  <AppPage>
+    <CreateBallotPageContainer>
+      <WelcomeMessage />
+      <MovieSearch
+        numResults={5}
+      />
+      <CreateBallotMovieListContainer />
+      <ButtonGroup>
+        <SaveBallotButton />
+        <StartOverButton />
+      </ButtonGroup>
+    </CreateBallotPageContainer>
+  </AppPage>
+</NewBallotProvider>
 `;

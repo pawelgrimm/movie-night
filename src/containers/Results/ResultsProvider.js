@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import ResultsContext, { defaultState } from "./ResultsContext";
-import { getBallot } from "../../../services/server/api";
+import ResultsContext, { defaultState } from "./components/ResultsContext";
+import { getBallot } from "../../services/server/api";
 
 const useBallot = (ballotId) => {
   const [ballot, setBallot] = useState(defaultState);
