@@ -1,4 +1,4 @@
-import ConfirmModal from "../../../containers/Modal/components/ConfirmModal";
+import ConfirmModal from "./ConfirmModal";
 import React from "react";
 
 const StartOverModal = ({ onConfirm }) => {
