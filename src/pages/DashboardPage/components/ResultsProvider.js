@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import ResultsContext, { defaultState } from "./ResultsContext";
 import { useParams } from "react-router";
-import axios from "axios";
-import Loader from "../../../components/Loader/Loader";
+import ResultsContext, { defaultState } from "./ResultsContext";
+import { getBallot } from "../../../services/server/api";
 
 const useBallot = (ballotId) => {
   const [ballot, setBallot] = useState(defaultState);
   useEffect(() => {
-    axios.get(`/api/ballot/${ballotId}`).then((res) => {
-      setBallot(res.data.ballot);
+    getBallot(ballotId).then((ballot) => {
+      setBallot(ballot);
     });
   }, []);
   return ballot;
