@@ -1,7 +1,16 @@
 import React from "react";
 import InfoCard from "../InfoCard/InfoCard";
+import { useSelector } from "react-redux";
 
-const WelcomeMessage = () => {
+const useMovies = () => {
+  return useSelector(({ ballot }) => ballot.movies) || [];
+};
+
+const WelcomeMessage = ({ isHidden }) => {
+  const movies = useMovies();
+  if (movies?.length > 0) {
+    return null;
+  }
   return (
     <InfoCard title="Welcome to Movie Night!">
       <p>Use the search to add some movies to your list.</p>

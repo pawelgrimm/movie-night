@@ -6,7 +6,7 @@ export const Header = () => (
   <header className="header">
     <div className="content-container">
       <div className="header__content">
-        <Link className="header__title" to="/dashboard">
+        <Link className="header__title" to="/">
           <h1>Movie Night</h1>
         </Link>
         <Link className="header__button" to="/">

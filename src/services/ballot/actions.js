@@ -1,6 +1,5 @@
-import database from "../firebase/firebase";
 import { fetchMovie, saveMovie } from "../movie/actions";
-import { pushBallot } from "../firebase/api";
+import { pushBallot } from "../server/api";
 
 export const SAVE_BALLOT_REQUEST = "SAVE_BALLOT_REQUEST";
 export const saveBallotRequest = () => ({ type: SAVE_BALLOT_REQUEST });
@@ -42,9 +41,7 @@ export const saveBallot = () => {
       owner: "testId" /* getState().auth.uid */,
     };
     return pushBallot(ballot)
-      .then((ref) => {
-        dispatch(saveBallotSuccess(ref.key));
-      })
+      .then((ballotId) => dispatch(saveBallotSuccess(ballotId)))
       .catch(() => {
         dispatch(saveBallotFailure());
       });

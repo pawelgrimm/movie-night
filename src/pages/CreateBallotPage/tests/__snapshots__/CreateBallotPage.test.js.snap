@@ -1,63 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render NominationPage with movies 1`] = `
-<AppPage>
-  <MovieSearch
-    numResults={5}
-  />
-  <Connect(CreateBallotMovieList) />
-  <div
-    className="button-group"
-  >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Save Ballot
-    </button>
-    <button
-      className="button button--secondary"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Start Over
-    </button>
-  </div>
-  <ConfirmationModal
-    isOpen={false}
-    onClose={[Function]}
-    onConfirm={[Function]}
-  />
-</AppPage>
+<NewBallotProvider>
+  <AppPage>
+    <CreateBallotPageContainer>
+      <WelcomeMessage />
+      <MovieSearch
+        numResults={5}
+      />
+      <CreateBallotMovieListContainer />
+      <ButtonGroup>
+        <SaveBallotButton />
+        <StartOverButton />
+      </ButtonGroup>
+    </CreateBallotPageContainer>
+  </AppPage>
+</NewBallotProvider>
 `;
 
 exports[`should render NominationPage with no movies 1`] = `
-<AppPage>
-  <WelcomeMessage />
-  <MovieSearch
-    numResults={5}
-  />
-  <div
-    className="button-group"
-  >
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Save Ballot
-    </button>
-    <button
-      className="button button--secondary"
-      disabled={true}
-      onClick={[Function]}
-    >
-      Start Over
-    </button>
-  </div>
-  <ConfirmationModal
-    isOpen={false}
-    onClose={[Function]}
-    onConfirm={[Function]}
-  />
-</AppPage>
+<NewBallotProvider>
+  <AppPage>
+    <CreateBallotPageContainer>
+      <WelcomeMessage />
+      <MovieSearch
+        numResults={5}
+      />
+      <CreateBallotMovieListContainer />
+      <ButtonGroup>
+        <SaveBallotButton />
+        <StartOverButton />
+      </ButtonGroup>
+    </CreateBallotPageContainer>
+  </AppPage>
+</NewBallotProvider>
 `;

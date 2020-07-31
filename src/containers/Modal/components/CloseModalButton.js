@@ -1,15 +1,20 @@
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { closeModal as closeModalAction } from "../service/actions";
+import React from "react";
 import Button from "../../../components/Button/Button";
+import { useModal } from "../ModalContext";
 
-const CloseModalButton = () => {
-  const dispatch = useDispatch();
-  const closeModal = useCallback(() => dispatch(closeModalAction()), []);
+const CloseModalButton = ({ text = "Close" }) => {
+  const { closeModal } = useModal();
 
   return (
-    <Button className="modal__button" onClick={closeModal}>
-      Close
+    <Button
+      type="secondary"
+      className="modal__button"
+      onClick={(event) => {
+        event.stopPropagation();
+        closeModal();
+      }}
+    >
+      {text}
     </Button>
   );
 };
