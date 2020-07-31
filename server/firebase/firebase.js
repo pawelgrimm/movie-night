@@ -1,4 +1,4 @@
-const firebase = require("firebase");
+import firebase from "firebase";
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -10,8 +10,9 @@ const config = {
   appId: process.env.FIREBASE_APP_ID,
 };
 
+require("dotenv").config({ path: ".env.development" });
 firebase.initializeApp(config);
 
 const database = firebase.database();
 
-module.exports = database;
+export default database;
