@@ -1,19 +1,19 @@
 import React from "react";
 import MovieList from "../../../components/MovieList/MovieList";
-import { useResultsContext } from "../../../containers/Results/components/ResultsContext";
+import { useBallot } from "../../../containers/Results/components/ResultsContext";
 import VotingButtonGroup from "./VotingButtonGroup";
 import ButtonGroup from "../../../components/ButtonGroup/ButtonGroup";
 
 const VotingMovieListContainer = () => {
-  const { movies } = useResultsContext();
+  const { movies } = useBallot();
 
   return (
     <MovieList
       movieIds={movies}
-      renderExpandedItems={(id) => <VotingButtonGroup />}
+      renderExpandedItems={(id) => <VotingButtonGroup id={id} />}
       renderCollapsedItems={(id) => (
         <ButtonGroup>
-          <VotingButtonGroup />
+          <VotingButtonGroup id={id} />
         </ButtonGroup>
       )}
     />
