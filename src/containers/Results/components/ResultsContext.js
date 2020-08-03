@@ -4,8 +4,8 @@ export const defaultState = {
   data: {
     movies: [],
     owner: null,
+    winner: null,
     results: {
-      winner: null,
       users: [],
       movies: {},
     },
@@ -29,7 +29,7 @@ export const useResults = () => {
 };
 
 export const useWinner = () => {
-  return useResults()?.winner;
+  return useBallot()?.winner;
 };
 
 export const useVoters = () => {

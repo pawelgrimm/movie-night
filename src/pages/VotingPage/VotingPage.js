@@ -9,22 +9,24 @@ import ResultsProvider from "../../containers/Results/ResultsProvider";
 import InProgBallotPageContainer from "../../containers/Results/components/InProgBallotPageContainer";
 import VoteProvider from "./components/VoteProvider";
 import VoteInfo from "./components/VoteInfo";
+import VoterNameInput from "./components/VoterNameInput";
+import VotingPageContainer from "./components/VotingPageContainer";
 
 const VotingPage = () => {
   return (
     <ResultsProvider>
       <AppPage>
-        <InProgBallotPageContainer>
-          <VoteProvider>
+        <VoteProvider>
+          <VotingPageContainer>
             <VoteInfo />
-
+            <VoterNameInput />
             <VotingMovieListContainer />
             <ButtonGroup>
               <SubmitVoteButton />
               <StartOverButton />
             </ButtonGroup>
-          </VoteProvider>
-        </InProgBallotPageContainer>
+          </VotingPageContainer>
+        </VoteProvider>
       </AppPage>
     </ResultsProvider>
   );
