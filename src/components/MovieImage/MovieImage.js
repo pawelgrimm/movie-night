@@ -1,6 +1,6 @@
 import ReactImageFallback from "react-image-fallback";
 import React from "react";
-import { getImageUrl } from "../../services/theMovieDb/theMovieDb";
+import { getImageUrl } from "../../utils/theMovieDb";
 
 const MovieImage = ({ title, type, imageWidth, filePath, className = "" }) => {
   const imagePath = getImageUrl(type, imageWidth, filePath);

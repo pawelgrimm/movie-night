@@ -5,7 +5,6 @@ import { setSearchResults } from "./service/actions";
 import searchReducer from "./service/reducer";
 import SearchResults from "./SearchResults";
 import TextInput from "../../components/TextInput/TextInput";
-import { search } from "../../services/theMovieDb/theMovieDb";
 import { getMovieSearch } from "../../services/server/api";
 
 const MovieSearch = ({ numResults }) => {

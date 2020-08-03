@@ -1,6 +1,5 @@
 import moment from "moment";
-
-import { getMovieInfo, getMovieTrailers } from "../theMovieDb/theMovieDb";
+import { getMovieInfo, getMovieTrailers } from "../server/api";
 
 export const fetchMovie = (id) => {
   return (dispatch, getState) => {
