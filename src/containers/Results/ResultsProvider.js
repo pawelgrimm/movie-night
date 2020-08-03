@@ -7,7 +7,7 @@ import {
   FETCH_FAILURE,
   FETCH_REQUEST,
   FETCH_SUCCESS,
-} from "./dataFetchReducer";
+} from "./components/dataFetchReducer";
 
 const useBallotApi = (ballotId) => {
   const [state, dispatch] = useReducer(dataFetchReducer, defaultState);
