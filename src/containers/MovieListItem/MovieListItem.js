@@ -13,7 +13,7 @@ import { useModal } from "../Modal/ModalContext";
 import ExpandedItem from "./components/MovieListItemExpanded";
 import CollapsedItem from "./components/MovieListItemCollapsed";
 
-const useMovie = (id, setMovie) => {
+export const useMovie = (id, setMovie) => {
   const dispatch = useDispatch();
   const fetchMovie = useCallback(
     (id) => {

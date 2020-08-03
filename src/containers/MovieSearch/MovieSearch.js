@@ -5,21 +5,19 @@ import { setSearchResults } from "./service/actions";
 import searchReducer from "./service/reducer";
 import SearchResults from "./SearchResults";
 import TextInput from "../../components/TextInput/TextInput";
+import { getMovieSearch } from "../../services/server/api";
 
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
   const [searchResults, dispatch] = useReducer(searchReducer, []);
 
   const searchInput = useRef(null);
-  // const handleFocus = () => {
-  //   searchInput.current.focus();
-  // };
 
   const onChange = (e) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
     if (newQuery.length > 1) {
-      search(newQuery)
+      getMovieSearch(newQuery)
         .then((movies) => {
           dispatch(setSearchResults(movies, numResults));
         })
@@ -42,14 +40,12 @@ const MovieSearch = ({ numResults }) => {
           placeholder="Search for a movie"
           value={query}
           onChange={onChange}
-          ref={searchInput}
+          forwardRef={searchInput}
         />
         <SearchResults />
       </OutsideClickHandler>
     </SearchContext.Provider>
   );
 };
-
-import { search } from "../../services/theMovieDb/theMovieDb";
 
 export default MovieSearch;
