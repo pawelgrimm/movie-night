@@ -19,3 +19,9 @@ export const pushVote = (id, user, movies) => {
   );
   return axios.post(`/api/vote/${id}`, { user, votes }).then((res) => res.data);
 };
+
+export const getMovieSearch = (query) => {
+  return axios
+    .get(`/api/movie/search/${query}`)
+    .then((res) => res.data.results);
+};
