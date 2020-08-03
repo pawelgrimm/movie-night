@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import Button from "../../../components/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { clearBallot as clearBallotAction } from "../../../services/ballot/actions";
-import StartOverModal from "./StartOverModal";
+import StartOverModal from "../../../containers/Modal/components/StartOverModal";
 import { useModal } from "../../../containers/Modal/ModalContext";
 
 const StartOverButton = () => {

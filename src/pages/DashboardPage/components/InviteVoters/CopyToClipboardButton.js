@@ -18,7 +18,7 @@ function CopyToClipboardButton({ value }) {
           tabIndex={-1}
           onClick={copyToClipboard}
           rows={1}
-          cols={value.length / 2}
+          cols={value.length / 1.5}
         />
       </Button>
       <p>(click to copy to clipboard)</p>

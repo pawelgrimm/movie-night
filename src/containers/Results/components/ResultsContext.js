@@ -1,32 +1,43 @@
 import React, { useContext } from "react";
 
 export const defaultState = {
-  movies: [],
-  owner: null,
-  winner: null,
-  results: {
-    users: [],
-    movies: {},
+  data: {
+    movies: [],
+    owner: null,
+    winner: null,
+    results: {
+      users: [],
+      movies: {},
+    },
   },
+  isLoading: true,
+  isError: false,
 };
 
 const ResultsContext = React.createContext(defaultState);
 
-export const useBallot = () => {
+export const useResultsContext = () => {
   return useContext(ResultsContext);
 };
 
+export const useBallot = () => {
+  return useResultsContext()?.data;
+};
+
 export const useResults = () => {
-  return useBallot().results || defaultState.results;
+  return useBallot()?.results;
 };
 
 export const useWinner = () => {
-  return useBallot().winner;
+  return useBallot()?.winner;
 };
 
-export const useBallotVoters = () => {
-  const { users } = useResults();
-  return users;
+export const useVoters = () => {
+  return useResults()?.users;
+};
+
+export const useVotes = () => {
+  return useResults()?.movies;
 };
 
 export default ResultsContext;

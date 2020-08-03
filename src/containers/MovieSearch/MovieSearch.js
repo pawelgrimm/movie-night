@@ -4,6 +4,7 @@ import SearchContext from "./search-context";
 import { setSearchResults } from "./service/actions";
 import searchReducer from "./service/reducer";
 import SearchResults from "./SearchResults";
+import TextInput from "../../components/TextInput/TextInput";
 
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
@@ -37,16 +38,12 @@ const MovieSearch = ({ numResults }) => {
   return (
     <SearchContext.Provider value={{ searchResults, dispatch, resetSearch }}>
       <OutsideClickHandler onOutsideClick={resetSearch}>
-        <div className="container--flex-col">
-          <input
-            className="card text-input text-input--grow"
-            //autoFocus
-            placeholder="Search for a movie"
-            value={query}
-            onChange={onChange}
-            ref={searchInput}
-          />
-        </div>
+        <TextInput
+          placeholder="Search for a movie"
+          value={query}
+          onChange={onChange}
+          ref={searchInput}
+        />
         <SearchResults />
       </OutsideClickHandler>
     </SearchContext.Provider>

@@ -6,20 +6,20 @@ import EndVotingButton from "./components/EndVotingButton";
 import EditBallotButton from "./components/EditBallotButton";
 import ResultsMovieListContainer from "../../containers/Results/components/ResultsMovieListContainer/ResultsMovieListContainer";
 import ResultsProvider from "../../containers/Results/ResultsProvider";
-import DashboardPageContainer from "./components/DashboardPageContainer";
+import InProgBallotPageContainer from "../../containers/Results/components/InProgBallotPageContainer";
 
 const DashboardPage = () => {
   return (
     <ResultsProvider>
       <AppPage>
-        <DashboardPageContainer>
+        <InProgBallotPageContainer>
           <DashboardInfoCard />
           <ButtonGroup>
             <EndVotingButton />
             <EditBallotButton />
           </ButtonGroup>
           <ResultsMovieListContainer />
-        </DashboardPageContainer>
+        </InProgBallotPageContainer>
       </AppPage>
     </ResultsProvider>
   );
