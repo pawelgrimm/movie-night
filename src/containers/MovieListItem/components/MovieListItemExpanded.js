@@ -48,7 +48,7 @@ const MovieListItemExpanded = ({
         <p className="movie-item__overview">{overview}</p>
         <ButtonGroup>
           <WatchTrailerButton videos={trailers} />
-          {renderAdditionalItems(id)}
+          {renderAdditionalItems && renderAdditionalItems(id)}
         </ButtonGroup>
       </div>
     </div>

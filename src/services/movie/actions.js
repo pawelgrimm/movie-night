@@ -4,27 +4,25 @@ import { getMovieInfo, getMovieTrailers } from "../theMovieDb/theMovieDb";
 
 export const fetchMovie = (id) => {
   return (dispatch, getState) => {
-    // Is already fetching
-    if (getState().movies[id]?.isFetching) {
+    const movies = getState().movies;
+    const status = movies && movies[id]?.status;
+
+    if (status?.isFetching) {
       return;
-    }
-    // Has already been fetched recently
-    const lastFetched = getState().movies[id]?.lastFetched;
-    if (
-      lastFetched &&
-      moment(lastFetched).isAfter(moment().subtract(12, "hours"))
+    } else if (
+      !status?.isError &&
+      status?.lastFetched &&
+      moment().diff(moment(status.lastFetched), "hours") < 12
     ) {
       return;
     }
 
     dispatch(fetchMovieRequest(id));
-    const movie = getState().movies[id].info;
     const info = getMovieInfo(id);
     const trailers = getMovieTrailers(id);
     return Promise.all([info, trailers])
       .then(([info, trailers]) => {
-        dispatch(saveMovie(id, { ...movie, ...info, trailers }));
-        dispatch(fetchMovieSuccess(id));
+        dispatch(fetchMovieSuccess(id, { ...info, trailers }));
       })
       .catch(() => dispatch(fetchMovieFailure(id)));
   };
@@ -34,7 +32,11 @@ export const FETCH_MOVIE_REQUEST = "FETCH_MOVIE_REQUEST";
 export const fetchMovieRequest = (id) => ({ type: FETCH_MOVIE_REQUEST, id });
 
 export const FETCH_MOVIE_SUCCESS = "FETCH_MOVIE_SUCCESS";
-export const fetchMovieSuccess = (id) => ({ type: FETCH_MOVIE_SUCCESS, id });
+export const fetchMovieSuccess = (id, payload) => ({
+  type: FETCH_MOVIE_SUCCESS,
+  id,
+  payload,
+});
 
 export const FETCH_MOVIE_FAILURE = "FETCH_MOVIE_FAILURE";
 export const fetchMovieFailure = (id) => ({ type: FETCH_MOVIE_FAILURE, id });

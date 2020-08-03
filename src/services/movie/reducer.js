@@ -14,26 +14,62 @@ const movieReducer = (state = defaultState, action) => {
   const id = action.id;
   switch (action.type) {
     case SAVE_MOVIE:
-      const movieToSave = { ...state[id], isSaved: true, info: action.info };
+      const movieToSave = {
+        ...state[id],
+        info: action.info,
+      };
       return { ...state, [id]: movieToSave };
     case SET_MOVIES:
-      return { ...action.movies };
+      const sanitizedState = {};
+      Object.entries(action.movies).forEach(([id, data]) => {
+        sanitizedState[id] = {
+          ...data,
+          status: {
+            ...data.status,
+            isFetching: false,
+          },
+        };
+      });
+      return sanitizedState;
     case FETCH_MOVIE_REQUEST:
-      return { ...state, [id]: { ...state[id], isFetching: true } };
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          status: {
+            isFetching: true,
+            isError: false,
+            lastFetched: null,
+          },
+        },
+      };
     case FETCH_MOVIE_SUCCESS:
       return {
         ...state,
         [id]: {
           ...state[id],
-          isFetching: false,
-          isSaved: true,
-          lastFetched: moment.now(),
+          info: {
+            ...state[id]?.info,
+            ...action.payload,
+          },
+          status: {
+            isFetching: false,
+            isError: false,
+            lastFetched: moment.now(),
+          },
         },
       };
     case FETCH_MOVIE_FAILURE:
       return {
         ...state,
-        [id]: { ...state[id], isFetching: false },
+        [id]: {
+          ...state[id],
+          status: {
+            isFetching: false,
+            isError: true,
+            lastFetched: null,
+          },
+        },
       };
     default:
       return state;

@@ -3,7 +3,7 @@ import AppPage from "../../components/AppPage/AppPage";
 import ResultsMovieListContainer from "../../containers/Results/components/ResultsMovieListContainer/ResultsMovieListContainer";
 import ResultsProvider from "../../containers/Results/ResultsProvider";
 import ResultsInfo from "./components/ResultsInfo";
-import ResultsPageContainer from "./ResultsPageContainer";
+import ResultsPageContainer from "./components/ResultsPageContainer";
 
 const ResultsPage = () => {
   return (

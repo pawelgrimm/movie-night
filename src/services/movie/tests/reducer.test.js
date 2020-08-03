@@ -16,13 +16,22 @@ test("should save movie", () => {
   const state = movieReducer(movies, action);
   expect(state).toEqual({
     ...movies,
-    [testMovies[2].id]: { info: testMovies[2], isSaved: true },
+    [testMovies[2].id]: { info: testMovies[2] },
   });
 });
 
 test("should set movies", () => {
   const movies = {};
-  testMovies.forEach((movie) => (movies[movie.id] = movie));
+  testMovies.forEach((movie) => {
+    movies[movie.id] = {
+      info: movie,
+      status: {
+        isFetching: false,
+        isError: false,
+        lastFetched: 1596487276477,
+      },
+    };
+  });
 
   const action = {
     type: "SET_MOVIES",
