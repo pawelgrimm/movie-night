@@ -1,12 +1,12 @@
 import React from "react";
 import Loader from "../../../components/Loader/Loader";
-import { useBallotVoters } from "./ResultsContext";
+import { useVoters } from "./ResultsContext";
 
 const VoterInfo = ({
   text = "These people have voted:",
   noResultsText = "No one has voted on this Movie Night yet!",
 }) => {
-  const voters = useBallotVoters();
+  const voters = useVoters();
 
   if (!voters) {
     return <Loader />;

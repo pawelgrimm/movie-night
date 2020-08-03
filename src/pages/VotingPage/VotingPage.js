@@ -5,16 +5,19 @@ import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 import VotingMovieListContainer from "./components/VotingMovieListContainer";
 import SubmitVoteButton from "./components/SubmitVoteButton";
 import StartOverButton from "./components/StartOverButton";
+import ResultsProvider from "../../containers/Results/ResultsProvider";
 
 const VotingPage = () => {
   return (
-    <AppPage>
-      <VotingMovieListContainer />
-      <ButtonGroup>
-        <SubmitVoteButton />
-        <StartOverButton />
-      </ButtonGroup>
-    </AppPage>
+    <ResultsProvider>
+      <AppPage>
+        <VotingMovieListContainer />
+        <ButtonGroup>
+          <SubmitVoteButton />
+          <StartOverButton />
+        </ButtonGroup>
+      </AppPage>
+    </ResultsProvider>
   );
 };
 

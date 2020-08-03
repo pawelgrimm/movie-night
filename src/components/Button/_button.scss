@@ -26,6 +26,9 @@
       outline: none;
     }
   }
+  & > svg {
+    margin: auto;
+  }
 }
 
 .button--link {

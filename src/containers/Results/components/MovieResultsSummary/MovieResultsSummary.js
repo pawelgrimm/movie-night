@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import { useResults } from "../ResultsContext";
+import { useBallot, useVotes } from "../ResultsContext";
 import { ThumbsUp, ThumbsDown } from "react-feather";
 
 const useYayOrNay = (id) => {
-  const { movies } = useResults();
+  const movies = useVotes();
   return useMemo(() => {
     return {
       yay: movies[id]?.yay || 0,
