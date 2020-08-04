@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router";
 import ResultsContext, { defaultState } from "./components/ResultsContext";
 import { getBallot } from "../../services/server/api";
@@ -9,8 +9,18 @@ import {
   FETCH_SUCCESS,
 } from "./components/dataFetchReducer";
 
+const useRefresh = () => {
+  const [refreshKey, setRefreshKey] = useState(false);
+  const requestRefresh = useCallback(
+    () => setRefreshKey((prevState) => !prevState),
+    []
+  );
+  return [refreshKey, requestRefresh];
+};
+
 const useBallotApi = (ballotId) => {
   const [state, dispatch] = useReducer(dataFetchReducer, defaultState);
+  const [refreshKey, requestRefresh] = useRefresh();
 
   useEffect(() => {
     let didCancel = false;
@@ -38,9 +48,9 @@ const useBallotApi = (ballotId) => {
     return () => {
       didCancel = true;
     };
-  }, []);
+  }, [refreshKey]);
 
-  return state;
+  return { ...state, requestRefresh };
 };
 
 const ResultsProvider = ({ children }) => {

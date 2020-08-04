@@ -1,10 +1,12 @@
 import React, { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { endVoting } from "../../../services/server/api";
+import { useRequestRefresh } from "../../../containers/Results/components/ResultsContext";
 
 const useEndVoting = () => {
   const { id } = useParams();
-  return useCallback(() => endVoting(id), [id]);
+  const requestRefresh = useRequestRefresh();
+  return useCallback(() => endVoting(id).then(() => requestRefresh()), [id]);
 };
 
 const EndVotingButton = () => {

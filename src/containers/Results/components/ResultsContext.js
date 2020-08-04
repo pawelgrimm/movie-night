@@ -12,6 +12,7 @@ export const defaultState = {
   },
   isLoading: true,
   isError: false,
+  requestRefresh: () => {},
 };
 
 const ResultsContext = React.createContext(defaultState);
@@ -38,6 +39,10 @@ export const useVoters = () => {
 
 export const useVotes = () => {
   return useResults()?.movies;
+};
+
+export const useRequestRefresh = () => {
+  return useResultsContext().requestRefresh;
 };
 
 export default ResultsContext;
