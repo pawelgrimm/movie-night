@@ -49,3 +49,13 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}

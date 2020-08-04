@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import VotingPage from "../../pages/VotingPage/VotingPage";
 import DashboardPage from "../../pages/DashboardPage/DashboardPage";
 import ResultsPage from "../../pages/ResultsPage/ResultsPage";
+import Footer from "../../components/Footer/Footer";
 
 export const history = createHistory();
 
@@ -31,6 +32,7 @@ const AppRouter = ({ appElement }) => (
       </Route>
       <Route component={NotFoundPage} />
     </Switch>
+    <Footer />
   </Router>
 );
 
