@@ -8,6 +8,7 @@ import VotingPage from "../../pages/VotingPage/VotingPage";
 import DashboardPage from "../../pages/DashboardPage/DashboardPage";
 import ResultsPage from "../../pages/ResultsPage/ResultsPage";
 import Footer from "../../components/Footer/Footer";
+import AboutPage from "../../pages/AboutPage/AboutPage";
 
 export const history = createHistory();
 
@@ -29,6 +30,9 @@ const AppRouter = ({ appElement }) => (
       </Route>
       <Route path="/vote/:id">
         <VotingPage />
+      </Route>
+      <Route path="/about">
+        <AboutPage />
       </Route>
       <Route component={NotFoundPage} />
     </Switch>
