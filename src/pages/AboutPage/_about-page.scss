@@ -1,0 +1,17 @@
+.image-text-item__link {
+  display: flex;
+  height: 100%;
+}
+
+.image-text-item__image--large {
+  width: 150px;
+}
+
+.image-text-item__image--small {
+  height: 50px;
+}
+
+.image-text-item__text {
+  margin: 0 0 0 $xs-size;
+  align-self: center;
+}

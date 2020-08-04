@@ -7,8 +7,8 @@ export const Footer = () => (
     <div className="content-container container--flex-col">
       <p className="footer__text">Created with ♥ by Pawel in Detroit.️</p>
       <p className="footer__text">
-        <Link className="footer__link" to="/credits">
-          Credits.
+        <Link className="footer__link" to="/about">
+          About.
         </Link>
       </p>
     </div>
