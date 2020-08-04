@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import MovieImage from "../../components/MovieImage/MovieImage";
 import { useSearchContext } from "./search-context";
 import { addAndSaveMovie, removeMovie } from "../../services/ballot/actions";
-import { formatReleaseYear } from "../../services/theMovieDb/theMovieDb";
+import { formatReleaseYear } from "../../utils/theMovieDb";
 
 const mapStateToProps = ({ ballot }) => ({
   movies: ballot.movies,

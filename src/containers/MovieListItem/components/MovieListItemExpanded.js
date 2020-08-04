@@ -1,6 +1,6 @@
 import React from "react";
 import MovieImage from "../../../components/MovieImage/MovieImage";
-import { formatReleaseYear } from "../../../services/theMovieDb/theMovieDb";
+import { formatReleaseYear } from "../../../utils/theMovieDb";
 import Loader from "../../../components/Loader/Loader";
 import ButtonGroup from "../../../components/ButtonGroup/ButtonGroup";
 import WatchTrailerButton from "./WatchTrailerButton";

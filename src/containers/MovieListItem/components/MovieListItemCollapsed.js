@@ -1,6 +1,6 @@
 import React from "react";
 import ReactImageFallback from "react-image-fallback";
-import { formatReleaseYear } from "../../../services/theMovieDb/theMovieDb";
+import { formatReleaseYear } from "../../../utils/theMovieDb";
 import Loader from "../../../components/Loader/Loader";
 
 const MovieListItemCollapsed = ({

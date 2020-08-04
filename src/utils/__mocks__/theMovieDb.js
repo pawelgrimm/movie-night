@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 
 const theMovieDb = jest.requireActual("../../theMovieDb/theMovieDb");
-import { movies } from "../../../global/tests/fixtures/fixtures";
+import { movies } from "../../global/tests/fixtures/fixtures";
 
 export const search = (query) => {
   return new Promise((resolve) => {

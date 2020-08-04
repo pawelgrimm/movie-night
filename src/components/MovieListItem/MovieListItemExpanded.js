@@ -1,6 +1,6 @@
 import React from "react";
 import MovieImage from "../MovieImage/MovieImage";
-import { formatReleaseYear } from "../../services/theMovieDb/theMovieDb";
+import { formatReleaseYear } from "../../utils/theMovieDb";
 
 const MovieListItemExpanded = ({ movie, onClick, buttons = [] }) => {
   return (
