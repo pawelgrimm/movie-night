@@ -6,6 +6,7 @@ import {
   getBallot,
   endVoting,
   ballotIdExists,
+  getMoviesOnBallot,
 } from "../firebase/api";
 
 const ballotRouter = express.Router();
@@ -18,6 +19,20 @@ ballotRouter.get("/api/ballot/:id", async (req, res) => {
       res.status(404).send();
     }
     res.status(200).send({ ballot });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send();
+  }
+});
+
+ballotRouter.get("/api/ballot/:id/movies", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const movies = await getMoviesOnBallot(id);
+    if (!movies) {
+      res.status(404).send();
+    }
+    res.status(200).send({ movies });
   } catch (e) {
     console.log(e);
     res.status(500).send();

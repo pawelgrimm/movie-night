@@ -1,7 +1,6 @@
 import { expect } from "@jest/globals";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import database from "../../firebase/firebase";
 
 import { ADD_MOVIE, addMovie, saveBallot, startCreateBallot } from "../actions";
 import { movies } from "../../../global/tests/fixtures/fixtures";

@@ -22,6 +22,10 @@ export const getBallot = (id) => {
     });
 };
 
+export const getMoviesOnBallot = (id) => {
+  return database.ref(`ballots/${id}/movies`).once("value");
+};
+
 export const saveVote = (ballotId, vote) => {
   return database.ref(`ballots/${ballotId}/votes`).push(vote);
 };

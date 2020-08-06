@@ -9,7 +9,6 @@ const VoteNayButton = ({ id, buttonState, onClick }) => {
       onClick={(event) => {
         event.stopPropagation();
         onClick();
-        console.log("thumbs down clicked for", id);
       }}
     >
       <ThumbsDown />

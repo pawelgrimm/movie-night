@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import MovieListItem from "../../../components/MovieListItem/MovieListItem";
 import { ThumbsUp, ThumbsDown } from "react-feather";
-import { getMoviesOnBallot } from "../../../services/firebase/api";
+import { getMoviesOnBallot } from "../../../services/server/api";
 import Loader from "../../../components/Loader/Loader";
 import { hydrateMovies } from "../../../services/movie/api";
 import { fetchMovie } from "../../../services/movie/actions";
@@ -25,8 +25,7 @@ export const BallotMovieList = ({ savedMovies, openModal, fetchMovie }) => {
   const openVideoModal = (videos) => openModal(<VideoModal videos={videos} />);
 
   useEffect(() => {
-    getMoviesOnBallot(id).then((ref) => {
-      const movieIds = ref.val();
+    getMoviesOnBallot(id).then((movieIds) => {
       movieIds.forEach((id) => fetchMovie(id));
       setMovieIds(movieIds);
       setMovies(hydrateMovies(savedMovies, movieIds));

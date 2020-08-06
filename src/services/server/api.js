@@ -8,6 +8,10 @@ export const pushBallot = (ballot) => {
   return axios.post("/api/ballot", ballot).then((res) => res.data.ballotId);
 };
 
+export const getMoviesOnBallot = (id) => {
+  return axios.get(`/api/ballot/${id}/movies`).then((res) => res.data.movies);
+};
+
 export const endVoting = (id) => {
   return axios.post(`/api/ballot/${id}/end`).then((res) => res.data);
 };

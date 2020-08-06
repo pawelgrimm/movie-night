@@ -5,12 +5,12 @@
   "author": "Pawel Grimm",
   "license": "MIT",
   "scripts": {
-    "build:client": "webpack",
+    "build:client": "webpack --config webpack.prod.js",
     "build:prod": "webpack -p --env production",
     "build:server": "rimraf ./server/dist && babel ./server -d ./server/dist",
     "babel-node": "babel-node ./server/server.js",
     "dev": "concurrently \"yarn run dev:front\" \"yarn run dev:back\"",
-    "dev:front": "webpack-dev-server",
+    "dev:front": "webpack-dev-server --config webpack.dev.js",
     "dev:back": "nodemon --exec yarn run babel-node",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/dist/server.js",
@@ -31,6 +31,7 @@
     "cross-env": "7.0.2",
     "dompurify": "2.0.12",
     "dotenv": "8.2.0",
+    "dotenv-cli": "3.2.0",
     "express": "4.17.1",
     "express-validator": "6.6.0",
     "firebase": "7.15.0",
@@ -60,7 +61,8 @@
     "redux": "4.0.5",
     "redux-mock-store": "1.5.4",
     "redux-thunk": "2.3.0",
-    "uuid": "8.1.0"
+    "uuid": "8.1.0",
+    "webpack-merge": "5.1.1"
   },
   "devDependencies": {
     "@babel/cli": "7.10.5",

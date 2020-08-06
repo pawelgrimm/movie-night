@@ -1,20 +1,12 @@
+import "normalize.css/normalize.css";
+import "./global/styles/styles.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import "normalize.css/normalize.css";
-import "./global/styles/styles.scss";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import AppRouter, { history } from "./global/routes/AppRouter";
+import AppRouter from "./global/routes/AppRouter";
 import configureStore from "./store/configureStore";
-import { firebase } from "./services/firebase/firebase";
-import { login, logout } from "./services/auth/actions";
-import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import { setBallot } from "./services/ballot/actions";
-import database from "firebase";
-import { fetchMovie, setMovies } from "./services/movie/actions";
-import Modal from "./containers/Modal/Modal";
-import ModalContext from "./containers/Modal/ModalContext";
+import { setMovies } from "./services/movie/actions";
 import ModalProvider from "./containers/Modal/ModalProvider";
 
 const store = configureStore();
