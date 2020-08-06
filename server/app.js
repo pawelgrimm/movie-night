@@ -3,9 +3,11 @@ import express from "express";
 import ballotRouter from "./routers/ballot";
 import voteRouter from "./routers/vote";
 import movieRouter from "./routers/movie";
+import appRoot from "app-root-path";
 
 const app = express();
-const publicPath = path.join(__dirname, "..", "public");
+const publicPath = path.join(appRoot.toString(), "public");
+
 app.use(express.static(publicPath));
 app.use(express.json());
 app.use(ballotRouter);
