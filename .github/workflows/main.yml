@@ -15,5 +15,5 @@ jobs:
       uses: vitalyliber/dokku-github-action@v4.0
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        HOST: 52.240.138.198.xip.io
+        HOST: apps.pawelgrimm.com
         PROJECT: movie-night
