@@ -4,17 +4,21 @@ import { createBrowserHistory as createHistory } from "history";
 const CreateBallotPage = lazy(() =>
   import("../../pages/CreateBallotPage/CreateBallotPage")
 );
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
-import Header from "../../components/Header/Header";
-import VotingPage from "../../pages/VotingPage/VotingPage";
-import DashboardPage from "../../pages/DashboardPage/DashboardPage";
-import ResultsPage from "../../pages/ResultsPage/ResultsPage";
-import Footer from "../../components/Footer/Footer";
-import AboutPage from "../../pages/AboutPage/AboutPage";
+const NotFoundPage = lazy(() =>
+  import("../../pages/NotFoundPage/NotFoundPage")
+);
+const Header = lazy(() => import("../../components/Header/Header"));
+const VotingPage = lazy(() => import("../../pages/VotingPage/VotingPage"));
+const DashboardPage = lazy(() =>
+  import("../../pages/DashboardPage/DashboardPage")
+);
+const ResultsPage = lazy(() => import("../../pages/ResultsPage/ResultsPage"));
+const Footer = lazy(() => import("../../components/Footer/Footer"));
+const AboutPage = lazy(() => import("../../pages/AboutPage/AboutPage"));
 
 export const history = createHistory();
 
-const AppRouter = ({ appElement }) => (
+const AppRouter = () => (
   <Router history={history}>
     <Header />
     <Suspense fallback={<div>Loading...</div>}>
