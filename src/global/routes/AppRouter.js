@@ -1,19 +1,19 @@
 import React, { Suspense, lazy } from "react";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 const CreateBallotPage = lazy(() =>
   import("../../pages/CreateBallotPage/CreateBallotPage")
 );
 const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage")
 );
-const Header = lazy(() => import("../../components/Header/Header"));
 const VotingPage = lazy(() => import("../../pages/VotingPage/VotingPage"));
 const DashboardPage = lazy(() =>
   import("../../pages/DashboardPage/DashboardPage")
 );
 const ResultsPage = lazy(() => import("../../pages/ResultsPage/ResultsPage"));
-const Footer = lazy(() => import("../../components/Footer/Footer"));
 const AboutPage = lazy(() => import("../../pages/AboutPage/AboutPage"));
 
 export const history = createHistory();
@@ -41,7 +41,9 @@ const AppRouter = () => (
         <Route path="/about">
           <AboutPage />
         </Route>
-        <Route component={NotFoundPage} />
+        <Route>
+          <NotFoundPage />
+        </Route>
       </Switch>
     </Suspense>
     <Footer />

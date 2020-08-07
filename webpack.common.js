@@ -20,7 +20,11 @@ module.exports = {
     chunkFilename: "[name].bundle.js",
     filename: "[name].bundle.js",
     path: path.join(__dirname, "public", "dist"),
+    publicPath: "/dist/",
   },
+  // optimization: {
+  //   usedExports: true,
+  // },
   module: {
     rules: [
       {
@@ -78,6 +82,6 @@ module.exports = {
         process.env.THEMOVIEDB_API_KEY
       ),
     }),
-    new BundleAnalyzerPlugin(),
+    //new BundleAnalyzerPlugin(),
   ],
 };
