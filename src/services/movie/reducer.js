@@ -1,4 +1,3 @@
-import moment from "moment";
 import {
   SAVE_MOVIE,
   SET_MOVIES,
@@ -55,7 +54,7 @@ const movieReducer = (state = defaultState, action) => {
           status: {
             isFetching: false,
             isError: false,
-            lastFetched: moment.now(),
+            lastFetched: Date.now(),
           },
         },
       };

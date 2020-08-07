@@ -1,4 +1,4 @@
-import moment from "moment";
+import differenceInHours from "date-fns/differenceInHours";
 import { getMovieInfo, getMovieTrailers } from "../server/api";
 
 export const fetchMovie = (id) => {
@@ -11,7 +11,7 @@ export const fetchMovie = (id) => {
     } else if (
       !status?.isError &&
       status?.lastFetched &&
-      moment().diff(moment(status.lastFetched), "hours") < 12
+      differenceInHours(new Date(), new Date(status.lastFetched)) > 12
     ) {
       return;
     }
