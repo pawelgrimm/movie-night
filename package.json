@@ -1,5 +1,10 @@
 {
   "name": "movie-night",
+  "sideEffects": [
+    "*.css",
+    "*.scss",
+    "./server/utils/env.js"
+  ],
   "version": "1.0.0",
   "main": "index.js",
   "author": "Pawel Grimm",
@@ -23,6 +28,7 @@
   "dependencies": {
     "@babel/node": "7.10.5",
     "@babel/plugin-proposal-optional-chaining": "7.10.3",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "app-root-path": "3.0.0",
     "axios": "0.19.2",
     "classnames": "2.2.6",
@@ -62,6 +68,7 @@
     "redux-mock-store": "1.5.4",
     "redux-thunk": "2.3.0",
     "uuid": "8.1.0",
+    "webpack-bundle-analyzer": "3.8.0",
     "webpack-merge": "5.1.1"
   },
   "devDependencies": {

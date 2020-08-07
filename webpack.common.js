@@ -1,6 +1,8 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 // process.env.NODE_ENV = process.env.NODE_ENV || "development";
 //
@@ -11,10 +13,13 @@ const webpack = require("webpack");
 // }
 
 module.exports = {
-  entry: "./src/app.js",
+  entry: {
+    app: "./src/app.js",
+  },
   output: {
+    chunkFilename: "[name].bundle.js",
+    filename: "[name].bundle.js",
     path: path.join(__dirname, "public", "dist"),
-    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -73,5 +78,6 @@ module.exports = {
         process.env.THEMOVIEDB_API_KEY
       ),
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };
