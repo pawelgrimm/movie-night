@@ -29,9 +29,9 @@ export const getMovieSearch = (query) => {
 };
 
 export const getMovieInfo = (id) => {
-  return axios.get(`api/movie/${id}/info`).then((res) => res.data);
+  return axios.get(`/api/movie/${id}/info`).then((res) => res.data);
 };
 
 export const getMovieTrailers = (id) => {
-  return axios.get(`api/movie/${id}/trailers`).then((res) => res.data);
+  return axios.get(`/api/movie/${id}/trailers`).then((res) => res.data);
 };
