@@ -31,6 +31,10 @@
   }
   @media (max-width: $desktop-breakpoint) {
     font-size: $font-size-medium;
+    & > svg {
+      height: 16px;
+      width: 16px;
+    }
   }
 }
 

@@ -37,6 +37,14 @@ h2 {
   }
 }
 
+h3 {
+  font-size: $font-size-large;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-size-medium;
+    margin: 0;
+  }
+}
+
 p {
   font-weight: 300;
   color: $paragraph-color;

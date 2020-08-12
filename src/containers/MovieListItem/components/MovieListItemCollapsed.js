@@ -35,8 +35,10 @@ const MovieListItemCollapsed = ({
         <div className="movie-item__meta">
           <span>{formatReleaseYear(release_date)}</span>
           <span>{genres?.map((genre) => genre.name).join(", ")}</span>
-          <span>{runtime} m</span>
-          <span>{vote_average}/10</span>
+          <span className="movie-item__meta__runtime">
+            {runtime ? runtime + " m" : ""}
+          </span>
+          <span>{vote_average ? vote_average + "/10" : ""}</span>
         </div>
       </div>
       {renderAdditionalItems(id)}

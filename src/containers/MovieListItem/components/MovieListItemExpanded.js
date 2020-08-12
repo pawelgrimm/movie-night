@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import MovieImage from "../../../components/MovieImage/MovieImage";
 import { formatReleaseYear } from "../../../utils/theMovieDb";
 import Loader from "../../../components/Loader/Loader";
@@ -26,8 +26,19 @@ const MovieListItemExpanded = ({
     trailers,
   } = movie;
 
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
   return (
-    <div className="movie-item movie-item--selected" onClick={onClick}>
+    <div
+      className="movie-item movie-item--selected"
+      onClick={onClick}
+      ref={ref}
+    >
       <MovieImage
         title={title}
         type="poster"
