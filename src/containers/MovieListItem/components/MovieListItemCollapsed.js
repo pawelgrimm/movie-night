@@ -31,7 +31,7 @@ const MovieListItemCollapsed = ({
         className="movie-item__poster movie-item__poster--small"
       />
       <div className="movie-item__info--small">
-        <h3 className="movie-item__title">{title}</h3>
+        <h2 className="movie-item__title">{title}</h2>
         <div className="movie-item__meta">
           <span>{formatReleaseYear(release_date)}</span>
           <span>{genres?.map((genre) => genre.name).join(", ")}</span>

@@ -31,16 +31,18 @@ h6 {
 h2 {
   font-size: 2.4rem;
   margin: $s-size 0;
+  font-weight: 300;
   @media (max-width: $desktop-breakpoint) {
-    font-size: 1.8rem;
+    font-size: $font-size-medium;
     margin: 0;
   }
 }
 
 h3 {
   font-size: $font-size-large;
+  font-weight: 300;
   @media (max-width: $desktop-breakpoint) {
-    font-size: $font-size-medium;
+    font-size: $font-size-small;
     margin: 0;
   }
 }

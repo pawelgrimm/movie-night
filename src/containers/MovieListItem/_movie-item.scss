@@ -10,7 +10,40 @@
   text-decoration: none;
   transition: background 300ms ease;
   @media (max-width: $desktop-breakpoint) {
-    padding: calc(#{$m-size} / 2) $sh-size;
+    padding: $sh-size;
+  }
+}
+
+.movie-item--expanded {
+  @extend .movie-item;
+  align-items: stretch;
+  @media (max-width: $desktop-breakpoint) {
+    flex-direction: column;
+  }
+}
+
+.movie-item__image-section {
+  display: block;
+  line-height: 0;
+  @media (max-width: $desktop-breakpoint) {
+    line-height: unset;
+    margin-bottom: $xs-size;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.movie-item__text-section {
+  display: flex;
+  align-self: stretch;
+}
+
+.movie-item__image-section__text {
+  display: none;
+  @media (max-width: $desktop-breakpoint) {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
   }
 }
 
@@ -32,7 +65,10 @@
   flex: 0 0 250px;
   margin-right: $m-size;
   @media (max-width: $desktop-breakpoint) {
-    flex: 0 0 45px;
+    align-self: center;
+    flex: 0 0 65px;
+    width: 65px;
+    margin-right: $xs-size;
   }
 }
 
@@ -41,13 +77,29 @@
   flex: 0 0 68px;
   @media (max-width: $desktop-breakpoint) {
     flex: 0 0 45px;
+    width: 45px;
   }
 }
 
-.movie-item__info {
+.movie-item__info--large {
   flex: 0 1 auto;
   display: flex;
   flex-direction: column;
+  & > * {
+    @media (max-width: $desktop-breakpoint) {
+      padding: 0 0 $xs-size 0;
+    }
+  }
+  & .movie-item__title,
+  & .movie-item__meta {
+    @media (max-width: $desktop-breakpoint) {
+      display: none;
+    }
+  }
+  & .button-group {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .movie-item__info--small {
@@ -60,11 +112,9 @@
     font-weight: 300;
     padding: 0 0 $s-size 0;
   }
-  //span {
-  //line-height: 1;
-  //font-size: $font-size-small;
-  //color: $paragraph-color;
-  //}
+  @media (max-width: $desktop-breakpoint) {
+    padding: 0 0 $xs-size 0;
+  }
 }
 
 .movie-item__title {
@@ -99,6 +149,10 @@
   font-style: italic;
   padding: 0 0 $s-size 0;
   margin: 0;
+  @media (max-width: $desktop-breakpoint) {
+    padding: 0;
+    text-align: center;
+  }
 }
 
 .movie-item__overview-heading {
@@ -108,6 +162,7 @@
 
 .movie-item__overview {
   flex-grow: 1;
+  margin: 0;
 }
 
 .movie-item__button--small {

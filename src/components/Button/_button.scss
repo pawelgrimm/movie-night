@@ -31,6 +31,7 @@
   }
   @media (max-width: $desktop-breakpoint) {
     font-size: $font-size-medium;
+    padding: $xs-size;
     & > svg {
       height: 16px;
       width: 16px;
@@ -68,6 +69,9 @@
   margin: $xs-size 0;
   * {
     margin-right: $s-size;
+    @media (max-width: $desktop-breakpoint) {
+      margin-right: $xs-size;
+    }
   }
   .button:last-child {
     margin-right: 0;
