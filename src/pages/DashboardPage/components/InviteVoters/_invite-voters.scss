@@ -4,6 +4,9 @@
   & > * {
     display: inline-block;
   }
+  @media (max-width: $desktop-breakpoint) {
+    flex-direction: column;
+  }
 }
 
 .invite-voters__button {
@@ -12,6 +15,11 @@
   padding: 0;
   height: max-content;
   align-self: center;
+  display: flex;
+  @media (max-width: $desktop-breakpoint) {
+    align-self: stretch;
+    margin: 0;
+  }
   textarea {
     @extend .button;
     cursor: pointer;
@@ -19,5 +27,8 @@
     overflow: hidden;
     resize: none;
     text-align: center;
+  }
+  * {
+    flex-grow: 1;
   }
 }

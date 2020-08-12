@@ -7,6 +7,28 @@ const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   devtool: "source-map",
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "styles.css",

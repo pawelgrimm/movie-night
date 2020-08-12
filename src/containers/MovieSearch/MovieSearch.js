@@ -10,7 +10,7 @@ import { getMovieSearch } from "../../services/server/api";
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
   const [searchResults, dispatch] = useReducer(searchReducer, []);
-
+  const containerDiv = useRef(null);
   const searchInput = useRef(null);
 
   const onChange = (e) => {
@@ -25,12 +25,20 @@ const MovieSearch = ({ numResults }) => {
     } else {
       dispatch(setSearchResults());
     }
+    onClick(e);
   };
 
   const resetSearch = () => {
     setQuery("");
     dispatch(setSearchResults());
     //handleFocus();
+  };
+
+  const onClick = () => {
+    containerDiv.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -40,7 +48,9 @@ const MovieSearch = ({ numResults }) => {
           placeholder="Search for a movie"
           value={query}
           onChange={onChange}
-          forwardRef={searchInput}
+          containerRef={containerDiv}
+          searchRef={searchInput}
+          onClick={onClick}
         />
         <SearchResults />
       </OutsideClickHandler>

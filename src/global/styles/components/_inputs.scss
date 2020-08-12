@@ -1,4 +1,5 @@
 .text-input {
+  @extend body;
   border: none;
   border-radius: 3px;
   color: $on-card;
@@ -8,6 +9,9 @@
   &:focus {
     box-shadow: 0 0 0 2px $primary;
     outline: none;
+  }
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-size-medium;
   }
 }
 

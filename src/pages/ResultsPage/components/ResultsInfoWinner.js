@@ -14,7 +14,12 @@ const ResultsInfoWinner = ({ id }) => {
   ) : (
     <>
       <p>The results are in and the winner is...</p>
-      <ExpandedItem id={id} movie={movie.info} onClick={() => {}} />
+      <ExpandedItem
+        id={id}
+        movie={movie.info}
+        onClick={() => {}}
+        autoScroll="false"
+      />
     </>
   );
 };
