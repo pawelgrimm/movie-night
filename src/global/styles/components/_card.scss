@@ -3,6 +3,13 @@
   border-radius: 3px;
   margin: $xs-size 0;
   padding: $m-size $ml-size;
+  @media (max-width: $desktop-breakpoint) {
+    margin: $sh-size;
+    padding: $m-size;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .anti-card {
