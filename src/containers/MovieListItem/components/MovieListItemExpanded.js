@@ -10,6 +10,7 @@ const MovieListItemExpanded = ({
   movie,
   onClick,
   renderAdditionalItems,
+  autoScroll = true,
 }) => {
   if (!movie) {
     return <Loader />;
@@ -29,10 +30,12 @@ const MovieListItemExpanded = ({
   const ref = useRef(null);
 
   useEffect(() => {
-    ref.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
+    if (autoScroll) {
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
   }, []);
 
   return (
