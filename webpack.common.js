@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
@@ -17,7 +16,7 @@ module.exports = {
     app: "./src/app.js",
   },
   output: {
-    chunkFilename: "[name].bundle.js",
+    chunkFilename: "[id].bundle.js",
     filename: "[name].bundle.js",
     path: path.join(__dirname, "public", "dist"),
     publicPath: "/dist/",
@@ -28,34 +27,13 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: "babel-loader",
         test: /\.js$/,
         exclude: /node_modules/,
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
+        loader: "babel-loader",
       },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "styles.css",
-    }),
     new webpack.DefinePlugin({
       "process.env.FIREBASE_API_KEY": JSON.stringify(
         process.env.FIREBASE_API_KEY
