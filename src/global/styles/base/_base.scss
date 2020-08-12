@@ -9,8 +9,12 @@ body {
   background-color: #121212;
   color: $off-white;
   font-family: Poppins, sans-serif;
-  font-size: $m-size;
+  font-size: $font-size-medium;
   line-height: 1.6;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: $font-size-small;
+    line-height: 1.4;
+  }
 }
 
 h1,
@@ -27,6 +31,10 @@ h6 {
 h2 {
   font-size: 2.4rem;
   margin: $s-size 0;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: 1.8rem;
+    margin: 0;
+  }
 }
 
 p {
