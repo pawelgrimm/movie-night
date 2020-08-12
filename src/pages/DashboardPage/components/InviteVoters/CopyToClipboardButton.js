@@ -1,5 +1,6 @@
-import Button from "../../../../components/Button/Button";
 import React from "react";
+import TextareaAutosize from "react-textarea-autosize";
+import Button from "../../../../components/Button/Button";
 
 function CopyToClipboardButton({ value }) {
   const copyToClipboard = (event) => {
@@ -11,14 +12,12 @@ function CopyToClipboardButton({ value }) {
   return (
     <>
       <Button className="invite-voters__button" onClick={copyToClipboard}>
-        <textarea
+        <TextareaAutosize
           id="text-to-copy"
           value={value}
           readOnly={true}
           tabIndex={-1}
           onClick={copyToClipboard}
-          rows={1}
-          cols={value.length / 1.5}
         />
       </Button>
       <p>(click to copy to clipboard)</p>
