@@ -2,6 +2,7 @@
   background: $card-background;
   position: relative;
   z-index: 1;
+  margin: 0 $sh-size;
 }
 
 .search-result-item {
@@ -24,6 +25,9 @@
   flex: 0 0 68px;
   margin: 0 $xs-size;
   border-radius: 1px;
+  @media (max-width: $desktop-breakpoint) {
+    flex: 0 0 45px;
+  }
 }
 
 .search-result-item__info {
