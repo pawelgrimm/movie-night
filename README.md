@@ -4,7 +4,17 @@ A web application to help you find the best movie for your next movie night!
 
 Check it out at [movie-night.pawelgrimm.com](https://movie-night.pawelgrimm.com)
 
-## Key features
+## Contents
+
+- [Key Features](#key-features)
+- [How To Run](#how-to-run)
+- [Technologies](#technologies)
+- [Motivation](#motivation)
+- [Disclaimers](#disclaimers)
+- [Things I'd Like To Address In Future Versions](#things-id-like-to-address-in-future-versions)
+- [Screenshots](#screenshots)
+
+## Key Features
 
  - Search a massive movie database and add movies to a list
  - Create a ballot and share the link to have users vote on your list
@@ -17,10 +27,24 @@ Check it out at [movie-night.pawelgrimm.com](https://movie-night.pawelgrimm.com)
  - Node.js, express.js
  - Firebase (realtime DB)
  
+## How To Run
+
+`npm run dev`
+start dev servers (front and back)
+
+`npm run test`
+run tests
+
+`npm run build`
+build for production with minification
+
+`npm start`
+start production app
+
 ## Motivation
 
 I love to watch movies with my friends, but deciding what to watch has always been a hassle. 
-Doing it manually is pretty much  a problem with time complexity O(n^<sup>2</sup>), where n is the number of people you want to please.
+Doing it manually is pretty much a problem with time complexity O(n<sup>2</sup>), where n is the number of people you want to please.
 
 Now I just throw up a list of movies, everyone votes on their own phone, the movie is selected automatically, and we FINALLY have enough time to watch the extended version of the Fellowship of the Ring :)
 
@@ -38,7 +62,7 @@ Please note that this app is meant as a personal tool to share with a handful of
  - Loads reasonably quickly, but doesn't have SEO or CDN
    - Should consider implementing server-side rendering using Next.js 
    
-## Things I'd Like To Address In Future Version
+## Things I'd Like To Address In Future Versions
 
  - Results page should update automatically as new votes are casted
    - Could implement with polling or websockets
@@ -48,3 +72,25 @@ Please note that this app is meant as a personal tool to share with a handful of
    - TheMovieDB has an open movie recommendation engine that I could leverage
  - Collaborative list creation
    - This would be a large architectural change
+
+## Screenshots
+
+<img src="/screenshots/welcome.png" width="200px" />
+
+Figure 1. Weclome Screen
+
+<img src="/screenshots/search.png" width="200px" />
+
+Figure 2. Searching
+
+<img src="/screenshots/info.png" width="200px" />
+
+Figure 3. Viewing Info
+
+<img src="/screenshots/results.png" width="200px" />
+
+Figure 4. In-progress Dashboard
+
+<img src="/screenshots/end.png" width="200px" />
+
+Figure 5. Viewing Winner
