@@ -23,7 +23,7 @@ Check it out at [movie-night.pawelgrimm.com](https://movie-night.pawelgrimm.com)
 
 ## Technologies
 
- - React, Redux, webpack, babel
+ - React, Redux, webpack, babel, HTML5, SCSS, CSS3
  - Node.js, express.js
  - Firebase (realtime DB)
  
