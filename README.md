@@ -37,3 +37,14 @@ Please note that this app is meant as a personal tool to share with a handful of
    - Could be scaled with relative ease as backend endpoints are largely functional
  - Loads reasonably quickly, but doesn't have SEO or CDN
    - Should consider implementing server-side rendering using Next.js 
+   
+## Things I'd Like To Address In Future Version
+
+ - Results page should update automatically as new votes are casted
+   - Could implement with polling or websockets
+ - Creating a ballot from a previous ballot or other user-created list
+   - It would be nice to just vote on my list of unwatched "Super Scary Movies" or "Ephemeral, Uplifting, Feel-Good Movies" instead of creating a new list from scratch every time
+ - Suggest additional movies based on current list
+   - TheMovieDB has an open movie recommendation engine that I could leverage
+ - Collaborative list creation
+   - This would be a large architectural change
