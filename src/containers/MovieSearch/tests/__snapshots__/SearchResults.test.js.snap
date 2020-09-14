@@ -2,11 +2,14 @@
 
 exports[`Should render SearchResults with results 1`] = `
 <div
-  className="search-results"
+  className="dropdownContainer"
 >
   <div
-    className="dropdown"
+    className="dropdownActive"
   >
+    <div
+      className="divider"
+    />
     <Connect(SearchResultItem)
       key="132344"
       movie={
@@ -127,6 +130,9 @@ exports[`Should render SearchResults with results 1`] = `
           "vote_count": 7377,
         }
       }
+    />
+    <div
+      className="shadowFix"
     />
   </div>
 </div>

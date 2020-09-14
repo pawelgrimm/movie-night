@@ -1,7 +1,7 @@
 import { expect } from "@jest/globals";
 import { shallow } from "enzyme";
 import React from "react";
-import { SearchResultItem } from "../SearchResultItem";
+import { SearchResultItem } from "../SearchResultItem/SearchResultItem";
 import { movies } from "../../../global/tests/fixtures/fixtures";
 
 test("should render search result item correctly", () => {

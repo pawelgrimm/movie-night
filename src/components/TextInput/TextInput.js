@@ -1,14 +1,19 @@
 import React from "react";
 import classNames from "classnames";
 
-const TextInput = ({ className, containerRef, searchRef, ...rest }) => {
+const TextInput = ({
+  className,
+  containerRef,
+  searchRef,
+  overrideStyle,
+  ...rest
+}) => {
+  const styles = overrideStyle
+    ? className
+    : classNames("card text-input text-input--grow", className);
   return (
     <div className="container--flex-col" ref={containerRef}>
-      <input
-        className={classNames("card text-input text-input--grow", className)}
-        ref={searchRef}
-        {...rest}
-      />
+      <input className={styles} ref={searchRef} {...rest} />
     </div>
   );
 };

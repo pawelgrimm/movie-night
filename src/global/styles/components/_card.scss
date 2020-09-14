@@ -1,15 +1,31 @@
-.card {
-  background: $card-background;
-  border-radius: 3px;
-  margin: $xs-size 0;
-  padding: $m-size $ml-size;
-  @media (max-width: $desktop-breakpoint) {
-    margin: $sh-size;
-    padding: $m-size;
+@use "../base/settings" as token;
+
+@mixin card-margin {
+  margin: token.$xs-size 0;
+  @media (max-width: token.$desktop-breakpoint) {
+    margin: token.$sh-size;
   }
+}
+
+@mixin card-padding {
+  padding: token.$m-size token.$ml-size;
+  @media (max-width: token.$desktop-breakpoint) {
+    padding: token.$m-size;
+  }
+}
+
+@mixin card {
+  @include card-margin;
+  @include card-padding;
+  background: token.$card-background;
+  border-radius: 3px;
   p:last-child {
     margin-bottom: 0;
   }
+}
+
+.card {
+  @include card;
 }
 
 .anti-card {

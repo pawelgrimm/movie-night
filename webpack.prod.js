@@ -10,22 +10,24 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.module.s?css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
+              modules: {
+                exportLocalsConvention: "camelCase",
+              },
             },
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
+          "sass-loader",
         ],
+      },
+      {
+        test: /\.s?css$/,
+        exclude: /\.module.s?css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },

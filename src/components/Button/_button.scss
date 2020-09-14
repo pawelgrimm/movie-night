@@ -1,15 +1,17 @@
+@use "src/global/styles/base/settings" as token;
+
 .button {
-  background: $primary;
+  background: token.$primary;
   border: none;
   border-radius: 3px;
-  color: $on-primary;
+  color: token.$on-primary;
   display: inline-block;
-  font-size: $font-size-large;
+  font-size: token.$font-size-large;
   font-variant: all-small-caps;
   font-weight: 300;
   letter-spacing: 0.5px;
   line-height: 1;
-  padding: $s-size;
+  padding: token.$s-size;
   text-decoration: none;
   &:disabled {
     cursor: not-allowed;
@@ -18,20 +20,20 @@
   &:enabled {
     &:hover,
     &:focus {
-      background: darken($primary, 3%);
+      background: darken(token.$primary, 3%);
       outline: none;
     }
     &:active {
-      background: darken($primary, 5%);
+      background: darken(token.$primary, 5%);
       outline: none;
     }
   }
   & > svg {
     margin: auto;
   }
-  @media (max-width: $desktop-breakpoint) {
-    font-size: $font-size-medium;
-    padding: $xs-size;
+  @media (max-width: token.$desktop-breakpoint) {
+    font-size: token.$font-size-medium;
+    padding: token.$xs-size;
     & > svg {
       height: 16px;
       width: 16px;
@@ -44,7 +46,7 @@
 }
 
 .button--secondary {
-  background: $secondary;
+  background: token.$secondary;
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -52,12 +54,12 @@
   &:enabled {
     &:hover,
     &:focus {
-      background: darken($secondary, 3%);
+      background: darken(token.$secondary, 3%);
       outline: none;
     }
 
     &:active {
-      background: darken($secondary, 5%);
+      background: darken(token.$secondary, 5%);
       outline: none;
     }
   }
@@ -66,11 +68,12 @@
 .button-group {
   display: flex;
   flex-direction: row;
-  margin: $xs-size 0;
+  margin: token.$xs-size 0;
   * {
-    margin-right: $s-size;
-    @media (max-width: $desktop-breakpoint) {
-      margin-right: $xs-size;
+    margin-left: 0;
+    margin-right: token.$s-size;
+    @media (max-width: token.$desktop-breakpoint) {
+      margin-right: token.$xs-size;
     }
   }
   .button:last-child {
@@ -78,11 +81,14 @@
   }
   .button {
     flex-grow: 2;
+    @media (max-width: token.$desktop-breakpoint) {
+      flex-grow: 1;
+    }
   }
   .button--secondary {
     flex-grow: 1;
   }
-  @media (max-width: $desktop-breakpoint) {
-    margin: $sh-size;
+  @media (max-width: token.$desktop-breakpoint) {
+    margin: token.$sh-size;
   }
 }
