@@ -1,17 +1,25 @@
-@import "../../global/styles/base/settings";
+@use "../../global/styles/base/settings" as token;
+@use "../../global/styles/components/card";
+@use "../../global/styles/components/inputs";
 
 .search-results {
-  background: $card-background;
+  background: token.$card-background;
   position: relative;
   z-index: 1;
-  margin: 0 $sh-size;
+  margin: 0 token.$sh-size;
 }
 
 .dropdown {
   position: absolute;
-  background: $card-background;
+  background: token.$card-background;
 }
 
 .search-input {
+  @include card.card;
+  @extend .text-input;
+  flex-grow: 1;
+}
+
+.search-input__has-results {
   margin-bottom: 0 !important;
 }

@@ -1,18 +1,24 @@
-.text-input {
-  @extend body;
+@use "../base/settings" as token;
+@use "../base/base" as base;
+
+@mixin text-input {
   border: none;
   border-radius: 3px;
-  color: $on-card;
-  font-size: $font-size-large;
+  color: token.$on-card;
+  font-size: token.$font-size-large;
   font-weight: 300;
   height: 50px;
   &:focus {
-    box-shadow: 0 0 0 2px $primary inset;
+    box-shadow: 0 0 0 2px token.$primary inset;
     outline: none;
   }
-  @media (max-width: $desktop-breakpoint) {
-    font-size: $font-size-medium;
+  @media (max-width: token.$desktop-breakpoint) {
+    font-size: token.$font-size-medium;
   }
+}
+
+.text-input {
+  @include text-input;
 }
 
 .text-input--grow {
@@ -20,10 +26,10 @@
 }
 
 .select {
-  @extend .text-input;
+  @include text-input;
 }
 
 .text-area {
-  @extend .text-input;
+  @include text-input;
   height: 10rem;
 }

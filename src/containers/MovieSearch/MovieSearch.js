@@ -47,6 +47,7 @@ const MovieSearch = ({ numResults }) => {
       <OutsideClickHandler onOutsideClick={resetSearch}>
         <TextInput
           placeholder="Search for a movie"
+          overrideStyle
           className={styles.searchInput}
           value={query}
           onChange={onChange}
