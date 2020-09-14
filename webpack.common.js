@@ -62,4 +62,7 @@ module.exports = {
     }),
     //new BundleAnalyzerPlugin(),
   ],
+  resolve: {
+    extensions: [".js", ".scss", ".css"],
+  },
 };

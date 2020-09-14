@@ -8,24 +8,25 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.module.s?css$/,
         use: [
-          {
-            loader: "style-loader",
-          },
+          "style-loader",
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
+              modules: {
+                exportLocalsConvention: "camelCase",
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
             },
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
+          "sass-loader",
         ],
+      },
+      {
+        test: /\.s?css$/,
+        exclude: /\.module\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
