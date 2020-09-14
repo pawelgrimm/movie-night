@@ -2,136 +2,138 @@
 
 exports[`Should render SearchResults with results 1`] = `
 <div
-  className="container--flex-col"
+  className="dropdownContainer"
 >
   <div
-    className="search-results"
+    className="dropdownActive"
   >
     <div
-      className="dropdown"
-    >
-      <Connect(SearchResultItem)
-        key="132344"
-        movie={
-          Object {
-            "adult": false,
-            "backdrop_path": "/lv9UT4VyoyGFTKNBboMTeZ5ZcD3.jpg",
-            "genre_ids": Array [
-              18,
-              10749,
-            ],
-            "id": 132344,
-            "original_language": "en",
-            "original_title": "Before Midnight",
-            "overview": "We meet Jesse and Celine nine years on in Greece. Almost two decades have passed since their first meeting on that train bound for Vienna.",
-            "popularity": 15.97,
-            "poster_path": "/qbGKJmNUroDz75kh5Oafoall89e.jpg",
-            "release_date": "2013-04-05",
-            "title": "Before Midnight",
-            "video": false,
-            "vote_average": 7.5,
-            "vote_count": 1351,
-          }
+      className="divider"
+    />
+    <Connect(SearchResultItem)
+      key="132344"
+      movie={
+        Object {
+          "adult": false,
+          "backdrop_path": "/lv9UT4VyoyGFTKNBboMTeZ5ZcD3.jpg",
+          "genre_ids": Array [
+            18,
+            10749,
+          ],
+          "id": 132344,
+          "original_language": "en",
+          "original_title": "Before Midnight",
+          "overview": "We meet Jesse and Celine nine years on in Greece. Almost two decades have passed since their first meeting on that train bound for Vienna.",
+          "popularity": 15.97,
+          "poster_path": "/qbGKJmNUroDz75kh5Oafoall89e.jpg",
+          "release_date": "2013-04-05",
+          "title": "Before Midnight",
+          "video": false,
+          "vote_average": 7.5,
+          "vote_count": 1351,
         }
-      />
-      <Connect(SearchResultItem)
-        key="76"
-        movie={
-          Object {
-            "adult": false,
-            "backdrop_path": "/qA2TyqPldTtoTVY3LKrNIG5g6bH.jpg",
-            "genre_ids": Array [
-              18,
-              10749,
-            ],
-            "id": 76,
-            "original_language": "en",
-            "original_title": "Before Sunrise",
-            "overview": "On his way to Vienna, American Jesse meets Céline, a student returning to Paris. After long conversations forge a surprising connection between them, Jesse convinces Celine to get off the train with him in Vienna. Since his flight to the U.S. departs the next morning and he has no money for lodging, they wander the city together, taking in the experiences of Vienna and each other.",
-            "popularity": 16.646,
-            "poster_path": "/khKJwHxgXSpDl3iKGJ5S15I8ABI.jpg",
-            "release_date": "1995-01-27",
-            "title": "Before Sunrise",
-            "video": false,
-            "vote_average": 7.9,
-            "vote_count": 2292,
-          }
+      }
+    />
+    <Connect(SearchResultItem)
+      key="76"
+      movie={
+        Object {
+          "adult": false,
+          "backdrop_path": "/qA2TyqPldTtoTVY3LKrNIG5g6bH.jpg",
+          "genre_ids": Array [
+            18,
+            10749,
+          ],
+          "id": 76,
+          "original_language": "en",
+          "original_title": "Before Sunrise",
+          "overview": "On his way to Vienna, American Jesse meets Céline, a student returning to Paris. After long conversations forge a surprising connection between them, Jesse convinces Celine to get off the train with him in Vienna. Since his flight to the U.S. departs the next morning and he has no money for lodging, they wander the city together, taking in the experiences of Vienna and each other.",
+          "popularity": 16.646,
+          "poster_path": "/khKJwHxgXSpDl3iKGJ5S15I8ABI.jpg",
+          "release_date": "1995-01-27",
+          "title": "Before Sunrise",
+          "video": false,
+          "vote_average": 7.9,
+          "vote_count": 2292,
         }
-      />
-      <Connect(SearchResultItem)
-        key="80"
-        movie={
-          Object {
-            "adult": false,
-            "backdrop_path": "/90MdQTVdjso5J35xPurGC6M2Tma.jpg",
-            "genre_ids": Array [
-              18,
-              10749,
-            ],
-            "id": 80,
-            "original_language": "en",
-            "original_title": "Before Sunset",
-            "overview": "Nine years ago two strangers met by chance and spent a night in Vienna that ended before sunrise. They are about to meet for the first time since. Now they have one afternoon to find out if they belong together.",
-            "popularity": 13.65,
-            "poster_path": "/gycdE1ARByGQcK4fYR2mgpU6OO.jpg",
-            "release_date": "2004-02-10",
-            "title": "Before Sunset",
-            "video": false,
-            "vote_average": 7.8,
-            "vote_count": 1886,
-          }
+      }
+    />
+    <Connect(SearchResultItem)
+      key="80"
+      movie={
+        Object {
+          "adult": false,
+          "backdrop_path": "/90MdQTVdjso5J35xPurGC6M2Tma.jpg",
+          "genre_ids": Array [
+            18,
+            10749,
+          ],
+          "id": 80,
+          "original_language": "en",
+          "original_title": "Before Sunset",
+          "overview": "Nine years ago two strangers met by chance and spent a night in Vienna that ended before sunrise. They are about to meet for the first time since. Now they have one afternoon to find out if they belong together.",
+          "popularity": 13.65,
+          "poster_path": "/gycdE1ARByGQcK4fYR2mgpU6OO.jpg",
+          "release_date": "2004-02-10",
+          "title": "Before Sunset",
+          "video": false,
+          "vote_average": 7.8,
+          "vote_count": 1886,
         }
-      />
-      <Connect(SearchResultItem)
-        key="43566"
-        movie={
-          Object {
-            "adult": false,
-            "backdrop_path": "/mnmYNA05niLp0Gb75UTIUvs8emo.jpg",
-            "genre_ids": Array [
-              18,
-              9648,
-              53,
-            ],
-            "id": 43566,
-            "original_language": "en",
-            "original_title": "Before and After",
-            "overview": "Two parents deal with the effects when their son is accused of murdering his girlfriend.",
-            "popularity": 12.741,
-            "poster_path": "/4Q2SdpMJtNcbEvidNuc7z0KRiHo.jpg",
-            "release_date": "1996-02-23",
-            "title": "Before and After",
-            "video": false,
-            "vote_average": 6.1,
-            "vote_count": 92,
-          }
+      }
+    />
+    <Connect(SearchResultItem)
+      key="43566"
+      movie={
+        Object {
+          "adult": false,
+          "backdrop_path": "/mnmYNA05niLp0Gb75UTIUvs8emo.jpg",
+          "genre_ids": Array [
+            18,
+            9648,
+            53,
+          ],
+          "id": 43566,
+          "original_language": "en",
+          "original_title": "Before and After",
+          "overview": "Two parents deal with the effects when their son is accused of murdering his girlfriend.",
+          "popularity": 12.741,
+          "poster_path": "/4Q2SdpMJtNcbEvidNuc7z0KRiHo.jpg",
+          "release_date": "1996-02-23",
+          "title": "Before and After",
+          "video": false,
+          "vote_average": 6.1,
+          "vote_count": 92,
         }
-      />
-      <Connect(SearchResultItem)
-        key="296096"
-        movie={
-          Object {
-            "adult": false,
-            "backdrop_path": "/exYvOaUBplJUAqEB2M6QFgEF6Lp.jpg",
-            "genre_ids": Array [
-              18,
-              10749,
-            ],
-            "id": 296096,
-            "original_language": "en",
-            "original_title": "Me Before You",
-            "overview": "A small town girl is caught between dead-end jobs. A high-profile, successful man becomes wheelchair bound following an accident. The man decides his life is not worth living until the girl is hired for six months to be his new caretaker. Worlds apart and trapped together by circumstance, the two get off to a rocky start. But the girl becomes determined to prove to the man that life is worth living and as they embark on a series of adventures together, each finds their world changing in ways neither of them could begin to imagine.",
-            "popularity": 18.085,
-            "poster_path": "/oo2Q3T8juOYFh2G1YJ3oSMAfUyq.jpg",
-            "release_date": "2016-06-01",
-            "title": "Me Before You",
-            "video": false,
-            "vote_average": 7.8,
-            "vote_count": 7377,
-          }
+      }
+    />
+    <Connect(SearchResultItem)
+      key="296096"
+      movie={
+        Object {
+          "adult": false,
+          "backdrop_path": "/exYvOaUBplJUAqEB2M6QFgEF6Lp.jpg",
+          "genre_ids": Array [
+            18,
+            10749,
+          ],
+          "id": 296096,
+          "original_language": "en",
+          "original_title": "Me Before You",
+          "overview": "A small town girl is caught between dead-end jobs. A high-profile, successful man becomes wheelchair bound following an accident. The man decides his life is not worth living until the girl is hired for six months to be his new caretaker. Worlds apart and trapped together by circumstance, the two get off to a rocky start. But the girl becomes determined to prove to the man that life is worth living and as they embark on a series of adventures together, each finds their world changing in ways neither of them could begin to imagine.",
+          "popularity": 18.085,
+          "poster_path": "/oo2Q3T8juOYFh2G1YJ3oSMAfUyq.jpg",
+          "release_date": "2016-06-01",
+          "title": "Me Before You",
+          "video": false,
+          "vote_average": 7.8,
+          "vote_count": 7377,
         }
-      />
-    </div>
+      }
+    />
+    <div
+      className="shadowFix"
+    />
   </div>
 </div>
 `;

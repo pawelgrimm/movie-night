@@ -9,7 +9,7 @@
   font-weight: 300;
   height: 50px;
   &:focus {
-    box-shadow: 0 0 0 2px token.$primary inset;
+    box-shadow: 0 0 0 2px token.$primary;
     outline: none;
   }
   @media (max-width: token.$desktop-breakpoint) {

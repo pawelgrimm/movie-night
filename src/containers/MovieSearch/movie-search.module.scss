@@ -2,24 +2,57 @@
 @use "../../global/styles/components/card";
 @use "../../global/styles/components/inputs";
 
-.search-results {
+.divider {
+  border-top: 2px solid token.$primary;
+  margin: 0 token.$m-size token.$s-size;
+}
+
+.shadow-fix {
+  margin-bottom: -2px;
+  height: token.$s-size;
   background: token.$card-background;
+  border-radius: 3px;
+}
+
+.dropdown-container {
+  @include card.card-margin;
+  margin-top: 0 !important;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 1;
-  margin: 0 token.$sh-size;
 }
 
 .dropdown {
-  position: absolute;
   background: token.$card-background;
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.dropdown-active {
+  @extend .dropdown;
+  box-shadow: 0 2px 0 2px token.$primary;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .search-input {
   @include card.card;
-  @extend .text-input;
+  @include inputs.text-input;
   flex-grow: 1;
+  border-radius: 3px;
+  &:focus {
+    box-shadow: 0 0 0 2px token.$primary;
+    outline: none;
+  }
 }
 
-.search-input__has-results {
-  margin-bottom: 0 !important;
+.search-input-has-results {
+  box-shadow: 0 0 0 2px token.$primary;
+  @extend .search-input;
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }

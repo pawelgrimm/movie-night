@@ -5,14 +5,23 @@ import styles from "./movie-search.module.scss";
 
 export const SearchResults = () => {
   const { searchResults } = useSearchContext();
+
+  if (searchResults.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="container--flex-col">
-      <div className="search-results">
-        <div className="dropdown">
-          {searchResults.map((movie) => (
-            <SearchResultItem key={movie.id} movie={movie} />
-          ))}
-        </div>
+    <div className={styles.dropdownContainer}>
+      <div
+        className={
+          searchResults.length > 0 ? styles.dropdownActive : styles.dropdown
+        }
+      >
+        <div className={styles.divider} />
+        {searchResults.map((movie) => (
+          <SearchResultItem key={movie.id} movie={movie} />
+        ))}
+        <div className={styles.shadowFix}></div>
       </div>
     </div>
   );

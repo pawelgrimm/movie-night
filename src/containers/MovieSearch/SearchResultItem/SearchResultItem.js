@@ -57,8 +57,8 @@ export const SearchResultItem = ({ movie, movies, addMovie, removeMovie }) => {
         <span>{formatReleaseYear(movie.release_date)}</span>
         <p>{movie.overview}</p>
       </div>
-      <div className={style.button}>
-        <Button type={isSecondary} onClick={onClick}>
+      <div className={style.buttons}>
+        <Button type={isSecondary} className={style.button} onClick={onClick}>
           {button}
         </Button>
       </div>

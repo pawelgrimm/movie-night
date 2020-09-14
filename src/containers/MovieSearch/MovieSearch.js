@@ -48,7 +48,11 @@ const MovieSearch = ({ numResults }) => {
         <TextInput
           placeholder="Search for a movie"
           overrideStyle
-          className={styles.searchInput}
+          className={
+            searchResults.length > 0
+              ? styles.searchInputHasResults
+              : styles.searchInput
+          }
           value={query}
           onChange={onChange}
           containerRef={containerDiv}

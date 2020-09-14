@@ -26,9 +26,10 @@ exports[`should render search result item correctly 1`] = `
     </p>
   </div>
   <div
-    className="button"
+    className="buttons"
   >
     <Button
+      className="button"
       onClick={[Function]}
       type={false}
     >

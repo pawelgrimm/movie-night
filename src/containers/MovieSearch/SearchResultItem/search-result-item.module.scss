@@ -5,7 +5,7 @@
   flex-direction: row;
   align-content: center;
   transition: background 300ms ease;
-  padding: $s-size 0;
+  padding: $s-size;
   border-radius: 3px;
   margin: 0 $s-size;
   &:hover,
@@ -18,7 +18,7 @@
 .poster {
   align-self: center;
   flex: 0 0 68px;
-  margin: 0 $xs-size;
+  margin: 0 $xs-size 0 0;
   border-radius: 1px;
   @media (max-width: $desktop-breakpoint) {
     flex: 0 0 45px;
@@ -28,7 +28,7 @@
 .info {
   flex-grow: 1;
   justify-items: left;
-  margin-right: $s-size;
+  margin-right: 0;
   * {
     line-height: 1;
     margin: 0;
@@ -41,9 +41,13 @@
   }
 }
 
-.button {
+.buttons {
   align-self: center;
-  width: 50px;
   flex: 0 0;
-  margin: 0 $xs-size;
+  margin: 0 0 0 $xs-size;
+}
+
+.button {
+  width: unset;
+  margin: 0;
 }
