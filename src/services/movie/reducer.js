@@ -4,6 +4,7 @@ import {
   FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_SUCCESS,
   FETCH_MOVIE_FAILURE,
+  PATCH_MOVIE,
 } from "./actions";
 
 // const defaultState = [];
@@ -12,12 +13,23 @@ const defaultState = {};
 const movieReducer = (state = defaultState, action) => {
   const id = action.id;
   switch (action.type) {
-    case SAVE_MOVIE:
+    case PATCH_MOVIE: {
+      const movieToSave = {
+        ...state[id],
+        info: {
+          ...state[id]?.info,
+          ...action.payload,
+        },
+      };
+      return { ...state, [id]: movieToSave };
+    }
+    case SAVE_MOVIE: {
       const movieToSave = {
         ...state[id],
         info: action.info,
       };
       return { ...state, [id]: movieToSave };
+    }
     case SET_MOVIES:
       const sanitizedState = {};
       Object.entries(action.movies).forEach(([id, data]) => {

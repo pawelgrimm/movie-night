@@ -1,4 +1,4 @@
-import { fetchMovie, saveMovie } from "../movie/actions";
+import { fetchMovie, patchMovie, saveMovie } from "../movie/actions";
 import { pushBallot } from "../server/api";
 
 export const SAVE_BALLOT_REQUEST = "SAVE_BALLOT_REQUEST";
@@ -15,7 +15,7 @@ export const addMovie = (id, movie = {}) => ({ type: ADD_MOVIE, id, movie });
 
 export const addAndSaveMovie = (id, movie = {}) => {
   return (dispatch) => {
-    dispatch(saveMovie(id, movie));
+    dispatch(patchMovie(id, movie));
     dispatch(addMovie(id, movie));
     dispatch(fetchMovie(id));
   };

@@ -51,3 +51,12 @@ export const saveMovie = (id, info) => {
     info,
   };
 };
+
+export const PATCH_MOVIE = "PATCH_MOVIE";
+export const patchMovie = (id, info) => {
+  return {
+    type: PATCH_MOVIE,
+    id,
+    payload: info,
+  };
+};
