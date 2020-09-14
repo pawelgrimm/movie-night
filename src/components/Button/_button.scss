@@ -68,6 +68,7 @@
   flex-direction: row;
   margin: $xs-size 0;
   * {
+    margin-left: 0;
     margin-right: $s-size;
     @media (max-width: $desktop-breakpoint) {
       margin-right: $xs-size;
