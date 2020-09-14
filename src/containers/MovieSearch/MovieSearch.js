@@ -6,6 +6,7 @@ import searchReducer from "./service/reducer";
 import SearchResults from "./SearchResults";
 import TextInput from "../../components/TextInput/TextInput";
 import { getMovieSearch } from "../../services/server/api";
+import styles from "./movie-search.module.scss";
 
 const MovieSearch = ({ numResults }) => {
   const [query, setQuery] = useState("");
@@ -46,6 +47,7 @@ const MovieSearch = ({ numResults }) => {
       <OutsideClickHandler onOutsideClick={resetSearch}>
         <TextInput
           placeholder="Search for a movie"
+          className={styles.searchInput}
           value={query}
           onChange={onChange}
           containerRef={containerDiv}
