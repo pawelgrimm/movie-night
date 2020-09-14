@@ -1,16 +1,18 @@
+@use "src/global/styles/base/settings" as token;
+
 .movie-item {
   align-items: center;
   border: none;
   border-radius: 3px;
-  color: $on-card;
+  color: token.$on-card;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: calc(#{$m-size} / 2) calc(#{$ml-size} / 2);
+  padding: token.$mlh-size;
   text-decoration: none;
   transition: background 300ms ease;
-  @media (max-width: $desktop-breakpoint) {
-    padding: $sh-size;
+  @media (max-width: token.$desktop-breakpoint) {
+    padding: token.$sh-size;
   }
   .button-group {
     margin: 0;
@@ -20,7 +22,7 @@
 .movie-item--expanded {
   @extend .movie-item;
   align-items: stretch;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: token.$desktop-breakpoint) {
     flex-direction: column;
   }
 }
@@ -28,9 +30,9 @@
 .movie-item__image-section {
   display: block;
   line-height: 0;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: token.$desktop-breakpoint) {
     line-height: unset;
-    margin-bottom: $xs-size;
+    margin-bottom: token.$xs-size;
     display: flex;
     flex-direction: row;
   }
@@ -39,11 +41,12 @@
 .movie-item__text-section {
   display: flex;
   align-self: stretch;
+  flex-grow: 1;
 }
 
 .movie-item__image-section__text {
   display: none;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: token.$desktop-breakpoint) {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -51,13 +54,13 @@
 }
 
 .movie-item--selected {
-  box-shadow: inset 0 0 0 2px $primary;
+  box-shadow: inset 0 0 0 2px token.$primary;
 }
 
 .list-item--hoverable {
   &:hover,
   &:focus-within {
-    background-color: lighten($card-background, 20%);
+    background-color: lighten(token.$card-background, 20%);
     outline: none;
   }
 }
@@ -66,19 +69,19 @@
   align-self: start;
   border-radius: 3px;
   flex: 0 0 250px;
-  margin-right: $m-size;
-  @media (max-width: $desktop-breakpoint) {
+  margin-right: token.$mlh-size;
+  @media (max-width: token.$desktop-breakpoint) {
     align-self: center;
     flex: 0 0 65px;
     width: 65px;
-    margin-right: $xs-size;
+    margin-right: token.$xs-size;
   }
 }
 
 .movie-item__poster--small {
   align-self: center;
   flex: 0 0 68px;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: token.$desktop-breakpoint) {
     flex: 0 0 45px;
     width: 45px;
   }
@@ -89,13 +92,13 @@
   display: flex;
   flex-direction: column;
   & > * {
-    @media (max-width: $desktop-breakpoint) {
-      padding: 0 0 $xs-size 0;
+    @media (max-width: token.$desktop-breakpoint) {
+      padding: 0 0 token.$xs-size 0;
     }
   }
   & .movie-item__title,
   & .movie-item__meta {
-    @media (max-width: $desktop-breakpoint) {
+    @media (max-width: token.$desktop-breakpoint) {
       display: none;
     }
   }
@@ -108,36 +111,36 @@
 .movie-item__info--small {
   flex-grow: 1;
   justify-items: left;
-  margin-right: $s-size;
+  margin-right: token.$xs-size;
   * {
     line-height: 1;
     margin: 0;
     font-weight: 300;
-    padding: 0 0 $s-size 0;
+    padding: 0 0 token.$s-size 0;
   }
-  @media (max-width: $desktop-breakpoint) {
-    padding: 0 0 $xs-size 0;
+  @media (max-width: token.$desktop-breakpoint) {
+    padding: 0 0 token.$xs-size 0;
     * {
-      padding: 0 0 $xs-size 0;
+      padding: 0 0 token.$xs-size 0;
     }
   }
 }
 
 .movie-item__title {
   margin: 0;
-  padding-bottom: $xs-size;
+  padding-bottom: token.$xs-size;
 }
 
 .movie-item__meta {
   line-height: 1;
-  font-size: $font-size-small;
-  color: $paragraph-color;
-  padding: 0 0 $s-size 0;
+  font-size: token.$font-size-small;
+  color: token.$paragraph-color;
+  padding: 0 0 token.$s-size 0;
   span {
-    margin-right: $xs-size;
+    margin-right: token.$xs-size;
   }
-  @media (max-width: $desktop-breakpoint) {
-    font-size: $font-size-xsmall;
+  @media (max-width: token.$desktop-breakpoint) {
+    font-size: token.$font-size-xsmall;
     padding: 0;
   }
 }
@@ -148,14 +151,14 @@
 
 .movie-item__score {
   margin: 0;
-  padding: 0 0 $s-size 0;
+  padding: 0 0 token.$s-size 0;
 }
 
 .movie-item__tagline {
   font-style: italic;
-  padding: 0 0 $s-size 0;
+  padding: 0 0 token.$s-size 0;
   margin: 0;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: token.$desktop-breakpoint) {
     padding: 0;
     text-align: center;
   }
@@ -173,13 +176,12 @@
 
 .movie-item__button--small {
   align-self: center;
-  width: 50px;
   flex: 0 0;
-  margin: 0 $xs-size;
+  margin: 0;
 }
 
 .movie-item__button-group {
   * {
-    margin-right: $s-size;
+    margin-right: token.$s-size;
   }
 }
