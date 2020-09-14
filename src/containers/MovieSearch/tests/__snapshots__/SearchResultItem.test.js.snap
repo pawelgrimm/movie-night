@@ -2,18 +2,18 @@
 
 exports[`should render search result item correctly 1`] = `
 <div
-  className="search-result-item"
+  className="resultItem"
   tabIndex={0}
 >
   <MovieImage
-    className="search-result-item__poster"
+    className="poster"
     filePath="/gycdE1ARByGQcK4fYR2mgpU6OO.jpg"
     imageWidth={68}
     title="Before Sunset"
     type="poster"
   />
   <div
-    className="search-result-item__info"
+    className="info"
   >
     <h3>
       Before Sunset
@@ -26,14 +26,14 @@ exports[`should render search result item correctly 1`] = `
     </p>
   </div>
   <div
-    className="search-result-item__button"
+    className="button"
   >
-    <button
-      className="button "
+    <Button
       onClick={[Function]}
+      type={false}
     >
       +
-    </button>
+    </Button>
   </div>
 </div>
 `;

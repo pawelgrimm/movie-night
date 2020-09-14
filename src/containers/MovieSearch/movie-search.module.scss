@@ -1,0 +1,11 @@
+.search-results {
+  background: $card-background;
+  position: relative;
+  z-index: 1;
+  margin: 0 $sh-size;
+}
+
+.dropdown {
+  position: absolute;
+  background: $card-background;
+}

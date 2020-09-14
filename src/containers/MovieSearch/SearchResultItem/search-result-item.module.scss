@@ -1,11 +1,4 @@
-.search-results {
-  background: $card-background;
-  position: relative;
-  z-index: 1;
-  margin: 0 $sh-size;
-}
-
-.search-result-item {
+.result-item {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -20,7 +13,7 @@
   }
 }
 
-.search-result-item__poster {
+.poster {
   align-self: center;
   flex: 0 0 68px;
   margin: 0 $xs-size;
@@ -30,7 +23,7 @@
   }
 }
 
-.search-result-item__info {
+.info {
   flex-grow: 1;
   justify-items: left;
   margin-right: $s-size;
@@ -46,7 +39,7 @@
   }
 }
 
-.search-result-item__button {
+.button {
   align-self: center;
   width: 50px;
   flex: 0 0;
