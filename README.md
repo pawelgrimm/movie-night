@@ -2,7 +2,7 @@
 
 A web application to help you find the best movie for your next movie night! 
 
-Check it out at [movie-night.pawelgrimm.com](https://movie-night.pawelgrimm.com)
+Check it out at [movies.pawelgrimm.com](https://movies.pawelgrimm.com)
 
 ## Contents
 
